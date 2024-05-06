@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+body {
+  @apply bg-black;
+}
+
+.h1,
+h1 {
+  @apply text-6xl font-normal;
+}
+
+.h2,
+h2 {
+  @apply text-4xl font-light;
+}
+
+.h3,
+h3 {
+  @apply text-4xl font-light;
+}
+
+.h4,
+h4 {
+  @apply text-3xl font-light;
+}
+
+.p,
+p {
+  @apply text-3xl font-normal;
+}
