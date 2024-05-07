@@ -4,6 +4,15 @@ export type ImageLink = {
   href?: string | undefined;
 };
 
+export interface ProjectShowcase extends ImageLink {
+  title: string;
+}
+
+export interface ExperienceShowcase extends ImageLink {
+  title: string;
+  experience: "Beginner" | "Intermediate" | "Expert"; // As if.
+}
+
 export type NavigationTab = {
   href: string;
   label?: string | undefined;
@@ -24,7 +33,7 @@ export const SITE_NAVIGATION: Array<NavigationTab> = [
   },
 ];
 
-interface PageNavigation {
+export interface PageNavigation {
   dev?: Array<NavigationTab>;
   web?: Array<NavigationTab>;
 }
@@ -44,20 +53,8 @@ export const SITE_PAGE_NAVIGATION: PageNavigation = {
   ],
 };
 
-interface SocialMedia {
+export interface SocialMedia {
   linkedin: ImageLink;
   github: ImageLink;
 }
 
-export const SITE_SOCIAL_MEDIA: SocialMedia = {
-  linkedin: {
-    src: "/assets/linkedin.svg",
-    alt: "Linkedin Account Link",
-    href: "https://www.linkedin.com/in/matthew-ubalde-171918252/",
-  },
-  github: {
-    src: "/assets/github-mark-white.svg",
-    alt: "Github Account Link",
-    href: "https://github.com/MatthewUbalde",
-  },
-};
