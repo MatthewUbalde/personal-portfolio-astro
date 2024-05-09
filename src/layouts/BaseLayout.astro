@@ -3,9 +3,9 @@ import { Image } from "astro:assets";
 import BaseHead from "../components/Metadata/BaseHead.astro";
 import ImageLink from "../components/ImageLink.astro";
 
-import { SITE_SOCIAL_MEDIA } from "../const";
+import socialMedia from "../data/socialMedia";
 
-const { linkedin, github } = SITE_SOCIAL_MEDIA;
+const { linkedin, github } = socialMedia;
 
 interface Props {
   title: string;
