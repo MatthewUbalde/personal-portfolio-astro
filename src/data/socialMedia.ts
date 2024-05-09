@@ -1,4 +1,9 @@
-import type { SocialMedia } from "../const.tsx"
+import type { ImageLink } from "../const.tsx"
+
+export interface SocialMedia {
+  linkedin: ImageLink;
+  github: ImageLink;
+}
 
 const socialMedia: SocialMedia = {
   linkedin: {

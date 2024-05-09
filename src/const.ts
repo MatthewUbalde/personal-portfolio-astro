@@ -8,9 +8,12 @@ export interface ProjectShowcase extends ImageLink {
   title: string;
 }
 
-export interface ExperienceShowcase extends ImageLink {
+
+export interface ExperienceShowcase {
   title: string;
-  experience: "Beginner" | "Intermediate" | "Expert"; // As if.
+  src: string;
+  alt: string;
+  experience: "Learning" | "Beginner" | "Intermediate" | "Expert"; // As if.
 }
 
 export type NavigationTab = {
@@ -52,9 +55,3 @@ export const SITE_PAGE_NAVIGATION: PageNavigation = {
     },
   ],
 };
-
-export interface SocialMedia {
-  linkedin: ImageLink;
-  github: ImageLink;
-}
-
