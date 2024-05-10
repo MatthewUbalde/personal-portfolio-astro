@@ -21,7 +21,7 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body>
-    <main class="flex h-screen">
+    <main class="flex h-screen w-screen">
       <aside
         class:list={[
           "flex flex-col justify-center items-start gap-4",
@@ -31,18 +31,15 @@ const { title, description } = Astro.props;
       >
         <slot name="sidebar" />
       </aside>
-      <div class="h-screen w-full">
-        <slot />
-        <footer
-          class="flex justify-center items-center gap-8 h-auto p-8 bg-black text-white"
-        >
-          <p>Matthew Ubalde</p>
-          <div class="flex gap-4">
-            <ImageLink link={linkedin} width={50} height={50} />
-            <ImageLink link={github} width={50} height={50} />
-          </div>
-        </footer>
-      </div>
     </main>
+    <footer
+      class="flex justify-center items-center gap-8 h-auto p-8 bg-black text-white"
+    >
+      <span class="text-xl">Matthew Ubalde</span>
+      <div class="flex gap-4">
+        <ImageLink link={linkedin} width={50} height={50} />
+        <ImageLink link={github} width={50} height={50} />
+      </div>
+    </footer>
   </body>
 </html>
