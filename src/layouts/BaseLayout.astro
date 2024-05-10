@@ -69,9 +69,7 @@ const { title, description, enableNav } = Astro.props;
           <slot name="sidebar" />
         </Section>
       </aside>
-      <div
-        class="group relative h-full w-full z-10 overflow-hidden overflow-y-auto"
-      >
+      <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
         <slot />
       </div>
     </main>
