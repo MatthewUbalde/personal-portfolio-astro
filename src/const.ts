@@ -24,15 +24,15 @@ export type NavigationTab = {
 export const SITE_NAVIGATION: Array<NavigationTab> = [
   {
     href: "/web",
-    label: "Web Portfolio",
+    label: "Web",
   },
   {
     href: "/game",
-    label: "Game Portfolio",
+    label: "Game",
   },
   {
     href: "/art",
-    label: "Art Portfolio",
+    label: "Art",
   },
 ];
 
