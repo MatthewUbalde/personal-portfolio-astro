@@ -35,15 +35,15 @@ const { title, description, enableNav } = Astro.props;
       <aside
         class:list={[
           "flex flex-col justify-start items-stretch",
-          "h-full w-2/6 min-w-80",
+          "h-full w-3/6 min-w-96",
           " bg-black text-white overflow-hidden",
         ]}
       >
         {
           enableNav && (
-            <Section class="flex flex-wrap gap-2 py-8" ridPadding={true}>
+            <Section class="flex flex-wrap gap-2 py-8 pr-4" ridPadding={true}>
               <a
-                class="text-3xl bg-gray-800 px-4 py-2 mr-2 rounded-r-lg"
+                class="text-3xl bg-gray-800 px-4 py-2 mr-1 rounded-r-lg"
                 href="/"
               >
                 {"<"}
