@@ -1,9 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<"section">;
+// type Props = HTMLAttributes<"section">;
+interface Props extends HTMLAttributes<"section"> {
+  ridPadding?: boolean | undefined;
+}
 
-const { class: className, ...props } = Astro.props;
+const { class: className, ridPadding, ...props } = Astro.props;
 ---
 
 <section
@@ -12,7 +15,8 @@ const { class: className, ...props } = Astro.props;
     "bg-gradient-to-t from-transparent to-black",
     "bg-black hover:bg-blue-950",
     "text-white transition-all",
-    "w-full min-h-96 px-8 py-4 overflow-hidden",
+    "w-full overflow-hidden",
+    !ridPadding && "px-8 py-4",
   ]}
   {...props}
 >
