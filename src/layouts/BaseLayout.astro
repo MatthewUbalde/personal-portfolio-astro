@@ -2,34 +2,72 @@
 import { Image } from "astro:assets";
 import BaseHead from "../components/Metadata/BaseHead.astro";
 import ImageLink from "../components/ImageLink.astro";
+import Section from "../components/Section.astro";
 
+import { SITE_NAVIGATION } from "../const";
 import socialMedia from "../data/socialMedia";
+import type { NavigationTab } from "../const";
 
 const { linkedin, github } = socialMedia;
+
+const pathname = Astro.url.pathname;
+const currentPath = pathname;
 
 interface Props {
   title: string;
   description: string;
+  enableNav: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, enableNav } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead
+      title={"Matthew Ubalde Portfolio | " + title}
+      description={description}
+    />
   </head>
   <body>
     <main class="flex h-screen w-screen">
       <aside
         class:list={[
-          "flex flex-col justify-center items-start gap-4",
-          "h-full w-2/6 min-w-80 px-8",
+          "flex flex-col justify-between items-stretch",
+          "h-full w-2/6 min-w-80",
           " bg-black text-white overflow-hidden",
         ]}
       >
-        <slot name="sidebar" />
+        {
+          enableNav && (
+            <Section class="flex flex-wrap gap-2 py-8" ridPadding={true}>
+              <a
+                class="text-3xl bg-gray-800 px-4 py-2 mr-2 rounded-r-lg"
+                href="/"
+              >
+                {"<"}
+              </a>
+              {SITE_NAVIGATION.map((nav) => {
+                if (nav.href === currentPath) return;
+
+                return (
+                  <a
+                    class="text-3xl bg-gray-800 px-4 py-2 rounded-lg"
+                    href={nav.href}
+                  >
+                    {nav.label}
+                  </a>
+                );
+              })}
+            </Section>
+          )
+        }
+        <div
+          class="flex flex-col justify-center items-start gap-4 h-full w-full px-8"
+        >
+          <slot name="sidebar" />
+        </div>
       </aside>
       <slot />
     </main>
@@ -38,8 +76,18 @@ const { title, description } = Astro.props;
     >
       <span class="text-xl">Matthew Ubalde</span>
       <div class="flex gap-4">
-        <ImageLink link={linkedin} width={50} height={50} />
-        <ImageLink link={github} width={50} height={50} />
+        <ImageLink
+          class="hover:scale-125 active:scale-95 transition-transform"
+          link={linkedin}
+          width={50}
+          height={50}
+        />
+        <ImageLink
+          class="hover:scale-125 active:scale-95 transition-transform"
+          link={github}
+          width={50}
+          height={50}
+        />
       </div>
     </footer>
   </body>
