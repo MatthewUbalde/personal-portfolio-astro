@@ -39,6 +39,10 @@ export const SITE_NAVIGATION: Array<NavigationTab> = [
     href: "/software",
     label: "Software",
   },
+  // {
+  //   href: "/art",
+  //   label: "Art",
+  // },
 ];
 
 export interface PageNavigation {

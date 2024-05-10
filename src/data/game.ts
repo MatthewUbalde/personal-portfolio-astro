@@ -17,6 +17,19 @@ const gameProjects: Array<ProjectShowcase> = [
   }
 ]
 
-const gameExperience: Array<ExperienceShowcase> = []
+const gameExperience: Array<ExperienceShowcase> = [
+  {
+    title: "Godot",
+    src: "/assets/godot.svg",
+    alt: "Godot Logo",
+    experience: "Beginner",
+  },
+  {
+    title: "Unity",
+    src: "/assets/unity.svg",
+    alt: "Unity Logo",
+    experience: "Beginner",
+  }
+]
 
 export { gameProjects, gameExperience }
