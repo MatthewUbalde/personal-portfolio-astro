@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 
-import SideBar from "../components/SideBar.astro";
 import Layout from "../layouts/BaseLayout.astro";
 
 import { SITE_NAVIGATION } from "../const";
@@ -19,14 +18,14 @@ let currentImage = Images.web;
   title="Home"
   description="Matthew Ubalde portfolio. Ranging from Web and Game Development, and Creative Arts!"
 >
-  <SideBar>
+  <Fragment slot="sidebar">
     <h1>Matthew Ubalde</h1>
     <h2>Computer Programming and Analysis student at Fanshawe College</h2>
     <h2>
       Great range in logic and artistic skills. Interested in web and game
       development.
     </h2>
-  </SideBar>
+  </Fragment>
   <div class="group relative w-full h-full z-10 overflow-hidden">
     <Image
       src={currentImage}

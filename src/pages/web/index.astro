@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
 import ImageLink from "../../components/ImageLink.astro";
-import SideBar from "../../components/SideBar.astro";
 
 import Section from "../../components/Section.astro";
 
@@ -22,46 +21,44 @@ import ExperienceBadge from "../../components/ExperienceBadge.astro";
   title="Web"
   description="Matthew Ubalde web development portfolio. Have some experienced in React, React Native, and Vue. Used Gatsby, and now Astro, to develop websites."
 >
-  <main class="flex h-full">
-    <SideBar>
-      <h1>Web Development</h1>
-      <p class="text-4xl font-light">
-        Can create SPA with React and Vue. Used Astro to create this portfolio
-        website as a MPA for faster loading speeds.
+  <Fragment slot="sidebar">
+    <h1>Web Development</h1>
+    <p class="text-4xl font-light">
+      Can create SPA with React and Vue. Used Astro to create this portfolio
+      website as a MPA for faster loading speeds.
+    </p>
+    <p class="text-4xl font-light">
+      With experience in web development, I have used React Native in
+      conjunction with Expo to create a mobile application.
+    </p>
+  </Fragment>
+  <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
+    <Section
+      class="flex flex-col justify-center items-center gap-8 text-center"
+    >
+      <h1 class="text-center">This site is made in <b>Astro</b></h1>
+      <p>
+        My original portfolio site was made in <b>Vite</b> and <b>React</b>.
+        After learning web development overtime, I realized I don't need React
+        as a lot of JavaScript on this site is rather excessive.
       </p>
-      <p class="text-4xl font-light">
-        With experience in web development, I have used React Native in
-        conjunction with Expo to create a mobile application.
+      <p>So before choosing Gatsby with React, I found myself using Astro!</p>
+      <p>
+        And so, I started development on this site along side Tailwind to hasten
+        the development.
       </p>
-    </SideBar>
-    <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
-      <Section
-        class="flex flex-col justify-center items-center gap-8 text-center"
-      >
-        <h1>This site is made in <b>Astro</b></h1>
-        <p>
-          My original portfolio site was made in <b>Vite</b> and <b>React</b>.
-          After learning web development overtime, I realized I don't need React
-          as a lot of JavaScript on this site is rather excessive.
-        </p>
-        <p>So before choosing Gatsby with React, I found myself using Astro!</p>
-        <p>
-          And so, I started development on this site along side Tailwind to
-          hasten the development.
-        </p>
-      </Section>
-      <Section>
-        <h1 class="text-center">Front-end</h1>
-        <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-4">
-          {frontendExperience.map((f) => <ExperienceBadge src={f} />)}
-        </div>
-      </Section>
-      <Section>
-        <h1 class="text-center">Back-end</h1>
-        <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-4">
-          {frontendExperience.map((b) => <ExperienceBadge src={b} />)}
-        </div>
-      </Section>
-    </div>
-  </main>
+    </Section>
+    <Section>
+      <h1 class="text-center mb-8">Front-end</h1>
+      <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-4">
+        {frontendExperience.map((f) => <ExperienceBadge src={f} />)}
+      </div>
+    </Section>
+    <Section>
+      <h1 class="text-center mb-8">Back-end</h1>
+      <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-4">
+        {frontendExperience.map((b) => <ExperienceBadge src={b} />)}
+      </div>
+    </Section>
+  </div>
 </Layout>
