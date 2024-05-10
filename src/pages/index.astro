@@ -26,37 +26,35 @@ let currentImage = Images.web;
       development.
     </h2>
   </Fragment>
-  <div class="group relative w-full h-full z-10 overflow-hidden">
-    <Image
-      src={currentImage}
-      width={1600}
-      height={600}
-      alt=""
-      class="absolute w-full h-full"
-      loading="eager"
-      quality="mid"
-    />
-    <div
-      class="absolute left-16 h-full flex flex-col justify-center gap-8 j z-10"
-    >
-      {
-        SITE_NAVIGATION.map((nav) => (
-          <a
-            href={nav.href}
-            class="w-fit h-fit p-8 text-white text-4xl bg-black rounded-lg"
-          >
-            {nav.label}
-          </a>
-        ))
-      }
-    </div>
-    <Image
-      src="/portfolio-portrait.png"
-      width={400}
-      height={600}
-      loading="eager"
-      alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
-      class="absolute bottom-0 right-8 w-1/2 object-cover z-10"
-    />
+  <Image
+    src={currentImage}
+    width={1600}
+    height={600}
+    alt=""
+    class="absolute w-full h-full"
+    loading="eager"
+    quality="mid"
+  />
+  <div
+    class="absolute left-16 h-full flex flex-col justify-center gap-8 j z-10"
+  >
+    {
+      SITE_NAVIGATION.map((nav) => (
+        <a
+          href={nav.href}
+          class="w-fit h-fit p-8 text-white text-4xl bg-black rounded-lg"
+        >
+          {nav.label}
+        </a>
+      ))
+    }
   </div>
+  <Image
+    src="/portfolio-portrait.png"
+    width={400}
+    height={600}
+    loading="eager"
+    alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
+    class="absolute bottom-0 right-8 w-1/2 object-cover z-10"
+  />
 </Layout>
