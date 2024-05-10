@@ -6,6 +6,7 @@ export type ImageLink = {
 
 export interface ProjectShowcase extends ImageLink {
   title: string;
+  description?: string;
 }
 
 
@@ -33,6 +34,10 @@ export const SITE_NAVIGATION: Array<NavigationTab> = [
   {
     href: "/art",
     label: "Art",
+  },
+  {
+    href: "/software",
+    label: "Software",
   },
 ];
 
