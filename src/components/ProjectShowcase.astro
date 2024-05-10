@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import type { ProjectShowcase } from "../const";
+
+interface Props {
+  src: ProjectShowcase;
+}
+
+const { src } = Astro.props;
+---
+
+<a
+  class="relative group flex justify-center items-center w-2/4 h-72 rounded-lg bg-gray-800 hover:scale-105 active:scale-95 transition-transform overflow-hidden"
+  href={src.href}
+>
+  <Image
+    class="absolute top-0 w-full h-full"
+    src={src.src}
+    alt={src.alt}
+    width={1600}
+    height={900}
+  />
+  <div
+    class="p-4 rounded-lg z-10 bg-black bg-opacity-50
+            scale-0 group-hover:scale-100 group-active:scale-75 transition-transform"
+  >
+    <h1 class="text-3xl">
+      {src.title}
+    </h1>
+    {src.description && <p class="text-2xl font-light">{src.description}</p>}
+  </div>
+</a>
