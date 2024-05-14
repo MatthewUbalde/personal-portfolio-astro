@@ -9,7 +9,6 @@ export interface ProjectShowcase extends ImageLink {
   description?: string;
 }
 
-
 export interface ExperienceShowcase {
   title: string;
   src: string;
@@ -30,10 +29,6 @@ export const SITE_NAVIGATION: Array<NavigationTab> = [
   {
     href: "/game",
     label: "Game",
-  },
-  {
-    href: "/art",
-    label: "Art",
   },
   {
     href: "/software",
