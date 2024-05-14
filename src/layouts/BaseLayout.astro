@@ -7,6 +7,7 @@ import Section from "../components/Section.astro";
 import { SITE_NAVIGATION } from "../const";
 import socialMedia from "../data/socialMedia";
 import type { NavigationTab } from "../const";
+import NavLink from "../components/NavLink.astro";
 
 const { linkedin, github } = socialMedia;
 
@@ -16,10 +17,10 @@ const currentPath = pathname;
 interface Props {
   title: string;
   description: string;
-  enableNav?: boolean;
+  prevNav?: string;
 }
 
-const { title, description, enableNav } = Astro.props;
+const { title, description, prevNav } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,63 +35,80 @@ const { title, description, enableNav } = Astro.props;
     <main class="flex h-screen w-screen">
       <aside
         class:list={[
-          "flex flex-col justify-start items-stretch",
-          "h-full w-3/6 min-w-96",
-          " bg-black text-white overflow-hidden",
+          "group relative flex flex-col justify-start items-stretch",
+          "h-full w-2/6 min-w-96 hover:-translate-x-96 transition-transform",
+          " bg-black text-white z-40",
         ]}
       >
-        {
-          enableNav && (
-            <Section class="flex flex-wrap gap-2 py-8 pr-4" ridPadding={true}>
-              <a
-                class="text-3xl bg-gray-800 px-4 py-2 mr-1 rounded-r-lg"
-                href="/"
-              >
-                {"<"}
-              </a>
-              {SITE_NAVIGATION.map((nav) => {
-                if (nav.href === currentPath) return;
-
-                return (
-                  <a
-                    class="text-3xl bg-gray-800 px-4 py-2 rounded-lg"
-                    href={nav.href}
-                  >
-                    {nav.label}
-                  </a>
-                );
-              })}
-            </Section>
-          )
-        }
-        <Section
-          class="flex flex-col justify-center items-start gap-4 h-full w-full px-8"
+        <div
+          class="flex flex-col justify-center items-start gap-4 h-full w-full px-2 bg-black"
         >
           <slot name="sidebar" />
-        </Section>
+        </div>
+        <div
+          class:list={[
+            "absolute -right-96 h-full flex flex-col justify-center -z-10",
+            "-translate-x-96 group-hover:translate-x-0 transition-transform",
+          ]}
+        >
+          <NavLink
+            class="group/navtitle font-light pl-2"
+            href={currentPath !== "/" && "/"}
+          >
+            {
+              currentPath !== "/" ? (
+                <>
+                  <span class="inline group-hover/navtitle:hidden">
+                    Navigation
+                  </span>
+                  <span class="hidden group-hover/navtitle:inline">Home</span>
+                </>
+              ) : (
+                <span>Navigation</span>
+              )
+            }
+          </NavLink>
+          {
+            prevNav && (
+              <NavLink class="pl-2" href={prevNav}>
+                Go Back?
+              </NavLink>
+            )
+          }
+          {
+            SITE_NAVIGATION.map(
+              (nav) =>
+                nav.href !== currentPath && (
+                  <NavLink class="pl-8" href={nav.href}>
+                    {nav.label}
+                  </NavLink>
+                )
+            )
+          }
+        </div>
       </aside>
       <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
         <slot />
+        <footer
+          class="flex justify-center items-center gap-8 h-fit p-8 bg-black"
+        >
+          <span class="text-xl">Matthew Ubalde</span>
+          <div class="flex gap-4">
+            <ImageLink
+              class="hover:scale-125 active:scale-95 transition-transform"
+              link={linkedin}
+              width={50}
+              height={50}
+            />
+            <ImageLink
+              class="hover:scale-125 active:scale-95 transition-transform"
+              link={github}
+              width={50}
+              height={50}
+            />
+          </div>
+        </footer>
       </div>
     </main>
-    <footer
-      class="flex justify-center items-center gap-8 h-auto p-8 bg-black text-white"
-    >
-      <span class="text-xl">Matthew Ubalde</span>
-      <div class="flex gap-4">
-        <ImageLink
-          class="hover:scale-125 active:scale-95 transition-transform"
-          link={linkedin}
-          width={50}
-          height={50}
-        />
-        <ImageLink
-          class="hover:scale-125 active:scale-95 transition-transform"
-          link={github}
-          width={50}
-          height={50}
-        />
-      </div>
-    </footer>
   </body>
 </html>

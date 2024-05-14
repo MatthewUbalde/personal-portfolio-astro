@@ -35,20 +35,6 @@ let currentImage = Images.web;
     loading="eager"
     quality="mid"
   />
-  <div
-    class="absolute left-16 h-full flex flex-col justify-center gap-8 j z-10"
-  >
-    {
-      SITE_NAVIGATION.map((nav) => (
-        <a
-          href={nav.href}
-          class="w-fit h-fit p-8 text-white text-4xl bg-black rounded-lg"
-        >
-          {nav.label}
-        </a>
-      ))
-    }
-  </div>
   <Image
     src="/portfolio-portrait.png"
     width={400}
