@@ -1,9 +1,15 @@
+/**
+ * Type that holds the alt, src, and href
+ */
 export type ImageLink = {
   alt: string;
   src: string;
   href?: string | undefined;
 };
 
+/**
+ * Extended by the ImageLink which is used to showcase projects with title and description
+ */
 export interface ProjectShowcase extends ImageLink {
   title: string;
   description?: string;
