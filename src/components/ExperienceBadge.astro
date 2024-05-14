@@ -15,7 +15,7 @@ const { src } = Astro.props;
   class="flex flex-col justify-center items-center bg-gray-800 p-4 rounded-lg
           hover:scale-110 transition-transform"
 >
-  <Image src={src.src} alt={src.alt} width={150} height={150} />
+  <Image class="h-36" src={src.src} alt={src.alt} width={150} height={150} />
   <h2>{src.title}</h2>
   <h3 class="text-xl">{src.experience}</h3>
 </div>
