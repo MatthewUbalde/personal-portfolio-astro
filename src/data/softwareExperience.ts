@@ -28,7 +28,7 @@ const softwareExperience: Array<ExperienceShowcase> = [
   {
     title: "OpenGL",
     experience: "Beginner",
-    src: "/assets/c++.svg",
+    src: "/assets/opengl.svg",
     alt: "OpenGL Logo"
   },
   {
