@@ -4,9 +4,10 @@ import type { HTMLAttributes } from "astro/types";
 // type Props = HTMLAttributes<"section">;
 interface Props extends HTMLAttributes<"section"> {
   ridPadding?: boolean | undefined;
+  defaultFlex?: boolean | undefined;
 }
 
-const { class: className, ridPadding, ...props } = Astro.props;
+const { class: className, ridPadding, defaultFlex, ...props } = Astro.props;
 ---
 
 <section
@@ -17,6 +18,7 @@ const { class: className, ridPadding, ...props } = Astro.props;
     "text-white transition-all",
     "w-full overflow-hidden",
     !ridPadding && "px-8 py-4",
+    defaultFlex && "flex flex-col justify-center gap-8 text-center",
   ]}
   {...props}
 >
