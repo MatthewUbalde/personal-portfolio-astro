@@ -4,6 +4,7 @@ import Section from "../../components/Section.astro";
 import ExperienceBadge from "../../components/ExperienceBadge.astro";
 
 import softwareExperience from "../../data/softwareExperience";
+import ExpBadgeContainer from "../../components/ExpBadgeContainer.astro";
 ---
 
 <Layout
@@ -22,9 +23,9 @@ import softwareExperience from "../../data/softwareExperience";
   </Fragment>
   <Section>
     <h1 class="text-center mb-8">Software Experiences</h1>
-    <div class="flex flex-wrap justify-center items-stretch gap-4">
+    <ExpBadgeContainer>
       {softwareExperience.map((s) => <ExperienceBadge src={s} />)}
-    </div>
+    </ExpBadgeContainer>
   </Section>
   <Section defaultFlex>
     <h1>Experiences in Fanshawe</h1>
