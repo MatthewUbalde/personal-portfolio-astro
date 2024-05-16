@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/Section.astro";
+import ComparisonContainer from "../../components/comparisonContainer.astro";
+---
+
+<Layout title="Combo Spells" description="" prevNav="/game">
+  <Fragment slot="sidebar">
+    <h1>Combo Spells</h1>
+    <p>
+      Play as a magician and use a combination of keys to construct bolders,
+      lightning, and other elements to synergize and get the highest score
+      possible!
+    </p>
+    <p>Originally a highschool Java final project, but was updated overtime.</p>
+  </Fragment>
+  <Section defaultFlex>
+    <h1>School Project</h1>
+    <p>
+      Java is actually my first programming language I learned back in Montcalm,
+      and I realized how fun and really easy it was.
+    </p>
+    <p>
+      Combo Spells was meant to be small project, but I slowly refined because
+      of how fun the concept it was to me.
+    </p>
+    <p>INSERT CLIP</p>
+  </Section>
+  <Section defaultFlex>
+    <h1>Game Design</h1>
+    <p>INSERT ORIGINAL DESIGN</p>
+    <p>
+      Originally, I wanted to create a platform fighter, however, I don't know a
+      lot of physics or know if it's even possible in my skill level. To
+      simplify it, I made the game it is now: you hit the dummy with spells and
+      get a high score!
+    </p>
+    <p>
+      My inspiration for the game was Tekken, and King of the Hat. A game with
+      mechanical depth, and keeping it simple.
+    </p>
+  </Section>
+  <Section defaultFlex>
+    <h2>Controls</h2>
+    <p>
+      Motion Inputs is something I don't know how to create. And I don't want to
+      clutter the controls with a dedicated button for each spell.
+    </p>
+    <p>
+      I created a workaround by letting the user press a combination of keys in
+      their own pace, and release the spell when they want to. It made the game
+      simplier to play and to develop.
+    </p>
+    <p>INSERT SOMETHING</p>
+    <p>
+      However... Looking back, I'm not happy with how the controls were.
+      Requiring two hands for movement and doing the inputs.
+    </p>
+    <p>INSERT CONTROL SCHEME</p>
+    <p>It's unnecessarily complicated.</p>
+  </Section>
+  <Section defaultFlex>
+    <h2>Spell Synergy with Statuses</h2>
+    <p>
+      To make the game more interesting, I decided to have spells inflict status
+      effects and synergize with others for greater damage.
+    </p>
+    <ul>
+      <li>
+        Water increases the Lightning damage, but decreases Fireball damage.
+      </li>
+      <li>Burn and Poison does damage overtime.</li>
+      <li>Burn also increases Overgrowth damage.</li>
+      <li>Stun increases the Fireball and Water Blast damage.</li>
+    </ul>
+    <p>
+      It creates a puzzle element for the player to solve to get a higher damage
+      amount for those interested for a challenge.
+    </p>
+  </Section>
+  <Section defaultFlex>
+    <h1>General Improvements</h1>
+    <p>
+      The graphics used in this game is hard-coded with the JFrame graphic
+      package provided by my high-school teacher. Each character, projectiles,
+      and some of the environment are made by hand.
+    </p>
+    <p>INSERT OF CHAR</p>
+    <p>INSERT CODE FOR CHAR</p>
+    <p>
+      And from the oldest version and to the latest, I say I did a pretty good
+      job!
+    </p>
+    <ComparisonContainer>
+      <Fragment slot="before"></Fragment>
+      <Fragment slot="after"></Fragment>
+    </ComparisonContainer>
+    <p>The other parts, such as the grass...</p>
+    <p>INSERT IMG</p>
+    <p>And clouds as well!</p>
+    <p>INSERT IMG</p>
+  </Section>
+  <Section defaultFlex>
+    <h1>Struggles</h1>
+    <p>
+      I didn't know how classes and objects were in programming. Or even how the
+      ArrayList works in Java. Majority of the data and variables were laid out
+      in one single GUI class.
+    </p>
+    <p>
+      All of the graphics, logic, controls, are held into one file with the
+      other two as main and keyboard listeners.
+    </p>
+    <p>
+      Due to the unnecessary complications, I made a debugger menu on the side
+      if you press "I" and extend the window to the left.
+    </p>
+    <p>INSERT DEBUG MENU</p>
+    <p>
+      You can see each individual variables, and even the arrays for each
+      object's property.
+    </p>
+    <p>
+      While a mess, I tried my best to keep things neatly organized and comment
+      out everything. (I lost the source code, so no examples of it)
+    </p>
+  </Section>
+  <Section defaultFlex>
+    <h1>Conclusion</h1>
+    <p>
+      From a 3 week highschool project with 3 months worth of updates, I was
+      able to create something that I'm proud of even to this day.
+    </p>
+    <p>
+      I want to remake the project with better backend, better controls,
+      graphics, and more friendlier game design. Turning this high-score game
+      into the fighting game I envisioned when I was young.
+    </p>
+  </Section>
+</Layout>
