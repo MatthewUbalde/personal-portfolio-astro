@@ -2,10 +2,11 @@
 import Layout from "../../layouts/BaseLayout.astro";
 import Section from "../../components/Section.astro";
 import ExperienceBadge from "../../components/ExperienceBadge.astro";
-import ExpBadgeContainer from "../../components/ExpBadgeContainer.astro";
+import BadgeContainer from "../../components/BadgeContainer.astro";
 import ProjectShowcase from "../../components/ProjectShowcase.astro";
 
 import { gameProjects, gameExperience } from "../../data/game";
+import ProjectContainer from "../../components/ProjectContainer.astro";
 ---
 
 <Layout
@@ -21,9 +22,7 @@ import { gameProjects, gameExperience } from "../../data/game";
   </Fragment>
   <Section>
     <h1 class="mb-8 text-center">Game Experiences</h1>
-    <ExpBadgeContainer>
-      {gameExperience.map((g) => <ExperienceBadge src={g} />)}
-    </ExpBadgeContainer>
+    <BadgeContainer src={gameExperience} />
   </Section>
   <Section defaultFlex>
     <h1>Game Projects</h1>
@@ -35,8 +34,6 @@ import { gameProjects, gameExperience } from "../../data/game";
     <p>
       You can view each individual projects and my thinking process within them.
     </p>
-    <ExpBadgeContainer>
-      {gameProjects.map((g) => <ProjectShowcase src={g} />)}
-    </ExpBadgeContainer>
+    <ProjectContainer src={gameProjects} />
   </Section>
 </Layout>

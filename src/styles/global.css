@@ -31,11 +31,6 @@ p {
   @apply text-3xl font-normal;
 }
 
-.ul,
-ul {
-  @apply bg-gray-800 rounded-lg py-8 px-16 mx-32 text-start list-disc;
-}
-
 .li,
 li {
   @apply my-2 text-3xl font-light;

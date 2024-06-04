@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/BaseLayout.astro";
 import Section from "../../components/Section.astro";
-import ExperienceBadge from "../../components/ExperienceBadge.astro";
 
 import softwareExperience from "../../data/softwareExperience";
-import ExpBadgeContainer from "../../components/ExpBadgeContainer.astro";
+import BadgeContainer from "../../components/BadgeContainer.astro";
+import ListContainer from "../../components/ListContainer.astro";
 ---
 
 <Layout
@@ -23,14 +23,12 @@ import ExpBadgeContainer from "../../components/ExpBadgeContainer.astro";
   </Fragment>
   <Section>
     <h1 class="text-center mb-8">Software Experiences</h1>
-    <ExpBadgeContainer>
-      {softwareExperience.map((s) => <ExperienceBadge src={s} />)}
-    </ExpBadgeContainer>
+    <BadgeContainer src={softwareExperience} />
   </Section>
   <Section defaultFlex>
     <h1>Experiences in Fanshawe</h1>
     <p>Throughout my CPA3 program, I've learned many things.</p>
-    <ul>
+    <ListContainer>
       <li>
         Create tools and extend the 3D renderer made in OpenGL and C++ despite
         the time and pressure for 2 months with a 4 month semester worth of
@@ -48,6 +46,6 @@ import ExpBadgeContainer from "../../components/ExpBadgeContainer.astro";
         storing, and use indexes to optimize it further.
       </li>
       <li>Able to create queries in database for any needs.</li>
-    </ul>
+    </ListContainer>
   </Section>
 </Layout>

@@ -12,17 +12,19 @@ const { src } = Astro.props;
 ---
 
 <div
-  class="flex flex-col justify-center items-center bg-gray-800 p-4 rounded-lg
+  class="flex flex-col justify-around items-center bg-gray-800 w-48 h-64 p-4 rounded-lg
           hover:scale-110 transition-transform"
 >
   <Image
-    class="h-36"
+    class="my-auto max-h-36 max-w-36"
     src={src.src}
     alt={src.alt}
     width={150}
     height={150}
     loading="eager"
   />
-  <h2>{src.title}</h2>
-  <h3 class="text-xl">{src.experience}</h3>
+  <div>
+    <h2 class="text-center">{src.title}</h2>
+    <h3 class="text-center text-xl">{src.experience}</h3>
+  </div>
 </div>

@@ -33,26 +33,23 @@ const { title, description, prevNav } = Astro.props;
   </head>
   <body>
     <main class="flex h-screen w-screen">
-      <aside
-        class:list={[
-          "group relative flex flex-col justify-start items-stretch",
-          "h-full w-2/6 min-w-96 hover:-translate-x-96 transition-transform",
-          " bg-black text-white z-40",
-        ]}
-      >
+      <aside class="group relative h-full min-w-96 z-40 overflow-hidden">
         <div
-          class="flex flex-col justify-center items-start gap-4 h-full w-full px-2 bg-black"
+          class:list={[
+            "absolute flex flex-col justify-center items-start gap-4 h-full w-96 pl-2 bg-black",
+            "group-hover:-translate-x-96 group-hover:opacity-0 transition-all",
+          ]}
         >
           <slot name="sidebar" />
         </div>
-        <div
+        <nav
           class:list={[
-            "absolute -right-96 h-full flex flex-col justify-center -z-10",
-            "-translate-x-96 group-hover:translate-x-0 transition-transform",
+            "absolute h-full flex flex-col justify-center w-96 -z-10",
+            "opacity-0 group-hover:opacity-100 transition-opacity",
           ]}
         >
           <NavLink
-            class="group/navtitle font-light pl-2"
+            class="group/navtitle font-light"
             href={currentPath !== "/" && "/"}
           >
             {
@@ -79,13 +76,11 @@ const { title, description, prevNav } = Astro.props;
             SITE_NAVIGATION.map(
               (nav) =>
                 nav.href !== currentPath && (
-                  <NavLink class="pl-8" href={nav.href}>
-                    {nav.label}
-                  </NavLink>
+                  <NavLink href={nav.href}>{nav.label}</NavLink>
                 )
             )
           }
-        </div>
+        </nav>
       </aside>
       <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
         <slot />
