@@ -29,6 +29,10 @@ export type NavigationTab = {
 
 export const SITE_NAVIGATION: Array<NavigationTab> = [
   {
+    href:"/",
+    label: "Home",
+  },
+  {
     href: "/web",
     label: "Web",
   },

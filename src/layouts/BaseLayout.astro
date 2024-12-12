@@ -8,6 +8,7 @@ import { SITE_NAVIGATION } from "../const";
 import socialMedia from "../data/socialMedia";
 import type { NavigationTab } from "../const";
 import NavLink from "../components/NavLink.astro";
+import Navbar from "../components/Navbar.vue";
 
 const { linkedin, github } = socialMedia;
 
@@ -32,7 +33,12 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <main class="flex h-screen w-screen">
+    <main class="h-screen w-screen">
+      <nav>
+        <Navbar current={currentPath} client:load/>
+      </nav>
+    </main>
+    <!-- <main class="flex h-screen w-screen">
       <aside class="group relative h-full min-w-96 z-40 overflow-hidden">
         <div
           class:list={[
@@ -106,6 +112,6 @@ const { title, description, prevNav } = Astro.props;
           </div>
         </footer>
       </div>
-    </main>
+    </main> -->
   </body>
 </html>

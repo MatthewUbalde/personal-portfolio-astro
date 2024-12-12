@@ -3,7 +3,8 @@
 @tailwind components;
 
 body {
-  @apply bg-black text-white;
+  @apply bg-indigo-500 bg-gradient-to-b from-indigo-500 via-purple-400 to-fuchsia-300;
+  @apply text-indigo-50;
 }
 
 .h1,

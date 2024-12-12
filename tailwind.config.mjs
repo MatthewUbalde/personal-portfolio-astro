@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        "ocean-black": "#191234",
-        "ocean-blue": "#2c3664",
+        "ocean-blue": "#28257",
+        "ocean-pink": "b57fee",
+        "ocean-white": "feffe8",
       },
     },
   },
