@@ -33,11 +33,32 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <main class="h-screen w-screen">
-      <nav>
-        <Navbar current={currentPath} client:load/>
-      </nav>
+    <nav class="sticky top-0 inset-x-0 z-40">
+      <Navbar current={currentPath} client:load />
+    </nav>
+    <div></div>
+    <main class="min-h-screen w-4/5 bg-cyan-950 bg-opacity-35 mx-auto">
+      <slot />
     </main>
+    <footer class="flex justify-center items-center gap-8 p-4 bg-cyan-950">
+      <span class="">Matthew Ubalde</span>
+      <div class="flex gap-4">
+        <ImageLink
+          class="hover:scale-125 active:scale-95 transition-transform"
+          link={linkedin}
+          width={25}
+          height={25}
+          loading="lazy"
+        />
+        <ImageLink
+          class="hover:scale-125 active:scale-95 transition-transform"
+          link={github}
+          width={25}
+          height={25}
+          loading="lazy"
+        />
+      </div>
+    </footer>
     <!-- <main class="flex h-screen w-screen">
       <aside class="group relative h-full min-w-96 z-40 overflow-hidden">
         <div
