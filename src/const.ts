@@ -45,12 +45,16 @@ export const SITE_NAVIGATION: Array<NavLinkParent> = [
         label: "Web Development",
       },
       {
-        href: "/game",
-        label: "Game Development",
-      },
-      {
         href: "/software",
         label: "Software Development",
+      },
+      {
+        href: "/mobile",
+        label: "Mobile Development",
+      },
+      {
+        href: "/game",
+        label: "Game Development",
       },
     ],
   },
