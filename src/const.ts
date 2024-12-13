@@ -54,18 +54,18 @@ export const SITE_NAVIGATION: Array<NavLinkParent> = [
     ],
   },
   // This is for if I were to pursue this path
-  // {
-  //   href: "/art-experience",
-  //   label: "Art Experience",
-  //   children: [
-  //     {
-  //       href: "/illustration",
-  //       label: "Illustration",
-  //     },
-  //     {
-  //       href: "/animation",
-  //       label: "Animation",
-  //     },
-  //   ],
-  // },
+  {
+    href: "/art-experience",
+    label: "Art Experience",
+    // children: [
+    //   {
+    //     href: "/illustration",
+    //     label: "Illustration",
+    //   },
+    //   {
+    //     href: "/animation",
+    //     label: "Animation",
+    //   },
+    // ],
+  },
 ];
