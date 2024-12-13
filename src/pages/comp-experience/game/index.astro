@@ -1,32 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
 
 import ProjectContainer from "../../../components/ProjectContainer.astro";
-import type { ExperienceBadge, ProjectShowcase } from "../../../const";
-
-import { gameProjects, gameExperience } from "../../../data/game";
-
-// TODO: The collection says its doesn't exist or empty
-// const gameProjects: CollectionEntry<ProjectShowcase> =
-//   await getCollection("gameProjects");
-// const gameExperiences: CollectionEntry<ExperienceBadge> =
-//   await getCollection("gameExperiences");
-// const game = await getCollection("game");
-
-// const gameProjectsData: ProjectShowcase[] = gameProjects.map(
-//   (project) => project.data
-// );
-// const gameExperiencesData: ExperienceBadge[] = gameExperiences.map(
-//   (exp) => exp.data
-// );
 
 const experiences = await getCollection("experiences");
-console.log(experiences);
+const projects = await getCollection("projects");
+
+const gameExp = experiences.find((e) => e.id === "game")?.data;
+const gameProj = projects.find((p) => p.id === "game")?.data;
 ---
 
 <Layout
@@ -44,7 +29,7 @@ console.log(experiences);
     </Section>
     <Section noMargin class="w-2/4">
       <h1 class="text-center">Game Experiences</h1>
-      <BadgeContainer src={gameExperience} />
+      {gameExp && <BadgeContainer src={gameExp} />}
     </Section>
   </div>
   <div class="m-8 h-2/3 border-4 border-cyan-900 rounded-md">
@@ -57,7 +42,7 @@ console.log(experiences);
       </p>
     </Section>
     <div class="h-96 p-8 overflow-y-scroll">
-      <ProjectContainer src={gameProjects} />
+      {gameProj && <ProjectContainer src={gameProj} />}
     </div>
   </div>
 </Layout>

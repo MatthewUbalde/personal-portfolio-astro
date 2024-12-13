@@ -2,9 +2,12 @@
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 
-import softwareExperience from "../../../data/softwareExperience";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
 import ListContainer from "../../../components/ListContainer.astro";
+import { getCollection } from "astro:content";
+
+const experiences = await getCollection("experiences");
+const softwareExp = experiences.find((e) => e.id === "software")?.data;
 ---
 
 <Layout
@@ -41,7 +44,7 @@ import ListContainer from "../../../components/ListContainer.astro";
     </Section>
     <Section noMargin>
       <h1 class="text-center mb-2">Software Experiences</h1>
-      <BadgeContainer src={softwareExperience} />
+      {softwareExp && <BadgeContainer src={softwareExp} />}
     </Section>
   </div>
   <!-- <Section textContent>

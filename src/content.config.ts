@@ -1,30 +1,16 @@
 import { defineCollection, z } from "astro:content";
-import { file } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 
-import { experienceBadgeSchema, projectCoverSchema } from "./schemas";
+import { experienceBadgeSchema, projectShowcaseSchema } from "./schemas";
 
-const gameProjects = defineCollection({
-  loader: file("src/data/game.json", {
-    parser: (text) => JSON.parse(text).projects,
-  }),
-  schema: projectCoverSchema,
+const experiences = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/experience" }),
+  schema: z.array(experienceBadgeSchema),
 });
 
-const gameExperiences = defineCollection({
-  loader: file("src/data/game.json", {
-    parser: (text) => JSON.parse(text).experience,
-  }),
-  schema: experienceBadgeSchema,
+const projects = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/projects" }),
+  schema: z.array(projectShowcaseSchema),
 });
 
-const game = defineCollection({
-  loader: file("src/data/game.json", {
-    parser: (text) => JSON.parse(text),
-  }),
-  schema: z.object({
-    projects: projectCoverSchema,
-    experience: experienceBadgeSchema,
-  }),
-});
-
-export const collections = { game, gameProjects, gameExperiences };
+export const collections = { experiences, projects };

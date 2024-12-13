@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Godot",
+    "src": "/assets/godot.svg",
+    "alt": "Godot Logo",
+    "experience": "Beginner"
+  },
+  {
+    "title": "Unity",
+    "src": "/assets/unity.svg",
+    "alt": "Unity Logo",
+    "experience": "Beginner"
+  }
+]

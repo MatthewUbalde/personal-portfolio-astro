@@ -2,15 +2,19 @@
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
-
-import {
-  frontendExperience,
-  backendExperience,
-} from "../../../data/webExperience";
+import { getCollection } from "astro:content";
 
 // const images = await Astro.glob("src/assets/*").then((files) =>
 //   files.map((file) => file.default)
 // );
+
+const experiences = await getCollection("experiences");
+const experiencesFrontend = experiences.find(
+  (e) => e.id === "web-frontend"
+)?.data;
+const experiencesBackend = experiences.find(
+  (e) => e.id === "web-backend"
+)?.data;
 ---
 
 <Layout
@@ -35,11 +39,11 @@ import {
   <div class="flex flex-col sm:flex-row justify-between gap-8 m-8">
     <Section noPadding noMargin class="w-1/2 p-4">
       <h1 class="text-center mb-2">Front-end</h1>
-      <BadgeContainer src={frontendExperience} />
+      {experiencesFrontend && <BadgeContainer src={experiencesFrontend} />}
     </Section>
     <Section noPadding noMargin class="w-1/2 p-4">
       <h1 class="text-center mb-2">Back-end</h1>
-      <BadgeContainer src={backendExperience} />
+      {experiencesBackend && <BadgeContainer src={experiencesBackend} />}
     </Section>
   </div>
   <Section textContent class="mx-auto w-2/3">
