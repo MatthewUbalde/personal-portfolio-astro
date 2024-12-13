@@ -5,7 +5,7 @@ const gameProjects: Array<ProjectShowcase> = [
     title: "King of the Cheese",
     coverImage: {
       src: "/mint-big.png",
-      href: "comp-experience/game/king-of-the-cheese",
+      href: "game/king-of-the-cheese",
       alt: "Dark Birthday eating cheese in his dreams",
     },
     description:
@@ -15,7 +15,7 @@ const gameProjects: Array<ProjectShowcase> = [
     title: "Combo Spells",
     coverImage: {
       src: "/mint-big.png",
-      href: "comp-experience/game/combo-spells",
+      href: "game/combo-spells",
       alt: "Magician beating up a dummy",
     },
     description:
