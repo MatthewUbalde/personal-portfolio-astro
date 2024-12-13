@@ -42,7 +42,6 @@ const toggleHide = () => {
     v-if="hide"
     class="sticky z-40 top-4 inset-x-0 p-4 m-4 bg-cyan-900 rounded-md"
   >
-    <div class="mx-auto text-center text-sm">Navigation Bar</div>
     <button
       @click="toggleHide"
       class="bg-cyan-950 p-2 rounded-md w-full text-start"
@@ -54,13 +53,13 @@ const toggleHide = () => {
     v-if="!hide"
     class="fixed z-40 inset-0 p-4 m-4 flex flex-col justify-start items-start bg-cyan-900 rounded-md"
   >
-    <div class="mx-auto text-center text-sm">Where to?</div>
     <button
       @click="toggleHide"
       class="w-full bg-cyan-950 p-2 rounded-md text-start"
     >
       {{ props.current }}
     </button>
+    <div class="mx-auto text-center text-sm">Where to?</div>
 
     <!-- Contains the navigation links -->
     <div class="flex flex-col gap-2 w-full h-full overflow-y-auto mt-2">
