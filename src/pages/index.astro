@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import Layout from "../layouts/PageLayout.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout
@@ -10,8 +11,9 @@ import Layout from "../layouts/PageLayout.astro";
 >
   <!-- Introduction -->
   <div class="relative min-h-screen h-fit w-screen">
-    <div
-      class="flex flex-col m-8 p-8 py-24 bg-cyan-950 bg-opacity-50 rounded-md w-1/2"
+    <Section
+      noPadding
+      class="absolute inset-y-12 flex flex-col justify-center p-8 py-24 bg-cyan-950 bg-opacity-50 rounded-md w-1/2"
     >
       <p class="text-xs">My name is...</p>
       <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
@@ -21,7 +23,7 @@ import Layout from "../layouts/PageLayout.astro";
       <p class="font-light">
         Fanshawe College student studying in Computer Programming and Analysis
       </p>
-    </div>
+    </Section>
     <Image
       src="/portfolio-portrait.png"
       width={400}
