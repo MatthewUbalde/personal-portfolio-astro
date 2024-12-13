@@ -1,24 +1,47 @@
 ---
 import { Image } from "astro:assets";
 
-import Layout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/PageLayout.astro";
 
-import { SITE_NAVIGATION } from "../const";
+// import { SITE_NAVIGATION } from "../const";
 
-const Images = {
-  web: "/software-dev-pic.jpg",
-  game: "/software-dev-pic.jpg",
-  art: "/software-dev-pic.jpg",
-};
+// const Images = {
+//   web: "/software-dev-pic.jpg",
+//   game: "/software-dev-pic.jpg",
+//   art: "/software-dev-pic.jpg",
+// };
 
-let currentImage = Images.web;
+// let currentImage = Images.web;
 ---
 
 <Layout
   title="Home"
   description="Matthew Ubalde portfolio. Ranging from Web and Game Development, and Creative Arts!"
 >
-  <Fragment slot="sidebar">
+  <!-- Introduction -->
+  <div class="relative min-h-screen h-fit w-screen">
+    <div
+      class="flex flex-col m-8 p-8 py-24 bg-cyan-950 bg-opacity-50 rounded-md w-1/2"
+    >
+      <p class="text-xs">My name is...</p>
+      <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
+      <p class="font-light">
+        Current looking for an intern position in web or game development
+      </p>
+      <p class="font-light">
+        Fanshawe College student studying in Computer Programming and Analysis
+      </p>
+    </div>
+    <Image
+      src="/portfolio-portrait.png"
+      width={400}
+      height={600}
+      loading="eager"
+      alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
+      class="absolute bottom-0 right-8 object-cover -z-10"
+    />
+  </div>
+  <!-- <Fragment slot="sidebar">
     <h1>Matthew Ubalde</h1>
     <p class="font-light">
       Computer Programming and Analysis student at Fanshawe College
@@ -28,8 +51,8 @@ let currentImage = Images.web;
       development.
     </p>
     <p class="font-light">Hover here to look through my portfolio.</p>
-  </Fragment>
-  <div class="relative w-full h-screen overflow-hidden">
+  </Fragment> -->
+  <!-- <div class="relative w-full h-screen overflow-hidden">
     <Image
       src={currentImage}
       width={1600}
@@ -47,5 +70,5 @@ let currentImage = Images.web;
       alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
       class="absolute bottom-0 right-8 w-1/2 object-cover z-10"
     />
-  </div>
+  </div> -->
 </Layout>
