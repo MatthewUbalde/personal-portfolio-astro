@@ -24,12 +24,6 @@
     "alt": "Astro Logo"
   },
   {
-    "title": "Bootstrap",
-    "experience": "Beginner",
-    "src": "/assets/bootstrap.svg",
-    "alt": "Bootstrap Logo"
-  },
-  {
     "title": "Tailwind",
     "experience": "Intermediate",
     "src": "/assets/tailwind.svg",
