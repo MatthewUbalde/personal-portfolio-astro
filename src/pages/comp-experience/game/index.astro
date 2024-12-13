@@ -9,20 +9,24 @@ import BadgeContainer from "../../../components/BadgeContainer.astro";
 import ProjectContainer from "../../../components/ProjectContainer.astro";
 import type { ExperienceBadge, ProjectShowcase } from "../../../const";
 
-// import { gameProjects, gameExperience } from "../../../data/game";
+import { gameProjects, gameExperience } from "../../../data/game";
 
-const gameProjects: CollectionEntry<ProjectShowcase> =
-  await getCollection("gameProjects");
-const gameExperiences: CollectionEntry<ExperienceBadge> =
-  await getCollection("gameExperiences");
-const game = await getCollection("game");
+// TODO: The collection says its doesn't exist or empty
+// const gameProjects: CollectionEntry<ProjectShowcase> =
+//   await getCollection("gameProjects");
+// const gameExperiences: CollectionEntry<ExperienceBadge> =
+//   await getCollection("gameExperiences");
+// const game = await getCollection("game");
 
-const gameProjectsData: ProjectShowcase[] = gameProjects.map(
-  (project) => project.data
-);
-const gameExperiencesData: ExperienceBadge[] = gameExperiences.map(
-  (exp) => exp.data
-);
+// const gameProjectsData: ProjectShowcase[] = gameProjects.map(
+//   (project) => project.data
+// );
+// const gameExperiencesData: ExperienceBadge[] = gameExperiences.map(
+//   (exp) => exp.data
+// );
+
+const experiences = await getCollection("experiences");
+console.log(experiences);
 ---
 
 <Layout
@@ -40,7 +44,7 @@ const gameExperiencesData: ExperienceBadge[] = gameExperiences.map(
     </Section>
     <Section noMargin class="flex-grow">
       <h1 class="text-center">Game Experiences</h1>
-      <BadgeContainer src={gameExperiencesData} />
+      <BadgeContainer src={gameExperience} />
     </Section>
   </div>
   <Section textContent class="mx-auto w-2/3">
@@ -50,6 +54,6 @@ const gameExperiencesData: ExperienceBadge[] = gameExperiences.map(
       interesting since I was really young. I like making games that are simple,
       but tried to make it deep and rewarding at the same time.
     </p>
-    <ProjectContainer src={gameProjectsData} />
+    <ProjectContainer src={gameProjects} />
   </Section>
 </Layout>
