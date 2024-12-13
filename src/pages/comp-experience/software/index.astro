@@ -21,24 +21,29 @@ import ListContainer from "../../../components/ListContainer.astro";
       development. Able to adapt and learn quickly when needed.
     </p>
   </Fragment>
-  <Section textContent class="mx-auto w-2/3">
-    <h1>Experience Summary</h1>
-    <p>
-      Was taught in various languages and frameworks. Have solid foundations on
-      relatively low-level langauages on C/C++. Able to make desktop
-      applications with Java's GUI framework, and able to make Android
-      applciations with Android Studio.
-    </p>
-    <p>
-      Worked with MySQL and able to help design and maintain well-design
-      databases to suit the company's requirements.
-    </p>
-    <p>Have used OpenGL.</p>
-  </Section>
-  <Section>
-    <h1 class="text-center mb-8">Software Experiences</h1>
-    <BadgeContainer src={softwareExperience} />
-  </Section>
+  <div class="flex flex-col sm:flex-row justify-between gap-8 m-8">
+    <Section noMargin textContent class="my-auto w-2/3">
+      <h1>Experience Summary</h1>
+      <p>
+        Was taught in various languages and frameworks. Have solid foundations
+        on relatively low-level langauages on C/C++. Able to make desktop and
+        mobile applications with React Native.
+      </p>
+      <p>
+        Worked with MySQL and able to help design and maintain well-design
+        databases to suit the company's requirements.
+      </p>
+      <p>
+        Have used OpenGL to create and render 3d models using shaders, and
+        helped develop tools for manipulating the environment and created a
+        particle system.
+      </p>
+    </Section>
+    <Section noMargin>
+      <h1 class="text-center mb-2">Software Experiences</h1>
+      <BadgeContainer src={softwareExperience} />
+    </Section>
+  </div>
   <!-- <Section textContent>
     <h1>Experiences in Fanshawe</h1>
     <p>Throughout my CPA3 program, I've learned many things.</p>
