@@ -1,25 +1,20 @@
-/**
- * Type that holds the alt, src, and href
- */
 export type ImageLink = {
   alt: string;
   src: string;
   href?: string | undefined;
 };
 
-/**
- * Extended by the ImageLink which is used to showcase projects with title and description
- */
-export interface ProjectShowcase extends ImageLink {
+export interface ProjectShowcase {
   title: string;
+  coverImage: ImageLink;
   description?: string;
 }
 
-export interface ExperienceShowcase {
+export interface ExperienceBadge {
   title: string;
   src: string;
   alt: string;
-  experience: "Learning" | "Beginner" | "Intermediate" | "Expert"; // As if.
+  experience: "Learning" | "Beginner" | "Intermediate" | "Expert";
 }
 
 export type NavLink = {
@@ -74,23 +69,3 @@ export const SITE_NAVIGATION: Array<NavLinkParent> = [
   //   ],
   // },
 ];
-
-// export interface PageNavigation {
-//   dev?: Array<NavigationTab>;
-//   web?: Array<NavigationTab>;
-// }
-
-// export const SITE_PAGE_NAVIGATION: PageNavigation = {
-//   web: [
-//     {
-//       href: "/intro",
-//       label: "Intro",
-//     },
-//   ],
-//   dev: [
-//     {
-//       href: "/intro",
-//       label: "Intro",
-//     },
-//   ],
-// };
