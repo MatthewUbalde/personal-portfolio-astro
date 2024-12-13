@@ -11,12 +11,12 @@ const { src } = Astro.props;
 
 <a
   class="relative group flex justify-center items-center w-2/4 h-72 rounded-lg bg-gray-800 hover:scale-105 active:scale-95 transition-transform overflow-hidden"
-  href={src.href}
+  href={src.coverImage.href}
 >
   <Image
     class="absolute top-0 w-full h-full"
-    src={src.src}
-    alt={src.alt}
+    src={src.coverImage.src}
+    alt={src.coverImage.alt}
     width={1600}
     height={900}
   />
