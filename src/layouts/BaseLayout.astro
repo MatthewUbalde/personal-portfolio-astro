@@ -2,7 +2,8 @@
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/Metadata/BaseHead.astro";
 
-import Navbar from "../components/Navbar.vue";
+// import Navbar from "../components/Navbar.vue";
+import Navbar from "../components/Navbar.astro";
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname;
@@ -25,7 +26,8 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <Navbar current={currentPath} client:load />
+    <!-- <Navbar current={currentPath} client:load /> -->
+    <Navbar current={currentPath} />
     <!-- Other layouts should have inserted their main element -->
     <slot />
     <!-- end main element -->
