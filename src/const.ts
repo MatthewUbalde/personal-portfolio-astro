@@ -10,7 +10,7 @@ export interface ProjectShowcase {
   description?: string;
 }
 
-export interface ExperienceBadge {
+export interface ExperienceBadgeType {
   title: string;
   src: string;
   alt: string;
