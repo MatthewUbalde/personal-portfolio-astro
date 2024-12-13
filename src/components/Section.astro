@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<"section"> {
   noPadding?: boolean | undefined;
   noMargin?: boolean | undefined;
   noRounded?: boolean | undefined;
-  textContentFlex?: boolean | undefined;
+  textContent?: boolean | undefined;
 }
 
 const {
@@ -14,7 +14,7 @@ const {
   noPadding,
   noMargin,
   noRounded,
-  textContentFlex,
+  textContent,
   ...props
 } = Astro.props;
 ---
@@ -26,7 +26,7 @@ const {
     !noPadding && "px-8 py-4",
     !noMargin && "m-8",
     !noRounded && "rounded-md",
-    textContentFlex && "flex flex-col justify-center gap-8 text-center",
+    textContent && " space-y-2 text-center",
   ]}
   {...props}
 >
