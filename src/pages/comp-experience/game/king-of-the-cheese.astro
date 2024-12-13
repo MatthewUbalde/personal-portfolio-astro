@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/BaseLayout.astro";
-import Section from "../../components/Section.astro";
-import ComparisonContainer from "../../components/ComparisonContainer.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
+import Section from "../../../components/Section.astro";
+// import ComparisonContainer from "../../components/ComparisonContainer.astro";
 ---
 
 <Layout title="King of the Cheese" description="Game made" prevNav="/game">
@@ -59,19 +59,19 @@ import ComparisonContainer from "../../components/ComparisonContainer.astro";
       In general, I polish the animations, added running particles, and among
       other things.
     </p>
-    <ComparisonContainer>
+    <!-- <ComparisonContainer>
       <Fragment slot="before"> </Fragment>
       <Fragment slot="after"> </Fragment>
-    </ComparisonContainer>
+    </ComparisonContainer> -->
     <p>
       Whenever you press Z/X/Spacebar near cheese, you eat them instantly!
       Running through thousands of them would be more satisfying if there was
       more feedback with better sounds and visuals.
     </p>
-    <ComparisonContainer>
+    <!-- <ComparisonContainer>
       <Fragment slot="before"> </Fragment>
       <Fragment slot="after"> </Fragment>
-    </ComparisonContainer>
+    </ComparisonContainer> -->
     <p>
       And then, I thought about having hundreds and thousands of cheese and
       eating them would be really fun! But for that to happen, I needed to the
@@ -92,19 +92,19 @@ import ComparisonContainer from "../../components/ComparisonContainer.astro";
       cheese when it's only needed. Freeing up the audio thread which in turn
       more performance.
     </p>
-    <ComparisonContainer>
+    <!-- <ComparisonContainer>
       <Fragment slot="before"> </Fragment>
       <Fragment slot="after"> </Fragment>
-    </ComparisonContainer>
+    </ComparisonContainer> -->
     <p>
       Among other optimizations such as using the VisibleNotifier2D and reducing
       unneeded code, it's possible to have more cheeses all in the screen! More
       so 10 000 cheeses compare to the 1 000 that would cause some lag.
     </p>
-    <ComparisonContainer>
+    <!-- <ComparisonContainer>
       <Fragment slot="before"> </Fragment>
       <Fragment slot="after"> </Fragment>
-    </ComparisonContainer>
+    </ComparisonContainer> -->
   </Section>
   <Section defaultFlex>
     <h1>Easter Eggs</h1>
