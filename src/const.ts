@@ -6,8 +6,8 @@ export type ImageLink = {
 
 export interface ProjectShowcase {
   title: string;
+  description: string;
   coverImage: ImageLink;
-  description?: string;
 }
 
 export interface ExperienceBadgeType {

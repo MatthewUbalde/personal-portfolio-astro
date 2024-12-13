@@ -2,11 +2,11 @@ import { z } from "astro:content";
 
 const projectShowcaseSchema = z.object({
   title: z.string(),
+  description: z.string(),
   coverImage: z.object({
     src: z.string(),
     href: z.string(),
     alt: z.string(),
-    description: z.string().optional(),
   }),
 });
 
