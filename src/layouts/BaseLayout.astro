@@ -26,8 +26,7 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <!-- <Navbar current={currentPath} client:load /> -->
-    <Navbar current={currentPath} />
+    <Navbar current={currentPath} client:load />
     <!-- Other layouts should have inserted their main element -->
     <slot />
     <!-- end main element -->
