@@ -9,7 +9,7 @@ body {
 
 .h1,
 h1 {
-  @apply text-3xl font-normal;
+  @apply text-3xl font-medium;
 }
 
 .h2,
