@@ -1,12 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import Footer from "../components/Footer.astro";
 import BaseHead from "../components/Metadata/BaseHead.astro";
-import ImageLink from "../components/ImageLink.astro";
 
-import socialMedia from "../data/socialMedia";
 import Navbar from "../components/Navbar.vue";
-
-const { linkedin, github } = socialMedia;
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname;
@@ -33,24 +29,6 @@ const { title, description, prevNav } = Astro.props;
     <!-- Other layouts should have inserted their main element -->
     <slot />
     <!-- end main element -->
-    <footer class="flex justify-center items-center gap-8 p-4 bg-cyan-950">
-      <span class="">Matthew Ubalde</span>
-      <div class="flex gap-4">
-        <ImageLink
-          class="hover:scale-125 active:scale-95 transition-transform"
-          link={linkedin}
-          width={25}
-          height={25}
-          loading="lazy"
-        />
-        <ImageLink
-          class="hover:scale-125 active:scale-95 transition-transform"
-          link={github}
-          width={25}
-          height={25}
-          loading="lazy"
-        />
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>

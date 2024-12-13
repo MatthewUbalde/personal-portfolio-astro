@@ -1,0 +1,29 @@
+---
+import ImageLink from "../components/ImageLink.astro";
+
+import socialMedia from "../data/socialMedia";
+
+const { linkedin, github } = socialMedia;
+---
+
+<footer
+  class="flex justify-center items-center gap-2 p-4 m-4 bg-cyan-900 rounded-md"
+>
+  <span class="text-sm">Matthew Ubalde</span>
+  <div class="flex gap-4 p-1 bg-cyan-950 rounded-md">
+    <ImageLink
+      class="hover:scale-125 active:scale-95 transition-transform"
+      link={linkedin}
+      width={25}
+      height={25}
+      loading="lazy"
+    />
+    <ImageLink
+      class="hover:scale-125 active:scale-95 transition-transform"
+      link={github}
+      width={25}
+      height={25}
+      loading="lazy"
+    />
+  </div>
+</footer>
