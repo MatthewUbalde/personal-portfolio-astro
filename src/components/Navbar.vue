@@ -8,7 +8,7 @@ const props = defineProps({
 });
 
 const filterNav = () => {
-  const currentNav: NavLinkParent = [...SITE_NAVIGATION];
+  const currentNav: NavLinkParent[] = [...SITE_NAVIGATION];
 
   currentNav.forEach((nav) => {
     if (nav.children === undefined) return;
