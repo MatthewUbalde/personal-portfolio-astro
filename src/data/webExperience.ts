@@ -8,16 +8,22 @@ const frontendExperience: Array<ExperienceBadge> = [
     alt: "React logo",
   },
   {
-    title: "React Native",
-    experience: "Intermediate",
-    src: "/assets/react.svg",
-    alt: "React logo",
-  },
-  {
     title: "Vue",
     experience: "Beginner",
-    src: "/assets/vite.svg",
+    src: "/assets/vue.svg",
     alt: "Vue Logo",
+  },
+  {
+    title: "Angular",
+    experience: "Beginner",
+    src: "/assets/angular.svg",
+    alt: "Angular Logo",
+  },
+  {
+    title: "Astro",
+    experience: "Intermediate",
+    src: "/assets/astro.svg",
+    alt: "Astro Logo",
   },
   {
     title: "Bootstrap",
@@ -51,6 +57,12 @@ const backendExperience: Array<ExperienceBadge> = [
     experience: "Beginner",
     src: "/assets/firebase.svg",
     alt: "Firebase logo",
+  },
+  {
+    title: "Java Spring Bean",
+    experience: "Beginner",
+    src: "/assets/springio.svg",
+    alt: "Spring logo",
   },
   {
     title: "MongoDb",
