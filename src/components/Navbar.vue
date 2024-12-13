@@ -8,19 +8,30 @@ const props = defineProps({
 });
 
 const filterNav = () => {
-  const currentNav: NavLinkParent[] = [...SITE_NAVIGATION];
+  const navArray: NavLinkParent[] = [...SITE_NAVIGATION];
 
-  currentNav.forEach((nav) => {
-    if (nav.children === undefined) return;
-    nav.children = nav.children.filter((pn) => pn.href !== props.current);
-  });
+  const tokens = props.current.split("/");
+  let currentNav = null;
 
-  const filteredNav: NavLinkParent[] = currentNav.filter(
-    (nav) =>
-      (nav.children !== undefined && nav.children.length !== 0) ||
-      nav.href !== props.current
-  );
+  if (tokens.length > 0) {
+    currentNav = `/${tokens[tokens.length - 1]}`;
+  }
 
+  var filteredNav: NavLinkParent[];
+  if (currentNav !== null) {
+    filteredNav = navArray.filter(
+      (nav) =>
+        (nav.children !== undefined && nav.children.length !== 0) ||
+        nav.href !== currentNav
+    );
+  }
+
+  if (currentNav !== null) {
+    filteredNav.forEach((nav) => {
+      if (nav.children === undefined) return;
+      nav.children = nav.children.filter((pn) => pn.href !== currentNav);
+    });
+  }
   return filteredNav;
 };
 
