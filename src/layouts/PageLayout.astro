@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import { SITE_NAVIGATION, SITE_PAGE_NAVIGATION } from "../const";
 
 interface Props {
   title: string;
@@ -9,39 +7,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-
-const pageNav = SITE_PAGE_NAVIGATION[title.toLowerCase()];
 ---
 
 <BaseLayout title={title} description={description}>
-  <header></header>
-  <body class="max-h-screen min-h-screen">
-    <div class="flex">
-      <aside class="h-screen w-48 bg-red-300">
-        <nav class="flex gap-8">
-          {
-            pageNav.map((nav) => (
-              <a href={nav.href} class:list={["text-2xl", "bg-amber-300"]}>
-                {nav.label}
-              </a>
-            ))
-          }
-        </nav>
-      </aside>
-      <div class="h-screen w-full">
-        <nav class="flex gap-8">
-          {
-            SITE_NAVIGATION.map((nav) => (
-              <a href={nav.href} class:list={["text-2xl", "bg-amber-300"]}>
-                {nav.label}
-              </a>
-            ))
-          }
-        </nav>
-        <main class="bg-yellow-200">
-          <slot />
-        </main>
-      </div>
-    </div>
-  </body>
+  <main class="min-h-screen">
+    <slot />
+  </main>
 </BaseLayout>

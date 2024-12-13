@@ -2,12 +2,8 @@
 import { Image } from "astro:assets";
 import BaseHead from "../components/Metadata/BaseHead.astro";
 import ImageLink from "../components/ImageLink.astro";
-import Section from "../components/Section.astro";
 
-import { SITE_NAVIGATION } from "../const";
 import socialMedia from "../data/socialMedia";
-import type { NavigationTab } from "../const";
-import NavLink from "../components/NavLink.astro";
 import Navbar from "../components/Navbar.vue";
 
 const { linkedin, github } = socialMedia;
@@ -33,13 +29,10 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <nav class="sticky top-0 inset-x-0 z-40">
-      <Navbar current={currentPath} client:load />
-    </nav>
-    <div></div>
-    <main class="min-h-screen w-4/5 bg-cyan-950 bg-opacity-35 mx-auto">
-      <slot />
-    </main>
+    <Navbar current={currentPath} client:load />
+    <!-- Other layouts should have inserted their main element -->
+    <slot />
+    <!-- end main element -->
     <footer class="flex justify-center items-center gap-8 p-4 bg-cyan-950">
       <span class="">Matthew Ubalde</span>
       <div class="flex gap-4">
@@ -59,80 +52,5 @@ const { title, description, prevNav } = Astro.props;
         />
       </div>
     </footer>
-    <!-- <main class="flex h-screen w-screen">
-      <aside class="group relative h-full min-w-96 z-40 overflow-hidden">
-        <div
-          class:list={[
-            "absolute flex flex-col justify-center items-start gap-4 h-full w-96 pl-2 bg-black",
-            "group-hover:-translate-x-96 group-hover:opacity-0 transition-all",
-          ]}
-        >
-          <slot name="sidebar" />
-        </div>
-        <nav
-          class:list={[
-            "absolute h-full flex flex-col justify-center w-96 -z-10",
-            "opacity-0 group-hover:opacity-100 transition-opacity",
-          ]}
-        >
-          <NavLink
-            class="group/navtitle font-light"
-            href={currentPath !== "/" && "/"}
-          >
-            {
-              currentPath !== "/" ? (
-                <>
-                  <span class="inline group-hover/navtitle:hidden">
-                    Navigation
-                  </span>
-                  <span class="hidden group-hover/navtitle:inline">Home</span>
-                </>
-              ) : (
-                <span>Navigation</span>
-              )
-            }
-          </NavLink>
-          {
-            prevNav && (
-              <NavLink class="pl-2" href={prevNav}>
-                Go Back?
-              </NavLink>
-            )
-          }
-          {
-            SITE_NAVIGATION.map(
-              (nav) =>
-                nav.href !== currentPath && (
-                  <NavLink href={nav.href}>{nav.label}</NavLink>
-                )
-            )
-          }
-        </nav>
-      </aside>
-      <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
-        <slot />
-        <footer
-          class="flex justify-center items-center gap-8 h-fit p-8 bg-black"
-        >
-          <span class="text-xl">Matthew Ubalde</span>
-          <div class="flex gap-4">
-            <ImageLink
-              class="hover:scale-125 active:scale-95 transition-transform"
-              link={linkedin}
-              width={50}
-              height={50}
-              loading="lazy"
-            />
-            <ImageLink
-              class="hover:scale-125 active:scale-95 transition-transform"
-              link={github}
-              width={50}
-              height={50}
-              loading="lazy"
-            />
-          </div>
-        </footer>
-      </div>
-    </main> -->
   </body>
 </html>
