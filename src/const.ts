@@ -22,50 +22,71 @@ export interface ExperienceShowcase {
   experience: "Learning" | "Beginner" | "Intermediate" | "Expert"; // As if.
 }
 
-export type NavigationTab = {
+export type NavLink = {
   href: string;
   label?: string | undefined;
 };
 
-export const SITE_NAVIGATION: Array<NavigationTab> = [
+export type NavLinkParent = {
+  children?: NavLink[];
+} & NavLink;
+
+export const SITE_NAVIGATION: Array<NavLinkParent> = [
   {
-    href:"/",
+    href: "/",
     label: "Home",
   },
   {
-    href: "/web",
-    label: "Web",
+    href: "/comp-experience",
+    label: "Programming Experience",
+    children: [
+      {
+        href: "/web",
+        label: "Web Development",
+      },
+      {
+        href: "/game",
+        label: "Game Development",
+      },
+      {
+        href: "/software",
+        label: "Software Development",
+      },
+    ],
   },
-  {
-    href: "/game",
-    label: "Game",
-  },
-  {
-    href: "/software",
-    label: "Software",
-  },
+  // This is for if I were to pursue this path
   // {
-  //   href: "/art",
-  //   label: "Art",
+  //   href: "/art-experience",
+  //   label: "Art Experience",
+  //   children: [
+  //     {
+  //       href: "/illustration",
+  //       label: "Illustration",
+  //     },
+  //     {
+  //       href: "/animation",
+  //       label: "Animation",
+  //     },
+  //   ],
   // },
 ];
 
-export interface PageNavigation {
-  dev?: Array<NavigationTab>;
-  web?: Array<NavigationTab>;
-}
+// export interface PageNavigation {
+//   dev?: Array<NavigationTab>;
+//   web?: Array<NavigationTab>;
+// }
 
-export const SITE_PAGE_NAVIGATION: PageNavigation = {
-  web: [
-    {
-      href: "/intro",
-      label: "Intro",
-    },
-  ],
-  dev: [
-    {
-      href: "/intro",
-      label: "Intro",
-    },
-  ],
-};
+// export const SITE_PAGE_NAVIGATION: PageNavigation = {
+//   web: [
+//     {
+//       href: "/intro",
+//       label: "Intro",
+//     },
+//   ],
+//   dev: [
+//     {
+//       href: "/intro",
+//       label: "Intro",
+//     },
+//   ],
+// };
