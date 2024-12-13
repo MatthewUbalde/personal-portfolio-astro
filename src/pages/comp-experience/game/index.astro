@@ -47,13 +47,17 @@ console.log(experiences);
       <BadgeContainer src={gameExperience} />
     </Section>
   </div>
-  <Section textContent class="mx-auto w-2/3 sticky top-28">
-    <h1>Games for Fun</h1>
-    <p>
-      These are purely made out of fun as I found the game development
-      interesting since I was really young. I like making games that are simple,
-      but tried to make it deep and rewarding at the same time.
-    </p>
-  </Section>
-  <ProjectContainer src={gameProjects} />
+  <div class="m-4 h-2/3 border-4 border-cyan-900 rounded-md">
+    <Section noMargin textContent class="my-8 mx-auto w-2/3">
+      <h1>Games for Fun</h1>
+      <p>
+        These are purely made out of fun as I found the game development
+        interesting since I was really young. I like making games that are
+        simple, but tried to make it deep and rewarding at the same time.
+      </p>
+    </Section>
+    <div class="h-96 p-8 overflow-y-scroll">
+      <ProjectContainer src={gameProjects} />
+    </div>
+  </div>
 </Layout>
