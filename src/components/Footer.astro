@@ -1,29 +1,59 @@
 ---
 import ImageLink from "../components/ImageLink.astro";
+import { SITE_NAVIGATION } from "../const";
 
 import socialMedia from "../data/socialMedia";
 
 const { linkedin, github } = socialMedia;
 ---
 
-<footer
-  class="flex justify-center items-center gap-2 p-4 m-4 bg-cyan-900 rounded-md"
->
-  <span class="text-sm">Matthew Ubalde</span>
-  <div class="flex gap-4 p-1 bg-cyan-950 rounded-md">
-    <ImageLink
-      class="hover:scale-125 active:scale-95 transition-transform"
-      link={linkedin}
-      width={25}
-      height={25}
-      loading="lazy"
-    />
-    <ImageLink
-      class="hover:scale-125 active:scale-95 transition-transform"
-      link={github}
-      width={25}
-      height={25}
-      loading="lazy"
-    />
+<footer class="flex flex-row justify-between p-4 m-4 bg-cyan-900 rounded-md">
+  <!-- Navigation -->
+  <div>
+    <div class="text-sm font-light p-1 w-fit bg-cyan-950 rounded-r-md">
+      Navigation Links
+    </div>
+    <div
+      class="flex flex-row gap-2 justify-start items-start w-full p-1 border-4 border-cyan-950 rounded-md rounded-tl-none"
+    >
+      {
+        SITE_NAVIGATION.map((nav) => (
+          <div class="flex flex-col gap-1 justify-start items-start">
+            <a href={nav.href} class="bg-cyan-950 rounded-md p-1">
+              {nav.label}
+            </a>
+            {nav.children && (
+              <div class="flex flex-col gap-1 justify-start items-start ml-4 ">
+                {nav.children.map((cnav) => (
+                  <a href={cnav.href} class="text-sm">
+                    {cnav.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <!-- Credits and social media -->
+  <div class="flex flex-col justify-center items-center m-2">
+    <div class="text-sm">Matthew Ubalde</div>
+    <div class="flex gap-2 p-1 bg-cyan-950 rounded-md">
+      <ImageLink
+        class="hover:scale-125 active:scale-95 transition-transform"
+        link={linkedin}
+        width={35}
+        height={35}
+        loading="lazy"
+      />
+      <ImageLink
+        class="hover:scale-125 active:scale-95 transition-transform"
+        link={github}
+        width={35}
+        height={35}
+        loading="lazy"
+      />
+    </div>
   </div>
 </footer>
