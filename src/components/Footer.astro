@@ -14,7 +14,7 @@ const { linkedin, github } = socialMedia;
       Navigation Links
     </div>
     <div
-      class="flex flex-row gap-2 justify-start items-start w-full p-1 border-4 border-cyan-950 rounded-md rounded-tl-none"
+      class="flex flex-col gap-2 justify-start items-start w-full p-1 border-4 border-cyan-950 rounded-md rounded-tl-none"
     >
       {
         SITE_NAVIGATION.map((nav) => (
@@ -23,7 +23,7 @@ const { linkedin, github } = socialMedia;
               {nav.label}
             </a>
             {nav.children && (
-              <div class="flex flex-col gap-1 justify-start items-start ml-4 ">
+              <div class="flex flex-row gap-2 justify-start items-start ml-4 ">
                 {nav.children.map((cnav) => (
                   <a href={cnav.href} class="text-sm">
                     {cnav.label}
