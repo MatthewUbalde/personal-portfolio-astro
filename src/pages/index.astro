@@ -2,16 +2,6 @@
 import { Image } from "astro:assets";
 
 import Layout from "../layouts/PageLayout.astro";
-
-// import { SITE_NAVIGATION } from "../const";
-
-// const Images = {
-//   web: "/software-dev-pic.jpg",
-//   game: "/software-dev-pic.jpg",
-//   art: "/software-dev-pic.jpg",
-// };
-
-// let currentImage = Images.web;
 ---
 
 <Layout
@@ -41,34 +31,4 @@ import Layout from "../layouts/PageLayout.astro";
       class="absolute bottom-0 right-8 object-cover -z-10"
     />
   </div>
-  <!-- <Fragment slot="sidebar">
-    <h1>Matthew Ubalde</h1>
-    <p class="font-light">
-      Computer Programming and Analysis student at Fanshawe College
-    </p>
-    <p class="font-light">
-      Great range in logic and artistic skills. Interested in web and game
-      development.
-    </p>
-    <p class="font-light">Hover here to look through my portfolio.</p>
-  </Fragment> -->
-  <!-- <div class="relative w-full h-screen overflow-hidden">
-    <Image
-      src={currentImage}
-      width={1600}
-      height={600}
-      alt=""
-      class="absolute w-full h-full"
-      loading="eager"
-      quality="mid"
-    />
-    <Image
-      src="/portfolio-portrait.png"
-      width={400}
-      height={600}
-      loading="eager"
-      alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
-      class="absolute bottom-0 right-8 w-1/2 object-cover z-10"
-    />
-  </div> -->
 </Layout>
