@@ -70,7 +70,7 @@ const toggleHide = () => {
           <a
             v-for="childrenNav in nav.children"
             :key="childrenNav.href"
-            :href="childrenNav.href"
+            :href="`${nav.href}${childrenNav.href}`"
             class="bg-cyan-950 px-4 py-2 rounded-md w-fit"
           >
             {{ childrenNav.label }}
