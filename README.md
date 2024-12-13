@@ -1,54 +1,19 @@
-# Astro Starter Kit: Basics
+# Matthew Ubalde's Portfolio Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+Hello! This is my portfolio website made with Astro.js, Vue.js, and Tailwind.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+I'm a student at Fanshawe College in their Computer Programming and Analysis program.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+All of my experience in the coding industry can be found here. I'll keep my best to update this time-to-time, as I'm constantly learning new things.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Currently looking for an internship position!
 
-## 🚀 Project Structure
+## Why use Astro?
 
-Inside of your Astro project, you'll see the following folders and files:
+Originally, I was using React, and then Gatsby. But I found them to bloated, and hard to work with at times.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Using only React was very limiting, and Gatsby's was slow whenever changes are made. I ended up research for other alternatives and found Astro instead.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The great thing about Astro is that it's framework agnostic. If there's any other advancements in the JS world, I can adapt to it without making any big changes on my code-base.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+It also has better content-collection tools than Gatsby, and far more easier to use.
