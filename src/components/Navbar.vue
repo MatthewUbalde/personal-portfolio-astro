@@ -8,14 +8,18 @@ const props = defineProps({
 });
 
 const filterNav = () => {
-  const filteredNav: NavLinkParent[] = SITE_NAVIGATION.filter(
-    (nav) => nav.href !== props.current
-  );
+  const currentNav: NavLinkParent = [...SITE_NAVIGATION];
 
-  filteredNav.forEach((nav) => {
+  currentNav.forEach((nav) => {
     if (nav.children === undefined) return;
     nav.children = nav.children.filter((pn) => pn.href !== props.current);
   });
+
+  const filteredNav: NavLinkParent[] = currentNav.filter(
+    (nav) =>
+      (nav.children !== undefined && nav.children.length !== 0) ||
+      nav.href !== props.current
+  );
 
   return filteredNav;
 };
