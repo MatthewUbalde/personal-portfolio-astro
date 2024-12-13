@@ -75,7 +75,7 @@ const toggleHide = () => {
         <!-- nav's children -->
         <div
           v-if="nav.children"
-          class="flex flex-col gap-1 p-1 border-cyan-950 border-4 rounded-md rounded-tl-none w-full"
+          class="flex flex-row gap-1 p-1 border-cyan-950 border-4 rounded-md rounded-tl-none w-full"
         >
           <a
             v-for="childrenNav in nav.children"
