@@ -1,10 +1,28 @@
 ---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
 
-import { gameProjects, gameExperience } from "../../../data/game";
 import ProjectContainer from "../../../components/ProjectContainer.astro";
+import type { ExperienceBadge, ProjectShowcase } from "../../../const";
+
+// import { gameProjects, gameExperience } from "../../../data/game";
+
+const gameProjects: CollectionEntry<ProjectShowcase> =
+  await getCollection("gameProjects");
+const gameExperiences: CollectionEntry<ExperienceBadge> =
+  await getCollection("gameExperiences");
+const game = await getCollection("game");
+
+const gameProjectsData: ProjectShowcase[] = gameProjects.map(
+  (project) => project.data
+);
+const gameExperiencesData: ExperienceBadge[] = gameExperiences.map(
+  (exp) => exp.data
+);
 ---
 
 <Layout
@@ -22,7 +40,7 @@ import ProjectContainer from "../../../components/ProjectContainer.astro";
     </Section>
     <Section noMargin class="flex-grow">
       <h1 class="text-center">Game Experiences</h1>
-      <BadgeContainer src={gameExperience} />
+      <BadgeContainer src={gameExperiencesData} />
     </Section>
   </div>
   <Section textContent class="mx-auto w-2/3">
@@ -32,6 +50,6 @@ import ProjectContainer from "../../../components/ProjectContainer.astro";
       interesting since I was really young. I like making games that are simple,
       but tried to make it deep and rewarding at the same time.
     </p>
-    <ProjectContainer src={gameProjects} />
+    <ProjectContainer src={gameProjectsData} />
   </Section>
 </Layout>
