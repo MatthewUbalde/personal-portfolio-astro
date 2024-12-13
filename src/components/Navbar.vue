@@ -8,18 +8,13 @@ const props = defineProps({
 });
 
 const filterNav = () => {
-  const navArray: NavLinkParent[] = [...SITE_NAVIGATION];
+  const tokens = props.current ? props.current.split("/") : "";
 
-  const tokens = props.current.split("/");
-  let currentNav = null;
+  let navArray: NavLinkParent[] = [...SITE_NAVIGATION];
+  let currentNav = tokens.length > 0 ? `/${tokens[tokens.length - 1]}` : "";
 
-  if (tokens.length > 0) {
-    currentNav = `/${tokens[tokens.length - 1]}`;
-  }
-
-  var filteredNav: NavLinkParent[];
   if (currentNav !== null) {
-    filteredNav = navArray.filter(
+    navArray = navArray.filter(
       (nav) =>
         (nav.children !== undefined && nav.children.length !== 0) ||
         nav.href !== currentNav
@@ -27,12 +22,13 @@ const filterNav = () => {
   }
 
   if (currentNav !== null) {
-    filteredNav.forEach((nav) => {
+    navArray.forEach((nav) => {
       if (nav.children === undefined) return;
       nav.children = nav.children.filter((pn) => pn.href !== currentNav);
     });
   }
-  return filteredNav;
+
+  return navArray;
 };
 
 const hide = ref(true);
@@ -44,7 +40,7 @@ const toggleHide = () => {
 <template>
   <nav
     v-if="hide"
-    class="sticky z-40 top-0 inset-x-0 p-4 m-4 bg-cyan-900 rounded-md"
+    class="sticky z-40 top-4 inset-x-0 p-4 m-4 bg-cyan-900 rounded-md"
   >
     <div class="mx-auto text-center text-sm">Navigation Bar</div>
     <button
