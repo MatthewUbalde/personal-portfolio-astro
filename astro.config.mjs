@@ -6,6 +6,8 @@ import { twJoin, twMerge } from "tailwind-merge";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://matthewubalde.github.io",
+  base: "",
   integrations: [
     vue(),
     tailwind({
