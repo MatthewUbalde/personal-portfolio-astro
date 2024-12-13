@@ -3,22 +3,30 @@ import type { HTMLAttributes } from "astro/types";
 
 // type Props = HTMLAttributes<"section">;
 interface Props extends HTMLAttributes<"section"> {
-  ridPadding?: boolean | undefined;
-  defaultFlex?: boolean | undefined;
+  noPadding?: boolean | undefined;
+  noMargin?: boolean | undefined;
+  noRounded?: boolean | undefined;
+  textContentFlex?: boolean | undefined;
 }
 
-const { class: className, ridPadding, defaultFlex, ...props } = Astro.props;
+const {
+  class: className,
+  noPadding,
+  noMargin,
+  noRounded,
+  textContentFlex,
+  ...props
+} = Astro.props;
 ---
 
 <section
   class:list={[
     className,
-    "bg-gradient-to-t from-transparent to-black",
-    "bg-black hover:bg-blue-950",
-    "text-white transition-all",
-    "w-full overflow-hidden",
-    !ridPadding && "px-8 py-4",
-    defaultFlex && "flex flex-col justify-center gap-8 text-center",
+    "bg-cyan-900 bg-opacity-50",
+    !noPadding && "px-8 py-4",
+    !noMargin && "m-8",
+    !noRounded && "rounded-md",
+    textContentFlex && "flex flex-col justify-center gap-8 text-center",
   ]}
   {...props}
 >
