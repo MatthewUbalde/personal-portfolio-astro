@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, computed } from "vue";
-import { SITE_NAVIGATION } from "../const";
-import type { NavLinkParent, NavLink } from "../const";
+import { SITE_NAVIGATION } from "../../const";
+import type { NavLinkParent, NavLink } from "../../const";
 
 const props = defineProps({
   current: String,
