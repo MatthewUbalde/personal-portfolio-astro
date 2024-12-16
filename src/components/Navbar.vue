@@ -70,7 +70,7 @@ const toggleHide = () => {
           class="bg-cyan-950 px-4 py-2 text-xl rounded-r-md w-fit"
         >
           {{ nav.label }}
-          <span class="text-cyan-600 text-sm">{{ nav.href }}</span>
+          <div class="text-cyan-600 text-sm">{{ nav.href }}</div>
         </a>
         <!-- nav's children -->
         <div
@@ -81,12 +81,12 @@ const toggleHide = () => {
             v-for="childrenNav in nav.children"
             :key="childrenNav.href"
             :href="`${nav.href}${childrenNav.href}`"
-            class="bg-cyan-950 px-4 py-2 rounded-md w-fit"
+            class="bg-cyan-950 px-4 py-2 text-xl rounded-md w-fit"
           >
             {{ childrenNav.label }}
-            <span class="text-cyan-600 text-sm">{{
-              nav.href + childrenNav.href
-            }}</span>
+            <div class="text-cyan-600 text-sm">
+              {{ nav.href + childrenNav.href }}
+            </div>
           </a>
         </div>
       </div>
