@@ -10,5 +10,17 @@
     "src": "/assets/unity.svg",
     "alt": "Unity Logo",
     "experience": "Beginner"
+  },
+  {
+    "title": "OpenGL",
+    "experience": "Beginner",
+    "src": "/assets/opengl.svg",
+    "alt": "OpenGL Logo"
+  },
+  {
+    "title": "Blender",
+    "experience": "Beginner",
+    "src": "/assets/blender.svg",
+    "alt": "Blender Logo"
   }
 ]
