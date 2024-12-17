@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageProjectLayout.astro";
+import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
 
@@ -30,7 +30,18 @@ const gameProj = projects.find((p) => p.id === "game")?.data;
     <h1>Game Experiences</h1>
     {gameExp && <BadgeContainer src={gameExp} />}
   </Section>
-  <Fragment slot="projectAbout">
+  <div>
+    <Section textContent class="w-1/2 mx-auto">
+      <h1>Games for Fun</h1>
+      <p>
+        These are purely made out of fun as I found the game development
+        interesting since I was really young. I like making games that are
+        simple, but tried to make it deep and rewarding at the same time.
+      </p>
+    </Section>
+    {gameProj && <ProjectContainer src={gameProj} />}
+  </div>
+  <!-- <Fragment slot="projectAbout">
     <h1>Games for Fun</h1>
     <p>
       These are purely made out of fun as I found the game development
@@ -40,5 +51,5 @@ const gameProj = projects.find((p) => p.id === "game")?.data;
   </Fragment>
   <Fragment slot="projects">
     {gameProj && <ProjectContainer src={gameProj} />}
-  </Fragment>
+  </Fragment> -->
 </Layout>
