@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Android Studio",
+    "experience": "Beginner",
+    "src": "/assets/android-studio-stable.svg",
+    "alt": "Android Studio Logo"
+  },
+  {
+    "title": "React Native",
+    "experience": "Beginner",
+    "src": "/assets/react.svg",
+    "alt": "React Native Logo"
+  }
+]
