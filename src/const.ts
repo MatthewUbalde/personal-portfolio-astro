@@ -1,32 +1,34 @@
-export type ImageLink = {
-  alt: string;
-  src: string;
-  href?: string | undefined;
-};
+// export type ImageLink = {
+//   alt: string;
+//   src: string;
+//   href?: string | undefined;
+// };
 
-export interface ProjectShowcase {
-  title: string;
-  description: string;
-  coverImage: ImageLink;
-}
+// export interface ProjectShowcase {
+//   title: string;
+//   description: string;
+//   coverImage: ImageLink;
+// }
 
-export interface ExperienceBadgeType {
-  title: string;
-  src: string;
-  alt: string;
-  experience: "Learning" | "Beginner" | "Intermediate" | "Expert";
-}
+// export interface ExperienceBadgeType {
+//   title: string;
+//   src: string;
+//   alt: string;
+//   experience: "Learning" | "Beginner" | "Intermediate" | "Expert";
+// }
 
-export type NavLink = {
-  href: string;
-  label?: string | undefined;
-};
+// export type NavLink = {
+//   href: string;
+//   label?: string | undefined;
+// };
 
-export type NavLinkParent = {
-  children?: NavLink[];
-} & NavLink;
+// export type NavLinkParent = {
+//   children?: NavLink[];
+// } & NavLink;
 
-export const SITE_NAVIGATION: Array<NavLinkParent> = [
+import type { NavLinkType } from "./types";
+
+export const SITE_NAVIGATION: Array<NavLinkType> = [
   {
     href: "/",
     label: "Home",
