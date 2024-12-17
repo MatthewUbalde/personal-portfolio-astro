@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import type { NavLinkParent, NavLink } from "../../const";
+import type { NavLinkType } from "../../types";
 
 const { nav } = defineProps<{
-  nav: NavLinkParent;
+  nav: NavLinkType;
 }>();
 
 const hasChildren = computed(() => nav.children !== undefined);
