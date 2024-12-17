@@ -3,6 +3,8 @@ import { ref, computed } from "vue";
 import { SITE_NAVIGATION } from "../../const";
 import type { NavLinkParent, NavLink } from "../../const";
 
+import NavbarTab from "./NavbarTab.vue";
+
 const props = defineProps({
   current: String,
 });
@@ -65,30 +67,7 @@ const toggleHide = () => {
     <div class="flex flex-col gap-2 w-full h-full overflow-y-auto mt-2">
       <!-- Individual navigation links -->
       <div v-for="nav in filterNav()" class="flex flex-col">
-        <a
-          :href="nav.href"
-          class="bg-cyan-950 px-4 py-2 text-xl rounded-r-md w-fit"
-        >
-          {{ nav.label }}
-          <div class="text-cyan-600 text-sm">{{ nav.href }}</div>
-        </a>
-        <!-- nav's children -->
-        <div
-          v-if="nav.children"
-          class="flex flex-row gap-1 p-1 border-cyan-950 border-4 rounded-md rounded-tl-none w-full"
-        >
-          <a
-            v-for="childrenNav in nav.children"
-            :key="childrenNav.href"
-            :href="`${nav.href}${childrenNav.href}`"
-            class="bg-cyan-950 px-4 py-2 text-xl rounded-md w-fit"
-          >
-            {{ childrenNav.label }}
-            <div class="text-cyan-600 text-sm">
-              {{ nav.href + childrenNav.href }}
-            </div>
-          </a>
-        </div>
+        <NavbarTab :nav="nav" />
       </div>
     </div>
     <!-- *end* Contains the navigation links -->
