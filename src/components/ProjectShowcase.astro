@@ -9,14 +9,21 @@ interface Props {
 
 const { src } = Astro.props;
 
-console.log(src);
+import itchIoBadgeImage from "../assets/itch-io-badge.svg";
 ---
 
 <div class="flex flex-row gap-4">
   <Section noMargin textContent class="w-1/4 h-fit my-auto content-center">
     <h2 class="text-left">{src.title}</h2>
     <p class="text-left">{src.description}</p>
-    <a href={src.coverImage.href}>Check it out!</a>
+    <a href={src.coverImage.href}>
+      <Image
+        class="mx-auto"
+        src={itchIoBadgeImage}
+        alt=`itch.io link to ${src.coverImage.href}`
+        height={64}
+      />
+    </a>
   </Section>
   <Section noMargin class="flex justify-center items-center h-1/2 flex-grow">
     <Image
