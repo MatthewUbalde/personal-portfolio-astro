@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import type { ProjectShowcase } from "../const";
+import type { ProjectShowcaseType } from "../types";
 import Section from "./Section.astro";
 
 interface Props {
-  src: ProjectShowcase;
+  src: ProjectShowcaseType;
 }
 
 const { src } = Astro.props;
@@ -12,26 +12,25 @@ const { src } = Astro.props;
 import itchIoBadgeImage from "../assets/itch-io-badge.svg";
 ---
 
-<div class="flex flex-row gap-4">
-  <Section noMargin textContent class="w-1/4 h-fit my-auto content-center">
-    <h2 class="text-left">{src.title}</h2>
+<div class="flex flex-row gap-8">
+  <Section noMargin textContent class="w-2/3 h-fit my-auto content-center">
+    <h2>{src.title}</h2>
     <p class="text-left">{src.description}</p>
     <a href={src.coverImage.href}>
       <Image
-        class="mx-auto"
+        class="m-2 mx-auto"
         src={itchIoBadgeImage}
         alt=`itch.io link to ${src.coverImage.href}`
         height={64}
       />
     </a>
   </Section>
-  <Section noMargin class="flex justify-center items-center h-1/2 flex-grow">
+  <Section noMargin class="flex-grow h-1/2">
     <Image
-      class="w-2/3 h-1/2 object-cover"
       src={src.coverImage.src}
       alt={src.coverImage.alt}
-      width={800}
-      height={450}
+      width={1280}
+      height={720}
     />
   </Section>
 </div>
