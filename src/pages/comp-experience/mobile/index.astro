@@ -2,6 +2,14 @@
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
+
+import { getCollection } from "astro:content";
+import ProjectContainer from "../../../components/ProjectContainer.astro";
+
+const experiences = await getCollection("experiences");
+const projects = await getCollection("projects");
+const mobileExp = experiences.find((e) => e.id === "mobile")?.data;
+const mobileProj = projects.find((e) => e.id === "mobile")?.data;
 ---
 
 <Layout
@@ -12,14 +20,20 @@ import BadgeContainer from "../../../components/BadgeContainer.astro";
     <Section noMargin textContent class="w-1/3">
       <h1>Experience Summary</h1>
       <p>
-        Was taught on how to use the Unity Engine, but developed games as a
-        side-hobby with Godot. This is purely as an interest, but willing to try
-        to break into this industry when given the opportunity.
+        Was taught how to use both Android Studio and React Native to develop
+        mobile applications. Due to my experience as a web developer, my skills
+        were transferable in React Native.
       </p>
     </Section>
     <Section noMargin class="flex-grow">
       <h1 class="text-center">Mobile Experiences</h1>
-      <!-- <BadgeContainer src={} /> -->
+      {mobileExp && <BadgeContainer src={mobileExp} />}
     </Section>
   </div>
+  <!-- <div>
+    <Section textContent class="w-1/2 mx-auto">
+      <h1>React Native Projects</h1>
+    </Section>
+    {mobileProj && <ProjectContainer src={mobileProj} />}
+  </div> -->
 </Layout>
