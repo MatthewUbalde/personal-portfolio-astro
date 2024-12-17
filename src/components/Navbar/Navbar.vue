@@ -61,10 +61,9 @@ const currentNav = computed(() => filterNav());
       :class="{ hidden: hide }"
       class="flex flex-col justify-start items-start"
     >
-      <div class="flex flex-col gap-2 w-full h-full overflow-y-auto mt-2">
-        <div v-for="nav in currentNav" class="flex flex-col">
+      <div class="mx-auto text-sm">Where to?</div>
+      <div v-for="nav in currentNav" class="flex flex-col gap-2 mt-2">
           <NavbarTab :nav="nav" />
-        </div>
       </div>
     </div>
   </nav>
