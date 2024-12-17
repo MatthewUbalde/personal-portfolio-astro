@@ -10,6 +10,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  prev: {
+    type: String,
+    required: false,
+  },
 });
 
 const hide = ref(true);
@@ -46,24 +50,29 @@ const currentNav = computed(() => filterNav());
   <div class="mt-32"></div>
   <nav
     :class="{
-      'inset-y-4': !hide,
+      'inset-1 sm:inset-4': !hide,
     }"
-    class="fixed z-40 top-4 inset-x-4 p-4 bg-cyan-900 rounded-md transition-all"
+    class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md transition-all"
   >
-    <button
-      @click="toggleHide"
-      class="bg-cyan-950 p-2 w-full rounded-md text-start"
-    >
-      {{ props.current }}
-    </button>
+    <div class="flex flex-row gap-1 sm:gap-2 text-xl sm:text-base">
+      <a
+        v-if="props.prev"
+        href="{{ props.prev }}"
+        class="bg-cyan-950 p-3 sm:p-2 rounded-md"
+        ><</a
+      >
+      <button
+        @click="toggleHide"
+        class="flex-grow bg-cyan-950 p-3 sm:p-2 w-full rounded-md text-start"
+      >
+        {{ props.current }}
+      </button>
+    </div>
     <!-- The navigation links -->
-    <div
-      :class="{ hidden: hide }"
-      class="flex flex-col justify-start items-start"
-    >
-      <div class="mx-auto text-sm">Where to?</div>
-      <div v-for="nav in currentNav" class="flex flex-col gap-2 mt-2">
-          <NavbarTab :nav="nav" />
+    <div :class="{ hidden: hide }" class="w-full h-full">
+      <div class="mx-auto w-fit p-1 sm:p-2">Where to?</div>
+      <div class="flex flex-col gap-1 overflow-scroll">
+        <NavbarTab v-for="nav in currentNav" :nav="nav" />
       </div>
     </div>
   </nav>
