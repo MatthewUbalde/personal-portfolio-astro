@@ -1,20 +1,35 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import Section from "../components/Section.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   title: string;
   description: string;
+  // Gotten this from the IntelliSense
+  coverImage: {
+    src: string;
+    width: number;
+    height: number;
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+  };
+  coverImageAlt: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, coverImage, coverImageAlt } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
   <main class="min-h-screen mx-auto">
     <Section textContent class="w-1/2 mx-auto">
       <h1>{title}</h1>
+      <Image
+        class="rounded-md"
+        src={coverImage}
+        alt={coverImageAlt}
+        width="1280"
+        height="720"
+      />
       <p>{description}</p>
     </Section>
     <Section class="w-2/3 mx-auto">
