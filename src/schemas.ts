@@ -1,4 +1,4 @@
-import { z } from "astro:content";
+import { z, type ImageFunction } from "astro:content";
 
 const projectShowcaseSchema = z.object({
   title: z.string(),
@@ -17,4 +17,15 @@ const experienceBadgeSchema = z.object({
   experience: z.enum(["Learning", "Beginner", "Intermediate", "Expert"]),
 });
 
-export { projectShowcaseSchema, experienceBadgeSchema };
+const projectArticleSchema = ({ image }: { image: ImageFunction }) =>
+  z.object({
+    title: z.string(),
+    description: z.string(),
+    // coverImage: image().refine((img) => img.width >= 600, {
+    //   message: "Cover image must be at least 600 pixels",
+    // }),
+    coverImage: image(),
+    coverImageAlt: z.string(),
+  });
+
+export { projectShowcaseSchema, experienceBadgeSchema, projectArticleSchema };

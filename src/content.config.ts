@@ -1,7 +1,11 @@
 import { defineCollection, z } from "astro:content";
 import { file, glob } from "astro/loaders";
 
-import { experienceBadgeSchema, projectShowcaseSchema } from "./schemas";
+import {
+  experienceBadgeSchema,
+  projectArticleSchema,
+  projectShowcaseSchema,
+} from "./schemas";
 
 const experiences = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/data/experience" }),
@@ -13,4 +17,27 @@ const projects = defineCollection({
   schema: z.array(projectShowcaseSchema),
 });
 
-export const collections = { experiences, projects };
+const computerProjectsRoot = "./src/content/comp-experience";
+
+const gameArticles = defineCollection({
+  loader: glob({ pattern: "*.md", base: `${computerProjectsRoot}/game` }),
+  schema: ({ image }) => projectArticleSchema({ image }),
+});
+
+const mobileArticles = defineCollection({
+  loader: glob({ pattern: "*.md", base: `${computerProjectsRoot}/mobile` }),
+  schema: ({ image }) => projectArticleSchema({ image }),
+});
+
+const webArticles = defineCollection({
+  loader: glob({ pattern: "*.md", base: `${computerProjectsRoot}/web` }),
+  schema: ({ image }) => projectArticleSchema({ image }),
+});
+
+export const collections = {
+  experiences,
+  projects,
+  gameArticles,
+  mobileArticles,
+  webArticles,
+};
