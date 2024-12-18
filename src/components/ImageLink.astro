@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import type { HTMLAttributes } from "astro/types";
-import type { ImageLink } from "../const.ts";
+import type { ImageLinkType } from "../types";
 
 interface Props extends HTMLAttributes<"img"> {
-  link: ImageLink;
+  link: ImageLinkType;
   width: number;
   height: number;
   // loading: string;

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted } from "vue";
 import { SITE_NAVIGATION } from "../../const";
-import type { NavLinkParent, NavLink } from "../../const";
+import type { NavLinkType } from "../../types";
 
 import NavbarTab from "./NavbarTab.vue";
 
@@ -27,7 +27,8 @@ const filterNav = () => {
   if (currentNav === null) return SITE_NAVIGATION;
 
   // If there is current nav, then we check for it!
-  let navArray: NavLinkParent[] = [...SITE_NAVIGATION];
+  // We're only checking on the first level's children
+  let navArray: NavLinkType[] = [...SITE_NAVIGATION];
   navArray = navArray.filter(
     (nav) =>
       (nav.children !== undefined && nav.children.length !== 0) ||
