@@ -11,7 +11,7 @@ Originally a highschool Java final project, but was updated overtime.
 
 # School Project
 
-Java is actually my first programming language I learned back in Montcalm, and I realized how fun and really easy it was.
+Java is actually my first programming language I learned back in high school, and I realized how fun and really easy it was.
 
 Combo Spells was meant to be small project, but I slowly refined because of how fun the concept it was to me.
 
