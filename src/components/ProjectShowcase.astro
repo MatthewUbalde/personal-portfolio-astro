@@ -1,36 +1,73 @@
 ---
 import { Image } from "astro:assets";
+
 import type { ProjectShowcaseType } from "../types";
 import Section from "./Section.astro";
+import ImageLink from "./ImageLink.astro";
 
-interface Props {
-  src: ProjectShowcaseType;
-}
+type Props = ProjectShowcaseType;
 
-const { src } = Astro.props;
+const {
+  title,
+  description,
+  coverImage,
+  coverImageAlt,
+  href,
+  itchioLink,
+  steamLink,
+  githubLink,
+} = Astro.props;
 
-import itchIoBadgeImage from "../assets/itch-io-badge.svg";
+import itchioImage from "../assets/icons/itch-io.svg";
+import steamImage from "../assets/icons/steam.svg";
+import githubImage from "../assets/icons/github-mark.svg";
 ---
 
 <div class="flex flex-row gap-8">
-  <Section noMargin textContent class="w-2/3 h-fit my-auto content-center">
-    <h2>{src.title}</h2>
-    <p class="text-left">{src.description}</p>
-    <a href={src.coverImage.href}>
-      <Image
-        class="m-2 mx-auto"
-        src={itchIoBadgeImage}
-        alt=`itch.io link to ${src.coverImage.href}`
-        height={64}
-      />
-    </a>
-  </Section>
+  <div class="flex justify-center items-start gap-2 w-3/4 my-auto">
+    <Section noMargin noPadding class="flex flex-col p-2 mt-4 min-w-fit">
+      {
+        itchioLink && (
+          <ImageLink
+            src={itchioImage}
+            alt=""
+            href={itchioLink}
+            width={36}
+            height={36}
+          />
+        )
+      }
+      {
+        steamLink && (
+          <ImageLink
+            src={steamImage}
+            alt=""
+            href={steamLink}
+            width={36}
+            height={36}
+          />
+        )
+      }
+      {
+        githubLink && (
+          <ImageLink
+            src={githubImage}
+            alt=""
+            href={githubLink}
+            width={36}
+            height={36}
+          />
+        )
+      }
+    </Section>
+    <Section noMargin textContent class="flex-grow content-center">
+      <h2>{title}</h2>
+      <p class="text-left">{description}</p>
+      <a href={href}>Read more...</a>
+      <div class="flex justify-evenly"></div>
+    </Section>
+  </div>
   <Section noMargin class="flex-grow h-1/2">
-    <Image
-      src={src.coverImage.src}
-      alt={src.coverImage.alt}
-      width={1280}
-      height={720}
-    />
+    <Image src={coverImage} alt={coverImageAlt} width={1280} height={720} />
   </Section>
 </div>

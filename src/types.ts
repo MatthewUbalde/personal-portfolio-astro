@@ -2,14 +2,19 @@ import type { ImageMetadata } from "astro";
 
 export type ImageLinkType = {
   src: Promise<{ default: ImageMetadata }> | ImageMetadata;
-  alt: string;
+  alt?: string;
   href: string;
 };
 
 export type ProjectShowcaseType = {
   title: string;
   description: string;
-  coverImage: ImageLinkType;
+  coverImage: Promise<{ default: ImageMetadata }> | ImageMetadata;
+  coverImageAlt: string;
+  href: string;
+  itchioLink?: string;
+  steamLink?: string;
+  githubLink?: string;
 };
 
 export type ExperienceBadgeType = {

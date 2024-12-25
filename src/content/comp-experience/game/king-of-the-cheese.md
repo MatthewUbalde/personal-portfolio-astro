@@ -3,6 +3,7 @@ title: King of the Cheese
 description: King of the Hat fan-game where you play as Dark Birthday and eat cheese in his dreams
 coverImage: ../../../assets/cover/king-of-cheese-01.png
 coverImageAlt: Dark Birthday eating cheese in his dreams
+itchio: https://penrabbit.itch.io/king-of-the-cheese
 ---
 
 King of the Hat fan-game where you play as Dark Birthday and eat cheese in his dreams! There's no win condition, and simply a fun game where you eat cheese!

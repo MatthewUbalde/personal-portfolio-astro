@@ -24,15 +24,17 @@ const experienceBadgeSchema = z.object({
   experience: z.enum(["Learning", "Beginner", "Intermediate", "Expert"]),
 });
 
+const externalLinkSchema = z.string().optional();
+
 const projectArticleSchema = ({ image }: SchemaContext) =>
   z.object({
     title: z.string(),
     description: z.string(),
-    // coverImage: image().refine((img) => img.width >= 600, {
-    //   message: "Cover image must be at least 600 pixels",
-    // }),
     coverImage: image(),
     coverImageAlt: z.string(),
+    itchio: externalLinkSchema,
+    steam: externalLinkSchema,
+    github: externalLinkSchema,
   });
 
 export {

@@ -3,6 +3,7 @@ title: Combo Spells
 description: Made with Java and JavaFX during high school. One of the first programming projects I've made.
 coverImage: ../../../assets/cover/combo-spell-01.png
 coverImageAlt: Screenshot of the project "Combo Spells"
+itchio: https://penrabbit.itch.io/combo-spells
 ---
 
 Play as a magician and use a combination of keys to construct bolders, lightning, and other elements to synergize and get the highest score possible!
