@@ -1,7 +1,7 @@
 ---
 title: Combo Spells
 description: Made with Java and JavaFX during high school. One of the first programming projects I've made.
-coverImage: ../../../assets/combo-spell-01.png
+coverImage: ../../../assets/cover/combo-spell-01.png
 coverImageAlt: Screenshot of the project "Combo Spells"
 ---
 

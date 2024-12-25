@@ -1,7 +1,7 @@
 ---
 title: King of the Cheese
 description: King of the Hat fan-game where you play as Dark Birthday and eat cheese in his dreams
-coverImage: ../../../assets/king-of-cheese-01.png
+coverImage: ../../../assets/cover/king-of-cheese-01.png
 coverImageAlt: Dark Birthday eating cheese in his dreams
 ---
 
