@@ -62,12 +62,23 @@ const currentNav = computed(() => filterNav());
         class="bg-cyan-950 p-3 sm:p-2 rounded-md"
         ><</a
       >
-      <button
-        @click="toggleHide"
-        class="flex-grow bg-cyan-950 p-3 sm:p-2 w-full rounded-md text-start"
-      >
-        {{ props.current }}
-      </button>
+      <div class="flex-grow">
+        <button
+          @click="toggleHide"
+          class="flex-grow bg-cyan-950 p-3 sm:p-2 w-full rounded-md text-start"
+        >
+          {{ props.current }}
+        </button>
+        <div
+          class="flex flex-row items-end gap-2 mx-2"
+          :class="{ hidden: !hide }"
+        >
+          <span class="text-cyan-600">Quick Navigation</span>
+          <a v-for="nav in currentNav" :href="nav.href" class="text-sm">{{
+            nav.label
+          }}</a>
+        </div>
+      </div>
     </div>
     <!-- The navigation links -->
     <div :class="{ hidden: hide }" class="w-full h-full">
