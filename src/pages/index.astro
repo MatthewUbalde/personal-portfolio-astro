@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 
 import Layout from "../layouts/PageLayout.astro";
 import Section from "../components/Section.astro";
+
+import portraitImage from "../assets/portfolio-portrait.png";
 ---
 
 <Layout
@@ -25,7 +27,7 @@ import Section from "../components/Section.astro";
       </p>
     </Section>
     <Image
-      src="/portfolio-portrait.png"
+      src={portraitImage}
       width={400}
       height={600}
       loading="eager"
