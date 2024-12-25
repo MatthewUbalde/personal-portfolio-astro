@@ -1,7 +1,9 @@
+import type { ImageMetadata } from "astro";
+
 export type ImageLinkType = {
+  src: Promise<{ default: ImageMetadata }> | ImageMetadata;
   alt: string;
-  src: string;
-  href?: string | undefined;
+  href: string;
 };
 
 export type ProjectShowcaseType = {

@@ -1,5 +1,12 @@
 import { z, type SchemaContext } from "astro:content";
 
+const imageLinkSchema = ({ image }: SchemaContext) =>
+  z.object({
+    imagePath: z.string(),
+    alt: z.string(),
+    href: z.string(),
+  });
+
 const projectShowcaseSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -28,4 +35,9 @@ const projectArticleSchema = ({ image }: SchemaContext) =>
     coverImageAlt: z.string(),
   });
 
-export { projectShowcaseSchema, experienceBadgeSchema, projectArticleSchema };
+export {
+  imageLinkSchema,
+  projectShowcaseSchema,
+  experienceBadgeSchema,
+  projectArticleSchema,
+};

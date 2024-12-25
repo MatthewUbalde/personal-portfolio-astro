@@ -2,10 +2,16 @@ import { defineCollection, z, type SchemaContext } from "astro:content";
 import { file, glob } from "astro/loaders";
 
 import {
+  imageLinkSchema,
   experienceBadgeSchema,
   projectArticleSchema,
   projectShowcaseSchema,
 } from "./schemas";
+
+const socialMedia = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/socialMedia" }),
+  schema: imageLinkSchema,
+});
 
 const experiences = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/data/experience" }),
@@ -35,6 +41,7 @@ const webArticles = defineCollection({
 });
 
 export const collections = {
+  socialMedia,
   experiences,
   projects,
   gameArticles,

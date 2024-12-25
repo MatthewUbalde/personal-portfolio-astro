@@ -1,10 +1,17 @@
 ---
+import { getCollection } from "astro:content";
+
 import ImageLink from "../components/ImageLink.astro";
 import { SITE_NAVIGATION } from "../const";
+import { icons } from "../assets/globs";
 
-import socialMedia from "../data/socialMedia";
+const socialMedia = await getCollection("socialMedia");
+const socialMediaData = socialMedia.map((s) => s.data);
 
-const { linkedin, github } = socialMedia;
+socialMediaData.forEach((s) => {
+  if (!icons[s.imagePath])
+    throw new Error(`"${s.imagePath} does not exist in glob", ${icons}""`);
+});
 ---
 
 <footer class="flex flex-row justify-between p-4 m-4 bg-cyan-900 rounded-md">
@@ -40,20 +47,18 @@ const { linkedin, github } = socialMedia;
   <div class="flex flex-col justify-center items-center m-2">
     <div class="text-sm">Matthew Ubalde</div>
     <div class="flex gap-2 p-1 bg-cyan-950 rounded-md">
-      <ImageLink
-        class="hover:scale-125 active:scale-95 transition-transform"
-        link={linkedin}
-        width={35}
-        height={35}
-        loading="lazy"
-      />
-      <ImageLink
-        class="hover:scale-125 active:scale-95 transition-transform"
-        link={github}
-        width={35}
-        height={35}
-        loading="lazy"
-      />
+      {
+        socialMediaData.map((s) => (
+          <ImageLink
+            class="hover:scale-125 active:scale-95 transition-transform"
+            src={icons[s.imagePath]()}
+            href={s.href}
+            alt={s.alt}
+            width={35}
+            height={35}
+          />
+        ))
+      }
     </div>
   </div>
 </footer>
