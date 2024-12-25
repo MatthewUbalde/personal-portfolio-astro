@@ -4,10 +4,6 @@ import Section from "../../../components/Section.astro";
 import BadgeContainer from "../../../components/BadgeContainer.astro";
 import { getCollection } from "astro:content";
 
-// const images = await Astro.glob("src/assets/*").then((files) =>
-//   files.map((file) => file.default)
-// );
-
 const experiences = await getCollection("experiences");
 const experiencesFrontend = experiences.find(
   (e) => e.id === "web-frontend"

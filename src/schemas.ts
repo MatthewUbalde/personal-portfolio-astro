@@ -1,4 +1,4 @@
-import { z, type ImageFunction } from "astro:content";
+import { z, type SchemaContext } from "astro:content";
 
 const projectShowcaseSchema = z.object({
   title: z.string(),
@@ -17,7 +17,7 @@ const experienceBadgeSchema = z.object({
   experience: z.enum(["Learning", "Beginner", "Intermediate", "Expert"]),
 });
 
-const projectArticleSchema = ({ image }: { image: ImageFunction }) =>
+const projectArticleSchema = ({ image }: SchemaContext) =>
   z.object({
     title: z.string(),
     description: z.string(),
