@@ -6,9 +6,9 @@ import type { ImageLinkType } from "../types";
 import { Image } from "astro:assets";
 
 type Props = ImageLinkType & {
-  class: string;
-  width: number;
-  height: number;
+  class?: string;
+  width?: number;
+  height?: number;
 };
 
 const {
