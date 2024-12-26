@@ -55,29 +55,30 @@ const currentNav = computed(() => filterNav());
     }"
     class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md transition-all"
   >
-    <div class="flex flex-row gap-1 sm:gap-2 text-xl sm:text-base">
-      <a
-        v-if="props.prev"
-        href="{{ props.prev }}"
-        class="bg-cyan-950 p-3 sm:p-2 rounded-md"
-        ><</a
-      >
-      <div class="flex-grow">
+    <div class="flex flex-col gap-1 sm:gap-2">
+      <!-- Top bar -->
+      <div class="flex flex-row gap-1 sm:gap-2 text-xl sm:text-base">
+        <!-- Back Button -->
+        <a
+          v-if="props.prev"
+          :href="props.prev"
+          class="bg-cyan-950 p-3 sm:p-2 rounded-md"
+          ><</a
+        >
+        <!-- "Search bar" -->
         <button
           @click="toggleHide"
           class="flex-grow bg-cyan-950 p-3 sm:p-2 w-full rounded-md text-start"
         >
           {{ props.current }}
         </button>
-        <div
-          class="flex flex-row items-end gap-2 mx-2"
-          :class="{ hidden: !hide }"
-        >
-          <span class="text-cyan-600">Quick Navigation</span>
-          <a v-for="nav in currentNav" :href="nav.href" class="text-sm">{{
-            nav.label
-          }}</a>
-        </div>
+      </div>
+      <!-- Quick Navigation Links -->
+      <div class="flex flex-row items-end gap-2" :class="{ hidden: !hide }">
+        <span class="text-cyan-600">Quick Navigation</span>
+        <a v-for="nav in currentNav" :href="nav.href" class="text-sm">{{
+          nav.label
+        }}</a>
       </div>
     </div>
     <!-- The navigation links -->
