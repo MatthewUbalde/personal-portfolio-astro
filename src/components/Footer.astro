@@ -14,23 +14,19 @@ socialMediaData.forEach((s) => {
 });
 ---
 
-<footer class="flex flex-row justify-between p-4 m-4 bg-cyan-900 rounded-md">
-  <!-- Navigation -->
+<footer
+  class="flex flex-col-reverse sm:flex-row justify-between p-4 m-4 bg-cyan-900 rounded-md"
+>
+  <!-- Site Map -->
   <div>
-    <div class="text-sm font-light p-1 w-fit bg-cyan-950 rounded-r-md">
-      Navigation Links
-    </div>
-    <div
-      class="flex flex-col gap-2 justify-start items-start w-full p-1 border-4 border-cyan-950 rounded-md rounded-tl-none"
-    >
+    <div class="text-center sm:text-start text-cyan-600 p-1">Site Map</div>
+    <div class="flex flex-row gap-1 justify-start items-start flex-wrap">
       {
         SITE_NAVIGATION.map((nav) => (
-          <div class="flex flex-col gap-1 justify-start items-start">
-            <a href={nav.href} class="bg-cyan-950 rounded-md p-1">
-              {nav.label}
-            </a>
+          <div class="flex flex-col justify-center items-start gap-1 flex-wrap  p-1 rounded-md border-4 border-cyan-950">
+            <a href={nav.href}>{nav.label}</a>
             {nav.children && (
-              <div class="flex flex-row gap-2 justify-start items-start ml-4 ">
+              <div class="flex flex-row gap-2 text-cyan-100">
                 {nav.children.map((cnav) => (
                   <a href={cnav.href} class="text-sm">
                     {cnav.label}
@@ -45,17 +41,16 @@ socialMediaData.forEach((s) => {
   </div>
   <!-- Credits and social media -->
   <div class="flex flex-col justify-center items-center m-2">
-    <div class="text-sm">Matthew Ubalde</div>
+    <div class="text-sm text-center">Matthew Ubalde</div>
     <div class="flex gap-2 p-1 bg-cyan-950 rounded-md">
       {
         socialMediaData.map((s) => (
           <ImageLink
-            class="hover:scale-125 active:scale-95 transition-transform"
             src={icons[s.imagePath]()}
             href={s.href}
             alt={s.alt}
-            width={35}
-            height={35}
+            width={36}
+            height={36}
           />
         ))
       }
