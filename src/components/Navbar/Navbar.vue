@@ -70,7 +70,7 @@ const currentNav = filterNav();
       <!-- Quick Navigation Links -->
       <div
         :class="{ hidden: !hide }"
-        class="flex flex-col sm:flex-row sm:gap-2 sm:items-end text-xl sm:text-base"
+        class="hidden sm:flex flex-col sm:flex-row sm:gap-2 sm:items-end text-xl sm:text-base"
       >
         <span class="text-cyan-600">Quick Navigation</span>
         <div class="flex flex-col sm:flex-row sm:gap-2 px-1 sm:p-0">
