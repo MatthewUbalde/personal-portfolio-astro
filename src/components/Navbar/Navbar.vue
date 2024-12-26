@@ -68,11 +68,14 @@ const currentNav = filterNav();
         </button>
       </div>
       <!-- Quick Navigation Links -->
-      <div :class="{ hidden: !hide }" class="flex flex-row items-end gap-2">
+      <div
+        :class="{ hidden: !hide }"
+        class="flex flex-col sm:flex-row sm:gap-2 sm:items-end text-xl sm:text-base"
+      >
         <span class="text-cyan-600">Quick Navigation</span>
-        <a v-for="nav in currentNav" :href="nav.href" class="text-sm">{{
-          nav.label
-        }}</a>
+        <div class="flex flex-col sm:flex-row sm:gap-2 px-1 sm:p-0">
+          <a v-for="nav in currentNav" :href="nav.href">{{ nav.label }}</a>
+        </div>
       </div>
     </div>
     <!-- The navigation links -->
