@@ -32,33 +32,31 @@ const gameExp = experiences.find((e) => e.id === "game")?.data;
       {gameExp && <BadgeContainer src={gameExp} />}
     </Section>
   </div>
-  <div>
-    <Section textContent class="w-1/2 mx-auto">
-      <h1>Games for Fun</h1>
-      <p>
-        These are purely made out of fun as I found the game development
-        interesting since I was really young. I like making games that are
-        simple, but tried to make it deep and rewarding at the same time.
-      </p>
-    </Section>
-    <ProjectContainer>
-      {
-        projects &&
-          projects.map((p) => (
-            <ProjectShowcase
-              title={p.data.title}
-              description={p.data.description}
-              coverImage={p.data.coverImage}
-              coverImageAlt={p.data.coverImageAlt}
-              href={`game/${p.id}`}
-              itchioLink={p.data.itchio}
-              steamLink={p.data.steam}
-              githubLink={p.data.github}
-            />
-          ))
-      }
-    </ProjectContainer>
-  </div>
+  <Section textContent class="sm:w-1/2 sm:mx-auto">
+    <h1>Games for Fun</h1>
+    <p>
+      These are purely made out of fun as I found the game development
+      interesting since I was really young. I like making games that are simple,
+      but tried to make it deep and rewarding at the same time.
+    </p>
+  </Section>
+  <ProjectContainer>
+    {
+      projects &&
+        projects.map((p) => (
+          <ProjectShowcase
+            title={p.data.title}
+            description={p.data.description}
+            coverImage={p.data.coverImage}
+            coverImageAlt={p.data.coverImageAlt}
+            href={`game/${p.id}`}
+            itchioLink={p.data.itchio}
+            steamLink={p.data.steam}
+            githubLink={p.data.github}
+          />
+        ))
+    }
+  </ProjectContainer>
   <!-- <Fragment slot="projectAbout">
     <h1>Games for Fun</h1>
     <p>
