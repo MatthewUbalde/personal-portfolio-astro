@@ -36,7 +36,7 @@ const currentNav = SITE_NAVIGATION.find(
         currentNav?.children &&
           currentNav?.children.map((nav) => (
             <a
-              href={nav.href}
+              href={`/comp-experience${nav.href}`}
               class="bg-cyan-950 rounded-md p-2 text-center content-center"
             >
               {nav.label}
