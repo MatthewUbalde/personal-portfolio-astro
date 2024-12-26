@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { ref, computed, onMounted } from "vue";
+import { ref } from "vue";
 import { SITE_NAVIGATION } from "../../const";
-import type { NavLinkType } from "../../types";
 
 import NavbarTab from "./NavbarTab.vue";
 
@@ -22,33 +21,28 @@ const toggleHide = () => {
 };
 
 const filterNav = () => {
-  const tokens = props.current.split("/");
-  const currentNav = tokens.length > 0 ? `/${tokens[tokens.length - 1]}` : "";
-  if (currentNav === null) return SITE_NAVIGATION;
+  const lastNavToken = props.current.split("/").at(-1);
+  if (!lastNavToken) return SITE_NAVIGATION;
+  const currentNav = `/${lastNavToken}`;
 
   // If there is current nav, then we check for it!
   // We're only checking on the first level's children
-  let navArray: NavLinkType[] = [...SITE_NAVIGATION];
-  navArray = navArray.filter(
-    (nav) =>
-      (nav.children !== undefined && nav.children.length !== 0) ||
-      nav.href !== currentNav
+  const navArray = SITE_NAVIGATION.filter(
+    (nav) => nav.children || nav.href !== currentNav
   );
 
   navArray.forEach((nav) => {
-    if (nav.children === undefined) return;
-    nav.children = nav.children.filter((pn) => pn.href !== currentNav);
+    if (nav.children)
+      nav.children = nav.children.filter((pn) => pn.href !== currentNav);
   });
 
   return navArray;
 };
 
-const currentNav = computed(() => filterNav());
+const currentNav = filterNav();
 </script>
 
 <template>
-  <!-- Empty div just to pad the top -->
-  <div class="mt-32"></div>
   <nav
     :class="{
       'inset-1 sm:inset-4': !hide,
@@ -68,13 +62,13 @@ const currentNav = computed(() => filterNav());
         <!-- "Search bar" -->
         <button
           @click="toggleHide"
-          class="flex-grow bg-cyan-950 p-3 sm:p-2 w-full rounded-md text-start"
+          class="flex-grow bg-cyan-950 p-3 sm:p-2 rounded-md text-start"
         >
           {{ props.current }}
         </button>
       </div>
       <!-- Quick Navigation Links -->
-      <div class="flex flex-row items-end gap-2" :class="{ hidden: !hide }">
+      <div :class="{ hidden: !hide }" class="flex flex-row items-end gap-2">
         <span class="text-cyan-600">Quick Navigation</span>
         <a v-for="nav in currentNav" :href="nav.href" class="text-sm">{{
           nav.label
