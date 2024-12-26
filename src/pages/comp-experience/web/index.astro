@@ -17,10 +17,10 @@ const experiencesBackend = experiences.find(
   title="Web"
   description="Matthew Ubalde web development portfolio. Have ome experienced in React, React Native, and Vue. Used Gatsby, and now Astro, to develop websites."
 >
-  <Section textContent class="mx-auto w-1/3">
+  <Section textContent class="sm:mx-auto sm:w-1/3">
     <p>Currently looking for an intern position as Front-end Developer!</p>
   </Section>
-  <Section textContent class="mx-auto w-2/3">
+  <Section textContent class="sm:mx-auto sm:w-2/3">
     <h1>Experience Summary</h1>
     <p>
       Was taught how to do front-end and back-end in the CPA3 program at
@@ -33,16 +33,16 @@ const experiencesBackend = experiences.find(
     </p>
   </Section>
   <div class="flex flex-col sm:flex-row justify-between gap-8 m-8">
-    <Section noPadding noMargin class="w-1/2 p-4">
+    <Section noPadding noMargin class="sm:w-1/2 p-4">
       <h1 class="text-center mb-2">Front-end</h1>
       {experiencesFrontend && <BadgeContainer src={experiencesFrontend} />}
     </Section>
-    <Section noPadding noMargin class="w-1/2 p-4">
+    <Section noPadding noMargin class="sm:w-1/2 p-4">
       <h1 class="text-center mb-2">Back-end</h1>
       {experiencesBackend && <BadgeContainer src={experiencesBackend} />}
     </Section>
   </div>
-  <Section textContent class="mx-auto w-2/3">
+  <Section textContent class="sm:mx-auto sm:w-2/3">
     <h1>Experiences in Fanshawe</h1>
     <p>
       Was taught on the front-end with <b>Vue.js</b>, <b>React</b>, and <b
@@ -56,8 +56,8 @@ const experiencesBackend = experiences.find(
       <b>AWS</b> with their <b>EC2</b> service.
     </p>
   </Section>
-  <div class="flex flex-row gap-8 m-8">
-    <Section noMargin textContent class="w-1/2">
+  <div class="flex flex-col sm:flex-row gap-8 m-8">
+    <Section noMargin textContent class="sm:w-1/2">
       <h1 class="text-center">What's this Website's Framework</h1>
       <p>
         This website made with <b>Astro</b>, <b>Vue.js</b>, and <b>Tailwind</b>.

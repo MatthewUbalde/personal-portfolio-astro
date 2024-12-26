@@ -13,18 +13,8 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
   title="Software"
   description="Matthew Ubalde software development portfolio. Have experience in C/C++, C#, and Java to create computer softwares."
 >
-  <Fragment slot="sidebar">
-    <h1>Software Development</h1>
-    <p class="font-light">
-      Have experience in C++, C# and Java to create computer applications.
-    </p>
-    <p class="font-light">
-      Learned numerous programming languages from web, game, and to software
-      development. Able to adapt and learn quickly when needed.
-    </p>
-  </Fragment>
-  <div class="flex flex-col sm:flex-row justify-between gap-8 m-8">
-    <Section noMargin textContent class="my-auto w-2/3">
+  <div class="flex flex-col sm:flex-row items-center gap-8 m-8">
+    <Section noMargin textContent class="sm:w-2/3">
       <h1>Experience Summary</h1>
       <p>
         Was taught in various languages and frameworks. Have solid foundations
@@ -41,8 +31,8 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
         particle system.
       </p>
     </Section>
-    <Section noMargin>
-      <h1 class="text-center mb-2">Software Experiences</h1>
+    <Section noMargin textContent class="flex-grow">
+      <h1>Software Experiences</h1>
       {softwareExp && <BadgeContainer src={softwareExp} />}
     </Section>
   </div>
