@@ -1,8 +1,9 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
 import BaseLayout from "./BaseLayout.astro";
 import Section from "../components/Section.astro";
-import { Image } from "astro:assets";
-import { ImageMetadata } from "astro";
 
 interface Props {
   prevNav: string;
