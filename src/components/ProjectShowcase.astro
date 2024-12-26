@@ -23,8 +23,9 @@ import steamImage from "../assets/icons/steam.svg";
 import githubImage from "../assets/icons/github-mark.svg";
 ---
 
-<div class="flex flex-row gap-8">
-  <div class="flex justify-center items-start gap-2 w-3/4 my-auto">
+<div class="flex gap-2 justify-center items-center">
+  <!-- Project about -->
+  <div class="flex items-start gap-2">
     <Section noMargin noPadding class="flex flex-col gap-2 p-2 mt-4 min-w-fit">
       {
         itchioLink && (
@@ -32,8 +33,8 @@ import githubImage from "../assets/icons/github-mark.svg";
             src={itchioImage}
             alt=""
             href={itchioLink}
-            width={36}
-            height={36}
+            width={48}
+            height={48}
           />
         )
       }
@@ -43,8 +44,8 @@ import githubImage from "../assets/icons/github-mark.svg";
             src={steamImage}
             alt=""
             href={steamLink}
-            width={36}
-            height={36}
+            width={48}
+            height={48}
           />
         )
       }
@@ -54,20 +55,27 @@ import githubImage from "../assets/icons/github-mark.svg";
             src={githubImage}
             alt=""
             href={githubLink}
-            width={36}
-            height={36}
+            width={48}
+            height={48}
           />
         )
       }
     </Section>
     <Section noMargin textContent class="flex-grow content-center">
       <h2>{title}</h2>
-      <p class="text-left">{description}</p>
-      <a href={href}>Read more...</a>
+      <p>{description}</p>
+      <a class="text-xl font-bold" href={href}>Read more...</a>
       <div class="flex justify-evenly"></div>
     </Section>
   </div>
-  <Section noMargin class="flex-grow h-1/2">
-    <Image src={coverImage} alt={coverImageAlt} width={1280} height={720} />
+  <!-- Image display -->
+  <Section noMargin noPadding class="p-4">
+    <Image
+      class="rounded-md object-contain"
+      src={coverImage}
+      alt={coverImageAlt}
+      width={1280}
+      height={720}
+    />
   </Section>
 </div>
