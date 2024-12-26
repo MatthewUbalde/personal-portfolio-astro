@@ -3,15 +3,14 @@ import Footer from "../components/Footer.astro";
 import BaseHead from "../components/Metadata/BaseHead.astro";
 
 import Navbar from "../components/Navbar/Navbar.vue";
-// import Navbar from "../components/Navbar.astro";
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname;
 
 interface Props {
+  prevNav?: string;
   title: string;
   description: string;
-  prevNav?: string;
 }
 
 const { title, description, prevNav } = Astro.props;
@@ -26,7 +25,9 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <Navbar current={currentPath} client:load />
+    <!-- Empty div just to pad the top -->
+    <div class="mt-32"></div>
+    <Navbar prev={prevNav} current={currentPath} client:load />
     <!-- Other layouts should have inserted their main element -->
     <slot />
     <!-- end main element -->

@@ -15,6 +15,6 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 ---
 
-<ArticleLayout {...article.data}>
+<ArticleLayout prevNav="/comp-experience/game" {...article.data}>
   <Content />
 </ArticleLayout>

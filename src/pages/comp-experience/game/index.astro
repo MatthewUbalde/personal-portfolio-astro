@@ -12,7 +12,6 @@ const experiences = await getCollection("experiences");
 const projects = await getCollection("gameArticles");
 
 const gameExp = experiences.find((e) => e.id === "game")?.data;
-const gameProjects = projects.map((p) => p.data);
 ---
 
 <Layout
@@ -44,18 +43,19 @@ const gameProjects = projects.map((p) => p.data);
     </Section>
     <ProjectContainer>
       {
-        projects.map((p) => (
-          <ProjectShowcase
-            title={p.data.title}
-            description={p.data.description}
-            coverImage={p.data.coverImage}
-            coverImageAlt={p.data.coverImageAlt}
-            href={`game/${p.id}`}
-            itchioLink={p.data.itchio}
-            steamLink={p.data.steam}
-            githubLink={p.data.github}
-          />
-        ))
+        projects &&
+          projects.map((p) => (
+            <ProjectShowcase
+              title={p.data.title}
+              description={p.data.description}
+              coverImage={p.data.coverImage}
+              coverImageAlt={p.data.coverImageAlt}
+              href={`game/${p.id}`}
+              itchioLink={p.data.itchio}
+              steamLink={p.data.steam}
+              githubLink={p.data.github}
+            />
+          ))
       }
     </ProjectContainer>
   </div>
