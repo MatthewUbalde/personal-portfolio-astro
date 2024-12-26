@@ -27,7 +27,16 @@ const { title, description, prevNav } = Astro.props;
   <body>
     <!-- Empty div just to pad the top -->
     <div class="mt-24 sm:mt-36"></div>
-    <Navbar prev={prevNav} current={currentPath} client:load />
+    <Navbar prev={prevNav} current={currentPath} client:only="vue">
+      <div
+        slot="fallback"
+        class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md"
+      >
+        <div class="flex-grow bg-cyan-950 p-3 sm:p-2 rounded-md text-start">
+          Loading...
+        </div>
+      </div>
+    </Navbar>
     <!-- Other layouts should have inserted their main element -->
     <slot />
     <!-- end main element -->
