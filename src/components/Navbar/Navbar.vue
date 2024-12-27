@@ -22,17 +22,18 @@ const toggleHide = () => {
 
 const filterNav = () => {
   const tokens = props.current.split("/");
-  if (tokens.length > 3) return SITE_NAVIGATION;
+  console.log(tokens);
 
   const lastNavToken = tokens.at(-1);
   if (!lastNavToken) return SITE_NAVIGATION;
 
   // If there is current nav, then we check for it!
   // We're only checking on the first level's children
-  const currentNav = `/${lastNavToken}`;
+  const currentNav = `/personal-portfolio-astro/${lastNavToken}`;
   const navArray = SITE_NAVIGATION.filter(
     (nav) => nav.children || nav.href !== currentNav
   );
+  console.log(navArray);
 
   navArray.forEach((nav) => {
     if (nav.children)

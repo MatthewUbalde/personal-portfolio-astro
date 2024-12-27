@@ -6,7 +6,7 @@ import Section from "../../components/Section.astro";
 import { SITE_NAVIGATION } from "../../const";
 
 const currentNav = SITE_NAVIGATION.find(
-  (nav) => nav.href === "/comp-experience"
+  (nav) => nav.href === "/personal-portfolio-astro/comp-experience/"
 );
 ---
 
@@ -36,7 +36,7 @@ const currentNav = SITE_NAVIGATION.find(
         currentNav?.children &&
           currentNav?.children.map((nav) => (
             <a
-              href={`/comp-experience${nav.href}`}
+              href={`${currentNav.href}${nav.href}`}
               class="bg-cyan-950 rounded-md p-2 text-center content-center"
             >
               {nav.label}

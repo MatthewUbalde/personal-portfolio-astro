@@ -30,11 +30,11 @@ import type { NavLinkType } from "./types";
 
 export const SITE_NAVIGATION: Array<NavLinkType> = [
   {
-    href: "/",
+    href: "/personal-portfolio-astro",
     label: "Home",
   },
   {
-    href: "/comp-experience",
+    href: "/personal-portfolio-astro/comp-experience",
     label: "Programming Experience",
     children: [
       {
@@ -57,7 +57,7 @@ export const SITE_NAVIGATION: Array<NavLinkType> = [
   },
   // This is for if I were to pursue this path
   {
-    href: "/art-experience",
+    href: "/personal-portfolio-astro/art-experience",
     label: "Art Experience",
     // children: [
     //   {

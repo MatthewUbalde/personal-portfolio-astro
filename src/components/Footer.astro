@@ -28,7 +28,7 @@ socialMediaData.forEach((s) => {
             {nav.children && (
               <div class="flex flex-row gap-2 text-cyan-100">
                 {nav.children.map((cnav) => (
-                  <a href={cnav.href} class="text-sm">
+                  <a href={`${nav.href}${cnav.href}`} class="text-sm">
                     {cnav.label}
                   </a>
                 ))}

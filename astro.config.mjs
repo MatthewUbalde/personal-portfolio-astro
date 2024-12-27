@@ -12,7 +12,7 @@ import playformCompress from "@playform/compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthewubalde.github.io",
-  base: "master",
+  base: "personal-portfolio-astro",
   integrations: [
     tailwind({
       applyBaseStyles: true,
