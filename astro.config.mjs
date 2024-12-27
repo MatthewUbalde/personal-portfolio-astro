@@ -12,8 +12,15 @@ import playformCompress from "@playform/compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthewubalde.github.io",
-  base: "",
-  integrations: [tailwind({
-    applyBaseStyles: true,
-  }), twJoin(), twMerge(), vue(), mdx(), playformCompress()],
+  base: "master",
+  integrations: [
+    tailwind({
+      applyBaseStyles: true,
+    }),
+    twJoin(),
+    twMerge(),
+    vue(),
+    mdx(),
+    playformCompress(),
+  ],
 });
