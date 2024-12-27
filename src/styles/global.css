@@ -34,7 +34,7 @@ p {
 
 .li,
 li {
-  @apply list-disc ml-8;
+  @apply list-disc ml-6;
 }
 
 /* This is for articles */
