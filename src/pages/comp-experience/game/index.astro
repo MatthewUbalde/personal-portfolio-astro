@@ -11,9 +11,14 @@ import ProjectShowcase from "../../../components/ProjectShowcase.astro";
 const experiences = await getCollection("experiences");
 const projects = await getCollection("gameArticles");
 
-const gameExp = experiences
-  .find((e) => e.id === "game")
-  ?.data.sort((a, b) => a.title.localeCompare(b.title));
+const gameExp = experiences.find((e) => e.id === "game")?.data;
+const gameProject = projects.sort(
+  (a, b) =>
+    b.data.dateProjectPublished?.valueOf() -
+    a.data.dateProjectPublished?.valueOf()
+);
+
+console.log(gameProject[0].data.dateProjectPublished);
 ---
 
 <Layout
@@ -44,8 +49,8 @@ const gameExp = experiences
   </Section>
   <ProjectContainer>
     {
-      projects &&
-        projects.map((p) => (
+      gameProject &&
+        gameProject.map((p) => (
           <ProjectShowcase
             title={p.data.title}
             description={p.data.description}

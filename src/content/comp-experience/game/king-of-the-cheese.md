@@ -1,127 +1,124 @@
 ---
 title: King of the Cheese
 description: King of the Hat fan-game where you play as Dark Birthday and eat cheese in his dreams
-coverImage: ../../../assets/cover/king-of-cheese-01.png
+coverImage: ./king-of-cheese/cover.png
 coverImageAlt: Dark Birthday eating cheese in his dreams
+summaryPoints:
+  [
+    "A fan-game for King of the Hat. Started as a meme within the community",
+    "Created in Godot - all of it is created by me",
+    "Find ways to keep it entertaining for a very simple game",
+    "Found ways to engage with the fan community",
+  ]
+dateProjectPublished: Mar 29, 2023
+dateUpdated: Dec 26, 2024
 itchio: https://penrabbit.itch.io/king-of-the-cheese
 github: https://github.com/MatthewUbalde/King-of-the-Cheese
 ---
 
-King of the Hat fan-game where you play as Dark Birthday and eat cheese in his dreams! There's no win condition, and simply a fun game where you eat cheese!
+# A Fan-game for King of the Hat
 
-The engine is made in Godot. And all of the design, art, sounds, and music are made by me.
+A fan-game created for _King of the Hat_ (owned by Hat Games) where you play as Dark Birthday and eat cheese in his dreams!
 
-King of the Hat is rightfully owned by Hat Games
+There's no win condition as you can only eat cheese in this game!
 
-# How it was created
+It's made in Godot, and I make all the design, art, sounds, and music.
 
-It was inspired from a small joke within the community to make Dark
-Birthday canonically eats cheese.
-
-Since I liked the idea so much, I thought it would be cute to make a game out of it!
+It was inspired by a small joke within the community to make Dark Birthday canonically eat cheese. I liked the idea so much that I thought it would be cute to make a game out of it!
 
 INSERT YOUTUBE CLIP
 
-# Problems
+# How it was created?
 
-While the game's core gameplay is complete, there are a few things I've noticed
+By using the Godot engine, I was able to create a simple prototype and created the game within a couple of weeks. The game was incredibly simple, but everyone in the community seemed to love it!
 
-- It's not very satisfying.
-- There's no sense of direction.
-- Lacking in charm and character.
-- Not worth playing it in longer duration.
+INSERT OLD PICTURE
 
-To make the game more fun, I tried solving them by adding better feedback, animations, and polish, with some easter eggs and quality-of-life changes.
+Each day there's a hard limit on how much cheese is present. It'll increment by one each day as we beg the developers to make Dark Birthday canonically eat cheese.
 
-# Feedback and Graphics
+While the prototype is complete, there are things that I want to do if I were to improve it.
 
-In general, I polish the animations, added running particles, and among other things.
+## Make playing the game more satisfying
 
-   <!-- <ComparisonContainer>
-     <Fragment slot="before"> </Fragment>
-     <Fragment slot="after"> </Fragment>
-   </ComparisonContainer> -->
+One of the fun aspects of this game is **eating the cheese**! I wondered how it would be even more fun if we were able to eat thousands of cheese!
 
-Whenever you press Z/X/Spacebar near cheese, you eat them instantly!
+### Optimization
 
-Running through thousands of them would be more satisfying if there was more feedback with better sounds and visuals.
+And so, optimization then became a bit part of the development. While I could have done more, this is what I've done.
 
-   <!-- <ComparisonContainer>
-     <Fragment slot="before"> </Fragment>
-     <Fragment slot="after"> </Fragment>
-   </ComparisonContainer> -->
+- Remove unnecessary and simplify code
+- Simplify the Cheese entity to its bare minimum - reducing associated objects
+- Utilize VisibilityNotifier2D whenever it's not active
+- And importantly fix the audio bottleneck
 
-And then, I thought about having hundreds and thousands of cheese and eating them would be really fun! But for that to happen, I needed to the cheeses themselves
+Apparently, one of the things that ruined the performance was the amount of audio objects created. Whenever we create a Cheese, it has an audio object attached to it so that we can hear its footsteps and other noises.
 
-# Optimizations
+But if the goal is creating thousands of cheese, then we're also creating thousands of audio objects that are performant-heavy.
 
-One of the most notable optimization is the audio.
+SHOW OLD PICTURE OF PERFORMANCE
 
-In Godot, there's a separate audio thread which became a bottleneck when there's thousands of cheeses in the scene. This is because creating thousands of them also creates the audio object
+So instead of creating the audio object for every time the Cheese is created, why not create the audio object when we're near it. We couldn't hear their footsteps far away, so this was the best time to do it.
 
-Since the audio can only be heard when the player is near by, I thought it would be better to only create the audio object and attaching it to the cheese when it's only needed. Freeing up the audio thread which in turn more performance.
+Fixing this bottleneck and other performance issues, allows us to create 1000 cheeses to 10 000 cheeses with minimal lag (NOTE: THIS IS IMAGINARY).
 
-   <!-- <ComparisonContainer>
-     <Fragment slot="before"> </Fragment>
-     <Fragment slot="after"> </Fragment>
-   </ComparisonContainer> -->
+SHOW DIFFERENCE
 
-Among other optimizations such as using the VisibleNotifier2D and reducing unneeded code, it's possible to have more cheeses all in the screen! More
-so 10 000 cheeses compare to the 1 000 that would cause some lag.
+There could be more performance by utilizing an object server in exchange for memory, but I was satisfied with what I had.
 
-   <!-- <ComparisonContainer>
-     <Fragment slot="before"> </Fragment>
-     <Fragment slot="after"> </Fragment>
-   </ComparisonContainer> -->
+### Graphic and Audio Improvements
 
-# Easter Eggs
+Alongside the optimization, I improved the graphics and made it more alive. Animations were improved and there were little things that made it more alive, like this little idle animation.
 
-To help engage the player a bit, I added easter eggs! Some were from the community and some friends. Just small additions for the player to explore and such.
+INSERT IDLE ANIMATION
 
-There's a few instances of easter eggs appearing randomly like Dark Birthday becoming Birthday, or the Hint Provider!
+Or improving the running animation.
 
-## Hint Provider
+INSERT RUNNING ANIMATION
 
-INSERT IMG
+Back then, eating cheese would be something like this, but by adding some particle effects, and increasing the pitch of every bite, we're able to make this core gameplay even more satisfying.
 
-The Hint Provider not only helps the player to remind and inform the
-controls and other quality-of-life features, but also have random and
-funny hints.
+INSERT NEW EATING
 
-While small, it does help provide rettention while playing as it gives the
-player something rewarding while playing a bit further.
+The difference between the new and the old is clear as night and day!
 
-## Secret Ending
+INSERT OLD EATING
 
-INSERT IMG
+## Add in charm and more ways to engage the player
 
-The Secret Ending activated with the 24 (the day they canonically made
-Dark Birthday love cheese) cheese maximum, and has "No Limits" enabled.
-Just something for the player can go for if they have nothing else to do.
+However, one of the weaknesses that this game has is how repetitive the core gameplay is. I can't find ways to make it less boring in the long run without spending a costly amount of time changing the core gameplay.
 
-INSERT IMG
+And so I thought about adding fun easter eggs, and in turn, I was able to do something that's really fun for the community.
 
-Due to the violently shaking camera, and gradual zooming, it's became a
-challenge for the player to find the cheeses to continue and complete the
-ending.
+Make them part of the game!
 
-INSERT VID
+There are easter eggs that can be found throughout the game. It can be found by playing around, or through the Hint System.
 
-And if the player accidentally found this out and doesn't want to, they
-can just wait for a bit and will quickly revert back to the original
-state.
+### Hint System
+
+The Hint System was meant to solve the problem of players not knowing what to do and what features it has. However, I thought it would be fun to have jokes in it, and then an idea came about of having members of the community be a part of it.
+
+And so I asked every member of the community, and even outside of it (just for fun), for what they wanted to say in the game.
+
+I asked about 25 people, and even included the game developers themselves!
+
+This external system doesn't directly solve the repetitive nature of the game, but it does help add charm to the game by adding to those who are a part of the _King of the Hat_ community.
+
+### Other Easter Eggs
+
+There were other easter eggs too!
+
+If you launch the game, there's a chance that you'll become Birthday instead of Dark Birthday.
+
+There were some visual and audio jokes throughout the area if you zoom out or interact with one of them.
+
+And there's even a "Secret Ending" to the game if you know what it is! It's nothing special, but adds more to the experience.
 
 # Conclusion
 
-All of these things adds up together in this small and short experience.
-None of them detach from the core experience, and it's there for the
-player to discover and enjoy!
+In addition to the optimization and changes to make the eating cheese action more addictive, the small additions like the easter eggs add up to this little fun experience of the game. It's really meant to be a small appreciation not only to the community but also to the developers as well!
 
-While I could add more things to the project, I have to stop and consider
-if it's worth working even further.
+(They worked really hard on the game, and this is my thank you to them!)
 
-Since the last update, only a few people ever played on it, but got the
-developers thrilled when they saw this.
+Seeing everyone happy with what I've created made it all worth it. The developers were thrilled when they saw it.
 
-In the end, it was worth it.
 INSERT IMG

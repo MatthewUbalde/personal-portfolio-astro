@@ -1,94 +1,176 @@
 ---
 title: Combo Spells
 description: Made with Java and JavaFX during high school. One of the first programming projects I've made.
-coverImage: ../../../assets/cover/combo-spell-01.png
+coverImage: ./combo-spells/cover.png
 coverImageAlt: Screenshot of the project "Combo Spells"
+dateProjectPublished: Jan 12, 2020
+dateUpdated: Dec 26, 2024
+summaryPoints:
+  [
+    "Originally a final school project, and created in Java and JFrame package",
+    "Simple in mechanics, but deep in strategies",
+    "One of the first "polished" games I've created",
+    "Struggled due to lack of skills and understanding of programming",
+  ]
 itchio: https://penrabbit.itch.io/combo-spells
 ---
 
-Play as a magician and use a combination of keys to construct bolders, lightning, and other elements to synergize and get the highest score possible!
+# Originally a School Project
 
-Originally a highschool Java final project, but was updated overtime.
+Play as a magician and use different combinations of keys to create and synergize with the spells's elements to get the highest score damage on the dummy!
 
-# School Project
+During high school was the first time I learned how to program, and Java was my first. I've been interested in game development, but I didn't know how.
 
-Java is actually my first programming language I learned back in high school, and I realized how fun and really easy it was.
+Combo Spells was my final assignment and originally looked like this.
 
-Combo Spells was meant to be small project, but I slowly refined because of how fun the concept it was to me.
+![Original picture of Combo Spells](./combo-spells/00.png)
 
-INSERT CLIP
+But I slowly refined it because of how fun the concept was.
 
-# Game Design
+This is what I've added:
 
-INSERT ORIGINAL DESIGN
+- 2 Modes: Score Attack and Training Mode
+- Menu GUI
+- Updated graphics
+- In-game Tutorial Manual
 
-Originally, I wanted to create a platform fighter, however, I don't know a lot of physics or know if it's even possible in my skill level. To simplify it, I made the game it is now: you hit the dummy with spells and get a high score!
+# How it was created?
 
-My inspiration for the game was Tekken, and King of the Hat. A game with mechanical depth, and keeping it simple.
+This was a final school assignment. It's created in Java with the JFrame package (provided by my high school teacher). It was this course where I found that I enjoyed programming and was thrilled to do it.
 
-## Controls
+It took me 3 weeks to finish and submit for the assignment, and came up with this.
 
-Motion Inputs is something I don't know how to create. And I don't want to clutter the controls with a dedicated button for each spell.
+![Original picture of Combo Spells](./combo-spells/02.png)
 
-I created a workaround by letting the user press a combination of keys in their own pace, and release the spell when they want to. It made the game simplier to play and to develop.
+For this one, I decided that I wanted to create a fighting game! But I didn't know how to implement physics or even know what a class was. So I lowered the scope and made it a Score Attack where you just hit the dummy repeatedly.
 
-INSERT SOMETHING
+The games I've used for inspiration were _Tekken_ for its complex key input, and _King of the Hat_ to keep it simplistic with deep mechanical depth.
 
-However... Looking back, I'm not happy with how the controls were. Requiring two hands for movement and doing the inputs.
+There's a saying that "Limitations breed Creativity", and a lot of the decision-making relies on my low skill level.
 
-INSERT CONTROL SCHEME
+For the past 3 weeks of working on this in school, and with additional updates afterward, this is what I wanted...
 
-It's unnecessarily complicated.
+## A Game that is Simple with Mechanical Depth
 
-## Spell Synergy with Statuses
+I wanted to have motion inputs and reward the player with powerful spells if they did a complex input. However, I didn't know how to make one (and I'm awful at motion inputs).
 
-To make the game more interesting, I decided to have spells inflict status effects and synergize with others for greater damage.
+INSERT ORIGINAL CONCEPT
 
-- Water increases the Lightning damage, but decreases Fireball damage.
-- Burn and Poison does damage overtime.
-- Burn also increases Overgrowth damage.
-- Stun increases the Fireball and Water Blast damage.
+So I let the player do it at their own pace, they can select a directional key, and then cast the spell whenever they want to.
 
-It creates a puzzle element for the player to solve to get a higher damage amount for those interested for a challenge.
+You could:
 
-# General Improvements
+- Cast numerous fireballs
+- Blast tons of bubbles
+- Spike enemies with vines
+- Cast a lightning strike
+- Or even chuck a giant bolder
 
-The graphics used in this game is hard-coded with the JFrame graphic package provided by my high-school teacher. Each character, projectiles, and some of the environment are made by hand.
+This allows for a variety of spells with only 4 arrow keys and a cast button. Allowing for simple casting and rewarded players if they're able to do it in quick succession. Simple with a high-skill ceiling.
 
-INSERT OF CHAR
-INSERT CODE FOR CHAR
+Although I wished the controls weren't so...
 
-And from the oldest version and to the latest, I say I did a pretty good job!
+Unintuitive.
 
-<!-- <ComparisonContainer>
-      <Fragment slot="before"></Fragment>
-      <Fragment slot="after"></Fragment>
-    </ComparisonContainer> -->
+INSERT KEYBIND
 
-The other parts, such as the grass...
+## A Game that is Deep in Strategy
 
-INSERT IMG
+After completing the game and submitting it, I realized how boring it was. So I decided to add status effects, synergizes, and damage multiplier to the game.
 
-And clouds as well!
+### Status Effects and Synergizes
 
-INSERT IMG
+This added additional depth to the game by having each spell interact with each other. Creating a puzzle element that the player can solve in order to get the largest damage possible to the poor dummy.
 
-# Struggles
+For example, the Lightning spell inflicts the Stun status effect.
 
-I didn't know how classes and objects were in programming. Or even how the ArrayList works in Java. Majority of the data and variables were laid out in one single GUI class.
+- Increasing Fireball and Water Blast damage!
 
-All of the graphics, logic, controls, are held into one file with the other two as main and keyboard listeners.
+And for the Water Blast spell, inflicts the Wet status effect.
 
-Due to the unnecessary complications, I made a debugger menu on the side if you press "I" and extend the window to the left.
+- Increasing Lightning damage, but decreasing Fireball damage.
+- Will remove the Burn status effect inflicted by the Fireball spell.
+
+There are positives and negatives to each interaction.
+
+### Damage Multiplier
+
+And the whole synergy system works with the Damage Multiplier system as well. Each spell has its own additive multiplier which will add up the multiplier while multiplying the damage inflicted. And it'll fade away if the player stops hitting the dummy.
+
+This encourages faster gameplay and ways to prolong and increase the multiplier.
+
+### Synergy and Status Effects
+
+Both of these systems work in hand to encourage strategic thinking and faster gameplay. This encourages the player to really explore each of the spells' strengths and weaknesses, and make this more of a puzzle for the highest possible damage.
+
+# The Making of the Game
+
+## Graphics
+
+The entire game's sprites, GUI, and animations are hard-coded with the JFrame. Each character, projectile, menu element, and environment are made by hand.
+
+It started off from this.
+
+![Original picture of Combo Spells](./combo-spells/01.png)
+
+To this...
+
+![Original picture of Combo Spells](./combo-spells/02.png)
+
+And after months of working on it, it became something like this.
+
+![Original picture of Combo Spells](./combo-spells/05.png)
+
+I added
+
+- A tree
+- Random Generative grass
+- Random clouds
+- More animation with character sprites
+- Shadows in some areas
+
+And in addition to the GUI, all of this is done by trial and error.
+
+The whole thing was needlessly complicated.
+
+## Struggles
+
+And the hard-coded nature of the project persisted in my lack of knowledge of how Classes and Objects work. The majority of the data and variables are like this.
+
+```java
+int bubbleAmount = 25;
+int bubbleSpreadRan = 10;
+int bubbleSpreadBase = 5;
+int bubbleSpeedRan = 35;
+int bubbleSpeedBase = 20;
+boolean[] bubbleSpawn = new boolean[this.bubbleAmount];
+int[] bubbleX = new int[this.bubbleAmount];
+int[] bubbleY = new int[this.bubbleAmount];
+int bubbleW = 0;
+int bubbleH = 0;
+int[] bubbleSpawnpoint = new int[2];
+double[] bubbleSpeed = new double[this.bubbleAmount];
+int[] bubbleGravity = new int[this.bubbleAmount];
+int[] bubbleGravityRand = new int[this.bubbleAmount];
+int[] bubbleSpeedMaxRand = new int[this.bubbleAmount];
+```
+
+And imagine like this with the other spells, grass generation, and so forth.
+
+Due to the unnecessary complications, I made a debugger menu on the side if you press "I" and extend the window to the left. You can see each individual variable and even the arrays for each object's property.
 
 INSERT DEBUG MENU
 
-You can see each individual variables, and even the arrays for each object's property.
+If I were to remake this, I would utilize objects and ArrayLists, but the great part about this is that it's highly performant! There isn't garbage allocation happening since the objects are created at compile-time. It has a similar effect to a server system found with heavy amounts of objects.
 
-While a mess, I tried my best to keep things neatly organized and comment out everything. (I lost the source code, so no examples of it)
+It's simply hidden away off-screen when unused and gets reassigned when it is needed.
+
+So while a mess, what matters more is that I managed to create something that is fun and was able to finish it.
 
 # Conclusion
 
-From a 3 week highschool project with 3 months worth of updates, I was able to create something that I'm proud of even to this day.
+Starting from a 3-week high school project, I ended up working on it for a month or two and I was able to create something that I'm still proud of to this day!
 
-I want to remake the project with better backend, better controls,graphics, and more friendlier game design. Turning this high-score game into the fighting game I envisioned when I was young.
+And looking back, I can definitely see how much I've learned and developed my skills as a programmer. It's refreshing to see that I was incredibly passionate, and regardless of my poor practices, I was able to make something really great.
+
+I'm planning to remake this project with a better framework (or engine), better and friendlier controls, and while maintaining the core simple by design by deep in its mechanics. To turn this high-score game into the fighting game I've envisioned since I was young.
