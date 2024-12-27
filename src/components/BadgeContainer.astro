@@ -1,14 +1,23 @@
 ---
-import type { ExperienceShowcase } from "../const";
+import type { ExperienceBadgeType } from "../types";
 import ExperienceBadge from "./ExperienceBadge.astro";
 
 interface Props {
-  src: Array<ExperienceShowcase>;
+  src: Array<ExperienceBadgeType>;
 }
 
 const { src } = Astro.props;
 ---
 
-<div class="flex flex-wrap justify-center items-stretch gap-4 lg:px-24">
-  {src.map((f) => <ExperienceBadge src={f} />)}
+<div class="flex flex-wrap justify-center gap-x-4 gap-y-6">
+  {
+    src.map((badge) => (
+      <ExperienceBadge
+        title={badge.title}
+        src={badge.src}
+        alt={badge.alt}
+        experience={badge.experience}
+      />
+    ))
+  }
 </div>

@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/PageLayout.astro";
+import Section from "../../../components/Section.astro";
+
+import BadgeContainer from "../../../components/BadgeContainer.astro";
+import { getCollection } from "astro:content";
+
+const experiences = await getCollection("experiences");
+const softwareExp = experiences.find((e) => e.id === "software")?.data;
+---
+
+<Layout
+  title="Software"
+  description="Matthew Ubalde software development portfolio. Have experience in C/C++, C#, and Java to create computer softwares."
+>
+  <div class="flex flex-col sm:flex-row items-center gap-8 m-8">
+    <Section noMargin textContent class="sm:w-2/3">
+      <h1>Experience Summary</h1>
+      <p>
+        Was taught in various languages and frameworks. Have solid foundations
+        on relatively low-level langauages on C/C++. Able to make desktop and
+        mobile applications with React Native.
+      </p>
+      <p>
+        Worked with MySQL and able to help design and maintain well-design
+        databases to suit the company's requirements.
+      </p>
+      <p>
+        Have used OpenGL to create and render 3d models using shaders, and
+        helped develop tools for manipulating the environment and created a
+        particle system.
+      </p>
+    </Section>
+    <Section noMargin textContent class="flex-grow">
+      <h1>Software Experiences</h1>
+      {softwareExp && <BadgeContainer src={softwareExp} />}
+    </Section>
+  </div>
+  <!-- <Section textContent>
+    <h1>Experiences in Fanshawe</h1>
+    <p>Throughout my CPA3 program, I've learned many things.</p>
+    <ListContainer>
+      <li>
+        Create tools and extend the 3D renderer made in OpenGL and C++ despite
+        the time and pressure for 2 months with a 4 month semester worth of
+        content.
+      </li>
+      <li>
+        Able to use problem-solving skills and logically debug application.
+      </li>
+      <li>
+        Able to create a mobile task-management application with easy-controls,
+        authentication, and potiential cloud support.
+      </li>
+      <li>
+        Able to create efficient databases by normalizing the objects we're
+        storing, and use indexes to optimize it further.
+      </li>
+      <li>Able to create queries in database for any needs.</li>
+    </ListContainer>
+  </Section> -->
+</Layout>

@@ -1,32 +1,95 @@
 ---
 import { Image } from "astro:assets";
-import type { ProjectShowcase } from "../const";
 
-interface Props {
-  src: ProjectShowcase;
-}
+import type { ProjectShowcaseType } from "../types";
+import Section from "./Section.astro";
+import ImageLink from "./ImageLink.astro";
 
-const { src } = Astro.props;
+type Props = ProjectShowcaseType;
+
+const {
+  title,
+  description,
+  coverImage,
+  coverImageAlt,
+  href,
+  dateProjectPublished,
+  itchioLink,
+  steamLink,
+  githubLink,
+} = Astro.props;
+
+import itchioImage from "../assets/icons/itch-io.svg";
+import steamImage from "../assets/icons/steam.svg";
+import githubImage from "../assets/icons/github-mark.svg";
+import FormattedDate from "./FormattedDate.astro";
 ---
 
-<a
-  class="relative group flex justify-center items-center w-2/4 h-72 rounded-lg bg-gray-800 hover:scale-105 active:scale-95 transition-transform overflow-hidden"
-  href={src.href}
->
-  <Image
-    class="absolute top-0 w-full h-full"
-    src={src.src}
-    alt={src.alt}
-    width={1600}
-    height={900}
-  />
+<div class="flex flex-col sm:flex-row gap-2 justify-center items-center">
+  <!-- Project about -->
   <div
-    class="p-4 rounded-lg z-10 bg-black bg-opacity-50
-            scale-0 group-hover:scale-100 group-active:scale-75 transition-transform"
+    class="flex flex-row-reverse sm:flex-row justify-center items-center gap-2"
   >
-    <h1 class="text-3xl">
-      {src.title}
-    </h1>
-    {src.description && <p class="text-2xl font-light">{src.description}</p>}
+    <Section
+      noMargin
+      noPadding
+      class="flex flex-col gap-2 p-2 sm:mt-4 min-w-16 sm:min-w-14"
+    >
+      {
+        itchioLink && (
+          <ImageLink
+            src={itchioImage}
+            alt=""
+            href={itchioLink}
+            width={64}
+            height={64}
+          />
+        )
+      }
+      {
+        steamLink && (
+          <ImageLink
+            src={steamImage}
+            alt=""
+            href={steamLink}
+            width={64}
+            height={64}
+          />
+        )
+      }
+      {
+        githubLink && (
+          <ImageLink
+            src={githubImage}
+            alt=""
+            href={githubLink}
+            width={64}
+            height={64}
+          />
+        )
+      }
+    </Section>
+    <Section noMargin textContent class="flex-grow content-center">
+      <h2>{title}</h2>
+      {
+        dateProjectPublished && (
+          <div class="text-sm">
+            Published: <FormattedDate date={dateProjectPublished} />
+          </div>
+        )
+      }
+      <p>{description}</p>
+      <a class="text-xl font-bold" href={href}>Read more...</a>
+    </Section>
   </div>
-</a>
+  <!-- Image display -->
+  <Section noMargin noPadding class="p-4">
+    <Image
+      class="rounded-md object-contain"
+      src={coverImage}
+      alt={coverImageAlt}
+      width={1280}
+      height={720}
+    />
+  </Section>
+</div>

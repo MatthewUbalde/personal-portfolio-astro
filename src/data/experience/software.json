@@ -1,0 +1,44 @@
+[
+  {
+    "title": "C++",
+    "experience": "Intermediate",
+    "src": "/src/assets/icons/c++.svg",
+    "alt": "Purple logo of C++"
+  },
+  {
+    "title": "Java",
+    "experience": "Intermediate",
+    "src": "/src/assets/icons/java.svg",
+    "alt": "A cup of coffee logo of Java"
+  },
+  {
+    "title": "C#",
+    "experience": "Intermediate",
+    "src": "/src/assets/icons/c-sharp.svg",
+    "alt": "Blue logo of C#"
+  },
+  {
+    "title": "MySQL",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/mysql.svg",
+    "alt": "MySql Logo"
+  },
+  {
+    "title": "OpenGL",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/opengl.svg",
+    "alt": "OpenGL Logo"
+  },
+  {
+    "title": "Android Studio",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/android-studio.svg",
+    "alt": "Android Studio Logo"
+  },
+  {
+    "title": "React Native",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/react.svg",
+    "alt": "React Native Logo"
+  }
+]

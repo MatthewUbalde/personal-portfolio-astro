@@ -1,0 +1,111 @@
+---
+import Layout from "../../../layouts/PageLayout.astro";
+import Section from "../../../components/Section.astro";
+import BadgeContainer from "../../../components/BadgeContainer.astro";
+import { getCollection } from "astro:content";
+
+const experiences = await getCollection("experiences");
+const experiencesFrontend = experiences.find(
+  (e) => e.id === "web-frontend"
+)?.data;
+const experiencesBackend = experiences.find(
+  (e) => e.id === "web-backend"
+)?.data;
+---
+
+<Layout
+  title="Web"
+  description="Matthew Ubalde web development portfolio. Have ome experienced in React, React Native, and Vue. Used Gatsby, and now Astro, to develop websites."
+>
+  <Section textContent class="sm:mx-auto sm:w-2/3">
+    <h1>Experience Summary</h1>
+    <p>
+      Was taught how to do front-end and back-end in the CPA3 program at
+      Fanshawe college. Able to use AWS with EC2 to host websites that everyone
+      can have access to publicly.
+    </p>
+    <p>
+      Personally self-taught on other frameworks and using the skills I've
+      learned so far for other passion projects.
+    </p>
+  </Section>
+  <div class="flex flex-col sm:flex-row justify-between gap-8 m-8">
+    <Section noPadding noMargin class="sm:w-1/2 p-4">
+      <h1 class="text-center mb-2">Front-end</h1>
+      {experiencesFrontend && <BadgeContainer src={experiencesFrontend} />}
+    </Section>
+    <Section noPadding noMargin class="sm:w-1/2 p-4">
+      <h1 class="text-center mb-2">Back-end</h1>
+      {experiencesBackend && <BadgeContainer src={experiencesBackend} />}
+    </Section>
+  </div>
+  <Section textContent class="sm:mx-auto sm:w-2/3">
+    <h1>Experiences in Fanshawe</h1>
+    <p>
+      Was taught on the front-end with <b>Vue.js</b>, <b>React</b>, and <b
+        >Angular</b
+      >. And in the back-end, I was taught with <b>ASP.NET with C#</b> and <b
+        >Java Spring Beans</b
+      >.
+    </p>
+    <p>
+      I was able to create a full-stack application and was able to host it on
+      <b>AWS</b> with their <b>EC2</b> service.
+    </p>
+  </Section>
+  <Section textContent>
+    <h1 class="text-center">What's this Website's Framework?</h1>
+    <p>
+      This website made with <b>Astro</b>, <b>Vue.js</b>, and <b>Tailwind</b>.
+      Currently hosted in <b>Github</b>.
+    </p>
+    <p>
+      Originally, my portfolio was purely made in <b>React</b> and <b
+        >Tailwind</b
+      >. However, I wanted to try another framework that I haven't tried yet
+      that might be better for my own use case.
+    </p>
+    <p>
+      I've tried with Gatsby with React for content collections, but found a
+      simplier and better approach with Astro.
+    </p>
+  </Section>
+  <!-- <div class="flex flex-col sm:flex-row gap-8 m-8">
+    <Section noMargin textContent class="sm:w-1/2">
+      <h1 class="text-center">What's this Website's Framework</h1>
+      <p>
+        This website made with <b>Astro</b>, <b>Vue.js</b>, and <b>Tailwind</b>.
+        Currently hosted in <b>Github</b>.
+      </p>
+      <p>
+        Originally, my portfolio was purely made in <b>React</b> and <b
+          >Tailwind</b
+        >. However, I wanted to try another framework that I haven't tried yet
+        that might be better for my own use case.
+      </p>
+      <p>
+        I've tried with Gatsby with React for content collections, but found a
+        simplier and better approach with Astro.
+      </p>
+    </Section>
+    <Section noMargin textContent class="flex-grow my-auto">
+      <h2>Other websites?</h2>
+      <p>
+        I've made a couple of websites with Astro for personal projects and made
+        success with it. Which can be found here...
+      </p>
+      <div class="flex">
+        <div>
+          <h3>Lorem Ispum</h3>
+          Enim ex quis duis duis reprehenderit in minim in dolore veniam excepteur
+          esse.
+        </div>
+        <div>
+          <h3>Lorem Ispum</h3>
+          Enim ex quis duis duis reprehenderit in minim in dolore veniam excepteur
+          esse.
+        </div>
+      </div>
+    </Section>
+  </div> -->
+</Layout>

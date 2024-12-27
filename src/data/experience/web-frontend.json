@@ -1,0 +1,32 @@
+[
+  {
+    "title": "React",
+    "experience": "Intermediate",
+    "src": "/src/assets/icons/react.svg",
+    "alt": "React logo"
+  },
+  {
+    "title": "Vue",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/vue.svg",
+    "alt": "Vue Logo"
+  },
+  {
+    "title": "Angular",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/angular.svg",
+    "alt": "Angular Logo"
+  },
+  {
+    "title": "Astro",
+    "experience": "Intermediate",
+    "src": "/src/assets/icons/astro.svg",
+    "alt": "Astro Logo"
+  },
+  {
+    "title": "Tailwind",
+    "experience": "Intermediate",
+    "src": "/src/assets/icons/tailwind.svg",
+    "alt": "Tailwind Logo"
+  }
+]

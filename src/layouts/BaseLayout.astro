@@ -1,23 +1,16 @@
 ---
-import { Image } from "astro:assets";
+import Footer from "../components/Footer.astro";
 import BaseHead from "../components/Metadata/BaseHead.astro";
-import ImageLink from "../components/ImageLink.astro";
-import Section from "../components/Section.astro";
 
-import { SITE_NAVIGATION } from "../const";
-import socialMedia from "../data/socialMedia";
-import type { NavigationTab } from "../const";
-import NavLink from "../components/NavLink.astro";
-
-const { linkedin, github } = socialMedia;
+import Navbar from "../components/Navbar/Navbar.vue";
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname;
 
 interface Props {
+  prevNav?: string;
   title: string;
   description: string;
-  prevNav?: string;
 }
 
 const { title, description, prevNav } = Astro.props;
@@ -32,80 +25,21 @@ const { title, description, prevNav } = Astro.props;
     />
   </head>
   <body>
-    <main class="flex h-screen w-screen">
-      <aside class="group relative h-full min-w-96 z-40 overflow-hidden">
-        <div
-          class:list={[
-            "absolute flex flex-col justify-center items-start gap-4 h-full w-96 pl-2 bg-black",
-            "group-hover:-translate-x-96 group-hover:opacity-0 transition-all",
-          ]}
-        >
-          <slot name="sidebar" />
+    <!-- Empty div just to pad the top -->
+    <div class="mt-24 sm:mt-36"></div>
+    <Navbar prev={prevNav} current={currentPath} client:only="vue">
+      <div
+        slot="fallback"
+        class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md"
+      >
+        <div class="flex-grow bg-cyan-950 p-3 sm:p-2 rounded-md text-start">
+          Loading...
         </div>
-        <nav
-          class:list={[
-            "absolute h-full flex flex-col justify-center w-96 -z-10",
-            "opacity-0 group-hover:opacity-100 transition-opacity",
-          ]}
-        >
-          <NavLink
-            class="group/navtitle font-light"
-            href={currentPath !== "/" && "/"}
-          >
-            {
-              currentPath !== "/" ? (
-                <>
-                  <span class="inline group-hover/navtitle:hidden">
-                    Navigation
-                  </span>
-                  <span class="hidden group-hover/navtitle:inline">Home</span>
-                </>
-              ) : (
-                <span>Navigation</span>
-              )
-            }
-          </NavLink>
-          {
-            prevNav && (
-              <NavLink class="pl-2" href={prevNav}>
-                Go Back?
-              </NavLink>
-            )
-          }
-          {
-            SITE_NAVIGATION.map(
-              (nav) =>
-                nav.href !== currentPath && (
-                  <NavLink href={nav.href}>{nav.label}</NavLink>
-                )
-            )
-          }
-        </nav>
-      </aside>
-      <div class="relative h-full w-full z-10 overflow-hidden overflow-y-auto">
-        <slot />
-        <footer
-          class="flex justify-center items-center gap-8 h-fit p-8 bg-black"
-        >
-          <span class="text-xl">Matthew Ubalde</span>
-          <div class="flex gap-4">
-            <ImageLink
-              class="hover:scale-125 active:scale-95 transition-transform"
-              link={linkedin}
-              width={50}
-              height={50}
-              loading="lazy"
-            />
-            <ImageLink
-              class="hover:scale-125 active:scale-95 transition-transform"
-              link={github}
-              width={50}
-              height={50}
-              loading="lazy"
-            />
-          </div>
-        </footer>
       </div>
-    </main>
+    </Navbar>
+    <!-- Other layouts should have inserted their main element -->
+    <slot />
+    <!-- end main element -->
+    <Footer />
   </body>
 </html>

@@ -1,51 +1,75 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
-import Layout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/PageLayout.astro";
+import Section from "../components/Section.astro";
 
-import { SITE_NAVIGATION } from "../const";
+import portraitImage from "../assets/portfolio-portrait.png";
+import ProjectContainer from "../components/ProjectContainer.astro";
+import ProjectShowcase from "../components/ProjectShowcase.astro";
 
-const Images = {
-  web: "/software-dev-pic.jpg",
-  game: "/software-dev-pic.jpg",
-  art: "/software-dev-pic.jpg",
-};
+const articles = await getCollection("articles", (a) => a.data.featured);
 
-let currentImage = Images.web;
+articles.sort(
+  (a, b) =>
+    b.data.dateProjectPublished.valueOf() -
+    a.data.dateProjectPublished.valueOf()
+);
 ---
 
 <Layout
   title="Home"
   description="Matthew Ubalde portfolio. Ranging from Web and Game Development, and Creative Arts!"
 >
-  <Fragment slot="sidebar">
-    <h1>Matthew Ubalde</h1>
-    <p class="font-light">
-      Computer Programming and Analysis student at Fanshawe College
-    </p>
-    <p class="font-light">
-      Great range in logic and artistic skills. Interested in web and game
-      development.
-    </p>
-    <p class="font-light">Hover here to look through my portfolio.</p>
-  </Fragment>
-  <div class="relative w-full h-screen overflow-hidden">
+  <!-- Introduction -->
+  <div class="flex flex-row justify-between w-full">
+    <div class="flex flex-col justify-start gap-8 m-8">
+      <Section noMargin class="h-fit w-2/3">
+        <p class="text-sm">My name is...</p>
+        <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
+        <p class="font-light">
+          A Fanshawe College student studying in Computer Programming and
+          Analysis
+        </p>
+      </Section>
+      <Section noMargin class="w-1/2 text-lg">
+        Currently looking for an intern position in <b
+          ><a href="/comp-experience/software">Software</a></b
+        >, <b><a href="/comp-experience/web">Web</a></b>, or <b
+          ><a href="/comp-experience/game">Game</a></b
+        > Development.
+      </Section>
+    </div>
     <Image
-      src={currentImage}
-      width={1600}
-      height={600}
-      alt=""
-      class="absolute w-full h-full"
-      loading="eager"
-      quality="mid"
-    />
-    <Image
-      src="/portfolio-portrait.png"
+      src={portraitImage}
       width={400}
       height={600}
       loading="eager"
-      alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
-      class="absolute bottom-0 right-8 w-1/2 object-cover z-10"
+      alt="Matthew wearing a blue, orange-stripped, t-shirt and glasses."
+      class="object-cover"
     />
   </div>
+  <Section textContent class="w-fit mx-auto">
+    <h1>Featured Projects</h1>
+    <p>Personal works that I've made and proud to showcase!</p>
+  </Section>
+  <ProjectContainer>
+    {
+      articles &&
+        articles.map((p) => (
+          <ProjectShowcase
+            title={p.data.title}
+            description={p.data.description}
+            coverImage={p.data.coverImage}
+            coverImageAlt={p.data.coverImageAlt}
+            href={p.id}
+            dateProjectPublished={p.data.dateProjectPublished}
+            itchioLink={p.data.itchio}
+            steamLink={p.data.steam}
+            githubLink={p.data.github}
+          />
+        ))
+    }
+  </ProjectContainer>
 </Layout>

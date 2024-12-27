@@ -1,0 +1,32 @@
+[
+  {
+    "title": "ASP.NET C#",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/aspnet.svg",
+    "alt": "C# logo"
+  },
+  {
+    "title": "MySQL",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/mysql.svg",
+    "alt": "MySQL logo"
+  },
+  {
+    "title": "Firebase",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/firebase.svg",
+    "alt": "Firebase logo"
+  },
+  {
+    "title": "Java Spring Bean",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/springio.svg",
+    "alt": "Spring logo"
+  },
+  {
+    "title": "MongoDb",
+    "experience": "Beginner",
+    "src": "/src/assets/icons/mongodb.svg",
+    "alt": "MongoDb logo"
+  }
+]

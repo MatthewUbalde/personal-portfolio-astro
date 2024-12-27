@@ -3,35 +3,46 @@
 @tailwind components;
 
 body {
-  @apply bg-black text-white;
+  @apply bg-indigo-500 bg-gradient-to-b from-indigo-500 via-purple-400 to-indigo-500;
+  @apply text-indigo-50;
 }
 
 .h1,
 h1 {
-  @apply text-6xl font-normal;
+  @apply text-3xl font-medium;
 }
 
 .h2,
 h2 {
-  @apply text-4xl font-light;
+  @apply text-2xl font-medium;
 }
 
 .h3,
 h3 {
-  @apply text-4xl font-light;
+  @apply text-2xl font-light;
 }
 
 .h4,
 h4 {
-  @apply text-3xl font-light;
+  @apply text-xl font-light;
 }
 
 .p,
 p {
-  @apply text-3xl font-normal;
+  @apply text-base font-normal;
 }
 
 .li,
 li {
-  @apply my-2 text-3xl font-light;
+  @apply list-disc ml-6;
+}
+
+/* This is for articles */
+/* TODO: Better identifier for images in articlse */
+p > img {
+  @apply rounded-md w-full sm:w-3/4 sm:mx-auto;
+}
+
+.astro-code {
+  @apply p-2 rounded-md w-full sm:w-3/4 sm:mx-auto;
 }
