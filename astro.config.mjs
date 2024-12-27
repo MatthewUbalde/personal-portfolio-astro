@@ -7,11 +7,13 @@ import vue from "@astrojs/vue";
 
 import mdx from "@astrojs/mdx";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthewubalde.github.io",
   base: "",
   integrations: [tailwind({
     applyBaseStyles: true,
-  }), twJoin(), twMerge(), vue(), mdx()],
+  }), twJoin(), twMerge(), vue(), mdx(), playformCompress()],
 });
