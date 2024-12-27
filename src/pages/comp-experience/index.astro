@@ -1,12 +1,10 @@
 ---
-import { Image } from "astro:assets";
-
 import Layout from "../../layouts/PageLayout.astro";
 import Section from "../../components/Section.astro";
 import { SITE_NAVIGATION } from "../../const";
 
-const currentNav = SITE_NAVIGATION.find(
-  (nav) => nav.href === "/personal-portfolio-astro/comp-experience/"
+const currentNav = SITE_NAVIGATION.find((nav) =>
+  nav.href.includes("comp-experience")
 );
 ---
 

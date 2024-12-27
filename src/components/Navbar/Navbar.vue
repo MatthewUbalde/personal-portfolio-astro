@@ -21,10 +21,7 @@ const toggleHide = () => {
 };
 
 const filterNav = () => {
-  const tokens = props.current.split("/");
-  console.log(tokens);
-
-  const lastNavToken = tokens.at(-1);
+  const lastNavToken = props.current.split("/").at(-1);
   if (!lastNavToken) return SITE_NAVIGATION;
 
   // If there is current nav, then we check for it!
@@ -33,7 +30,6 @@ const filterNav = () => {
   const navArray = SITE_NAVIGATION.filter(
     (nav) => nav.children || nav.href !== currentNav
   );
-  console.log(navArray);
 
   navArray.forEach((nav) => {
     if (nav.children)
