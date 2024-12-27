@@ -12,27 +12,31 @@ import portraitImage from "../assets/portfolio-portrait.png";
   description="Matthew Ubalde portfolio. Ranging from Web and Game Development, and Creative Arts!"
 >
   <!-- Introduction -->
-  <div class="relative h-screen w-screen">
-    <Section
-      noPadding
-      class="absolute top-8 bottom-12 flex flex-col justify-start h-fit p-8 py-24 bg-cyan-950 bg-opacity-50 rounded-md w-1/2"
-    >
-      <p class="text-xs">My name is...</p>
-      <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
-      <p class="font-light">
-        Current looking for an intern position in web or game development
-      </p>
-      <p class="font-light">
-        Fanshawe College student studying in Computer Programming and Analysis
-      </p>
-    </Section>
+  <div class="flex flex-row justify-between w-full">
+    <div class="flex flex-col justify-start gap-8 m-8">
+      <Section noMargin class="h-fit w-2/3">
+        <p class="text-sm">My name is...</p>
+        <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
+        <p class="font-light">
+          A Fanshawe College student studying in Computer Programming and
+          Analysis
+        </p>
+      </Section>
+      <Section noMargin class="w-1/2 text-lg">
+        Currently looking for an intern position in <b
+          ><a href="/comp-experience/software">Software</a></b
+        >, <b><a href="/comp-experience/web">Web</a></b>, or <b
+          ><a href="/comp-experience/game">Game</a></b
+        > Development.
+      </Section>
+    </div>
     <Image
       src={portraitImage}
       width={400}
       height={600}
       loading="eager"
-      alt="A smiling Asian man wearing a blue, orange-stripped, t-shirt and glasses."
-      class="absolute bottom-0 right-8 object-cover -z-10"
+      alt="Matthew wearing a blue, orange-stripped, t-shirt and glasses."
+      class="object-cover"
     />
   </div>
 </Layout>
