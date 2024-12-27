@@ -4,12 +4,10 @@ description: King of the Hat fan-game where you play as Dark Birthday and eat ch
 coverImage: ./king-of-cheese/cover.png
 coverImageAlt: Dark Birthday eating cheese in his dreams
 summaryPoints:
-  [
-    "A fan-game for King of the Hat. Started as a meme within the community",
-    "Created in Godot - all of it is created by me",
-    "Find ways to keep it entertaining for a very simple game",
-    "Found ways to engage with the fan community",
-  ]
+  - A fan-game for King of the Hat. Started as a meme within the community
+  - Created in Godot - all of it is created by me
+  - Find ways to keep it entertaining for a very simple game
+  - Found ways to engage with the fan community
 dateProjectPublished: Mar 29, 2023
 dateUpdated: Dec 26, 2024
 itchio: https://penrabbit.itch.io/king-of-the-cheese
@@ -25,8 +23,6 @@ There's no win condition as you can only eat cheese in this game!
 It's made in Godot, and I make all the design, art, sounds, and music.
 
 It was inspired by a small joke within the community to make Dark Birthday canonically eat cheese. I liked the idea so much that I thought it would be cute to make a game out of it!
-
-INSERT YOUTUBE CLIP
 
 # How it was created?
 

@@ -3,15 +3,13 @@ title: Combo Spells
 description: Made with Java and JavaFX during high school. One of the first programming projects I've made.
 coverImage: ./combo-spells/cover.png
 coverImageAlt: Screenshot of the project "Combo Spells"
-dateProjectPublished: Jan 12, 2020
-dateUpdated: Dec 26, 2024
+dateProjectPublished: "Jan 12, 2020"
+dateUpdated: "Dec 26, 2024"
 summaryPoints:
-  [
-    "Originally a final school project, and created in Java and JFrame package",
-    "Simple in mechanics, but deep in strategies",
-    "One of the first "polished" games I've created",
-    "Struggled due to lack of skills and understanding of programming",
-  ]
+  - Originally a final school project, and created in Java and JFrame package
+  - Simple in mechanics, but deep in strategies
+  - One of the first "polished" games I've created
+  - Struggled due to lack of skills and understanding of programming
 itchio: https://penrabbit.itch.io/combo-spells
 ---
 
