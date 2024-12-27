@@ -13,6 +13,7 @@ const {
   coverImage,
   coverImageAlt,
   href,
+  dateProjectPublished,
   itchioLink,
   steamLink,
   githubLink,
@@ -21,6 +22,7 @@ const {
 import itchioImage from "../assets/icons/itch-io.svg";
 import steamImage from "../assets/icons/steam.svg";
 import githubImage from "../assets/icons/github-mark.svg";
+import FormattedDate from "./FormattedDate.astro";
 ---
 
 <div class="flex flex-col sm:flex-row gap-2 justify-center items-center">
@@ -69,9 +71,15 @@ import githubImage from "../assets/icons/github-mark.svg";
     </Section>
     <Section noMargin textContent class="flex-grow content-center">
       <h2>{title}</h2>
+      {
+        dateProjectPublished && (
+          <div class="text-sm">
+            Published: <FormattedDate date={dateProjectPublished} />
+          </div>
+        )
+      }
       <p>{description}</p>
       <a class="text-xl font-bold" href={href}>Read more...</a>
-      <div class="flex justify-evenly"></div>
     </Section>
   </div>
   <!-- Image display -->
