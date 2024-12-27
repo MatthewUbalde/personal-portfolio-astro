@@ -1,10 +1,21 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
 import Layout from "../layouts/PageLayout.astro";
 import Section from "../components/Section.astro";
 
 import portraitImage from "../assets/portfolio-portrait.png";
+import ProjectContainer from "../components/ProjectContainer.astro";
+import ProjectShowcase from "../components/ProjectShowcase.astro";
+
+const articles = await getCollection("articles", (a) => a.data.featured);
+
+articles.sort(
+  (a, b) =>
+    b.data.dateProjectPublished.valueOf() -
+    a.data.dateProjectPublished.valueOf()
+);
 ---
 
 <Layout
@@ -39,4 +50,26 @@ import portraitImage from "../assets/portfolio-portrait.png";
       class="object-cover"
     />
   </div>
+  <Section textContent class="w-fit mx-auto">
+    <h1>Featured Projects</h1>
+    <p>Personal works that I've made and proud to showcase!</p>
+  </Section>
+  <ProjectContainer>
+    {
+      articles &&
+        articles.map((p) => (
+          <ProjectShowcase
+            title={p.data.title}
+            description={p.data.description}
+            coverImage={p.data.coverImage}
+            coverImageAlt={p.data.coverImageAlt}
+            href={p.id}
+            dateProjectPublished={p.data.dateProjectPublished}
+            itchioLink={p.data.itchio}
+            steamLink={p.data.steam}
+            githubLink={p.data.github}
+          />
+        ))
+    }
+  </ProjectContainer>
 </Layout>

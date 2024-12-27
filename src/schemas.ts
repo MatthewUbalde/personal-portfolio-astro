@@ -35,6 +35,7 @@ const projectArticleSchema = ({ image }: SchemaContext) =>
     summaryPoints: z.string().array().nonempty(),
     dateProjectPublished: z.coerce.date(),
     dateUpdated: z.coerce.date().optional(),
+    featured: z.boolean(),
     itchio: externalLinkSchema,
     steam: externalLinkSchema,
     github: externalLinkSchema,

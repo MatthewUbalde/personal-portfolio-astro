@@ -18,6 +18,16 @@ const experiences = defineCollection({
   schema: z.array(experienceBadgeSchema),
 });
 
+// This is used to create links, but not the pages
+const articles = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: `./src/content/`,
+  }),
+  schema: ({ image }) => projectArticleSchema({ image }),
+});
+
+// The ones below are used to create the pages
 const computerProjectsRoot = "./src/content/comp-experience";
 
 const gameArticles = defineCollection({
@@ -42,6 +52,7 @@ const webArticles = defineCollection({
 });
 
 export const collections = {
+  articles,
   socialMedia,
   experiences,
   gameArticles,
