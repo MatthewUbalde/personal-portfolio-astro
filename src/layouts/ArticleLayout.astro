@@ -5,6 +5,11 @@ import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Section from "../components/Section.astro";
+import ImageLink from "../components/ImageLink.astro";
+
+import itchioImage from "../assets/icons/itch-io.svg";
+import steamImage from "../assets/icons/steam.svg";
+import githubImage from "../assets/icons/github-mark.svg";
 
 interface Props {
   prevNav: string;
@@ -15,6 +20,9 @@ interface Props {
   summaryPoints: string[];
   dateProjectPublished: Date;
   dateUpdated?: Date;
+  itchio?: string;
+  steam?: string;
+  github?: string;
 }
 
 const {
@@ -26,6 +34,9 @@ const {
   summaryPoints,
   dateProjectPublished,
   dateUpdated,
+  itchio,
+  steam,
+  github,
 } = Astro.props;
 ---
 
@@ -58,18 +69,59 @@ const {
 
         <p>{description}</p>
       </Section>
-      {
-        summaryPoints && (
-          <Section noMargin textContent class="sm:h-fit">
-            <h2>Summary Points</h2>
-            <ul class="text-start">
-              {summaryPoints.map((p) => (
-                <li>{p}</li>
-              ))}
-            </ul>
-          </Section>
-        )
-      }
+      <div class="flex flex-col justify-center items-center gap-8 sm:h-fit">
+        {
+          summaryPoints && (
+            <Section noMargin textContent>
+              <h2>Summary Points</h2>
+              <ul class="text-start">
+                {summaryPoints.map((p) => (
+                  <li>{p}</li>
+                ))}
+              </ul>
+            </Section>
+          )
+        }
+        <Section
+          noMargin
+          noPadding
+          class="flex sm:flex-row justify-center items-center gap-2 p-2 w-fit h-fit"
+        >
+          {
+            itchio && (
+              <ImageLink
+                src={itchioImage}
+                alt=""
+                href={itchio}
+                width={48}
+                height={48}
+              />
+            )
+          }
+          {
+            steam && (
+              <ImageLink
+                src={steamImage}
+                alt=""
+                href={steam}
+                width={48}
+                height={48}
+              />
+            )
+          }
+          {
+            github && (
+              <ImageLink
+                src={githubImage}
+                alt=""
+                href={github}
+                width={48}
+                height={48}
+              />
+            )
+          }
+        </Section>
+      </div>
     </div>
     <Section articleContent>
       <slot />
