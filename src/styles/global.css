@@ -4,7 +4,7 @@
 
 body {
   @apply bg-indigo-500 bg-gradient-to-b from-indigo-500 via-purple-400 to-indigo-500;
-  @apply text-indigo-50;
+  @apply text-cyan-50;
 }
 
 .h1,
