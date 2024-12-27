@@ -18,27 +18,25 @@ const experiences = defineCollection({
   schema: z.array(experienceBadgeSchema),
 });
 
-const projects = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/data/projects" }),
-  schema: z.array(projectShowcaseSchema),
-});
-
 const computerProjectsRoot = "./src/content/comp-experience";
 
 const gameArticles = defineCollection({
-  loader: glob({ pattern: "*.md", base: `${computerProjectsRoot}/game` }),
+  loader: glob({ pattern: "*.{md,mdx}", base: `${computerProjectsRoot}/game` }),
   schema: ({ image }) => projectArticleSchema({ image }),
   type: "content_layer",
 });
 
 const mobileArticles = defineCollection({
-  loader: glob({ pattern: "*.md", base: `${computerProjectsRoot}/mobile` }),
+  loader: glob({
+    pattern: "*.{md,mdx}",
+    base: `${computerProjectsRoot}/mobile`,
+  }),
   schema: ({ image }) => projectArticleSchema({ image }),
   type: "content_layer",
 });
 
 const webArticles = defineCollection({
-  loader: glob({ pattern: "*.md", base: `${computerProjectsRoot}/web` }),
+  loader: glob({ pattern: "*.{md,mdx}", base: `${computerProjectsRoot}/web` }),
   schema: ({ image }) => projectArticleSchema({ image }),
   type: "content_layer",
 });
@@ -46,7 +44,6 @@ const webArticles = defineCollection({
 export const collections = {
   socialMedia,
   experiences,
-  projects,
   gameArticles,
   mobileArticles,
   webArticles,
