@@ -5,7 +5,6 @@ import {
   imageLinkSchema,
   experienceBadgeSchema,
   projectArticleSchema,
-  projectShowcaseSchema,
 } from "./schemas";
 
 const socialMedia = defineCollection({

@@ -1,8 +1,10 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
-import BadgeContainer from "../../../components/BadgeContainer.astro";
-import { getCollection } from "astro:content";
+import BadgeDisplay from "../../../components/BadgeDisplay.astro";
+import SectionContainer from "../../../components/SectionContainer.astro";
 
 const experiences = await getCollection("experiences");
 const experiencesFrontend = experiences.find(
@@ -15,7 +17,7 @@ const experiencesBackend = experiences.find(
 
 <Layout
   title="Web"
-  description="Matthew Ubalde web development portfolio. Have ome experienced in React, React Native, and Vue. Used Gatsby, and now Astro, to develop websites."
+  description="Have experience in React, Vue, Angular, Gatsby, and now Astro, to develop websites."
 >
   <Section textContent class="sm:mx-auto sm:w-2/3">
     <h1>Experience Summary</h1>
@@ -29,16 +31,28 @@ const experiencesBackend = experiences.find(
       learned so far for other passion projects.
     </p>
   </Section>
-  <div class="flex flex-col sm:flex-row justify-between gap-8 m-8">
-    <Section noPadding noMargin class="sm:w-1/2 p-4">
-      <h1 class="text-center mb-2">Front-end</h1>
-      {experiencesFrontend && <BadgeContainer src={experiencesFrontend} />}
-    </Section>
-    <Section noPadding noMargin class="sm:w-1/2 p-4">
-      <h1 class="text-center mb-2">Back-end</h1>
-      {experiencesBackend && <BadgeContainer src={experiencesBackend} />}
-    </Section>
-  </div>
+  <SectionContainer row class="justify-between">
+    {
+      experiencesFrontend && (
+        <BadgeDisplay
+          noMargin
+          class="sm:w-1/2"
+          title="Front-end"
+          src={experiencesFrontend}
+        />
+      )
+    }
+    {
+      experiencesBackend && (
+        <BadgeDisplay
+          noMargin
+          class="sm:w-1/2 "
+          title="Back-end"
+          src={experiencesBackend}
+        />
+      )
+    }
+  </SectionContainer>
   <Section textContent class="sm:mx-auto sm:w-2/3">
     <h1>Experiences in Fanshawe</h1>
     <p>

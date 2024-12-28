@@ -5,11 +5,11 @@ import type { ImageLinkType } from "../types";
 
 import { Image } from "astro:assets";
 
-type Props = ImageLinkType & {
-  class?: string;
-  width?: number;
-  height?: number;
-};
+type Props = HTMLAttributes<"a"> &
+  ImageLinkType & {
+    width?: number;
+    height?: number;
+  };
 
 const {
   src,
@@ -22,6 +22,6 @@ const {
 } = Astro.props;
 ---
 
-<a href={href} target="_blank" rel="noreferrer" {...props}>
-  <Image src={src} width={width} height={height} alt={alt} />
+<a class={className} href={href} target="_blank" rel="noreferrer" {...props}>
+  <Image src={src} width={width} height={height} alt={alt ?? ""} />
 </a>

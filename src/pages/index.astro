@@ -8,6 +8,7 @@ import Section from "../components/Section.astro";
 import portraitImage from "../assets/portfolio-portrait.png";
 import ProjectContainer from "../components/ProjectContainer.astro";
 import ProjectShowcase from "../components/ProjectShowcase.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 
 const articles = await getCollection("articles", (a) => a.data.featured);
 
@@ -20,40 +21,44 @@ articles.sort(
 
 <Layout
   title="Home"
-  description="Matthew Ubalde portfolio. Ranging from Web and Game Development, and Creative Arts!"
+  description="Ranging from Web and Game Development, and Creative Arts!"
 >
   <!-- Introduction -->
-  <div class="flex flex-row justify-between w-full">
-    <div class="flex flex-col justify-start gap-8 m-8">
-      <Section noMargin class="h-fit w-2/3">
-        <p class="text-sm">My name is...</p>
-        <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
-        <p class="font-light">
-          A Fanshawe College student studying in Computer Programming and
-          Analysis
-        </p>
-      </Section>
-      <Section noMargin class="w-1/2 text-lg">
-        Currently looking for an intern position in <b
-          ><a href="/comp-experience/software">Software</a></b
-        >, <b><a href="/comp-experience/web">Web</a></b>, or <b
-          ><a href="/comp-experience/game">Game</a></b
-        > Development.
-      </Section>
-    </div>
+  <SectionContainer
+    noMedia
+    col
+    class="relative justify-start min-h-screen overflow-hidden"
+  >
+    <Section noMargin class="h-fit sm:w-2/3">
+      <p class="text-sm">My name is...</p>
+      <h1 class="text-5xl mb-2">Matthew Ubalde</h1>
+      <p class="font-light">
+        A Fanshawe College student studying in Computer Programming and Analysis
+      </p>
+    </Section>
+    <Section noMargin class="w-1/2 text-lg">
+      Currently looking for an intern position in <b
+        ><a href="/comp-experience/software">Software</a></b
+      >, <b><a href="/comp-experience/web">Web</a></b>, or <b
+        ><a href="/comp-experience/game">Game</a></b
+      > Development.
+    </Section>
+    <Section noMargin textContent class="w-1/2">
+      <h1>Featured Projects</h1>
+      <p>
+        Down below are my personal projects that I've made and proud to
+        showcase!
+      </p>
+    </Section>
     <Image
+      class="absolute right-0 bottom-0 object-cover w-1/2 md:w-fit -z-10"
       src={portraitImage}
       width={400}
       height={600}
       loading="eager"
       alt="Matthew wearing a blue, orange-stripped, t-shirt and glasses."
-      class="object-cover"
     />
-  </div>
-  <Section textContent class="w-fit mx-auto">
-    <h1>Featured Projects</h1>
-    <p>Personal works that I've made and proud to showcase!</p>
-  </Section>
+  </SectionContainer>
   <ProjectContainer>
     {
       articles &&

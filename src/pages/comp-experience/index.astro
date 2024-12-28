@@ -1,18 +1,17 @@
 ---
+import { SITE_NAVIGATION } from "../../const";
+
 import Layout from "../../layouts/PageLayout.astro";
 import Section from "../../components/Section.astro";
-import { SITE_NAVIGATION } from "../../const";
+import SectionContainer from "../../components/SectionContainer.astro";
 
 const currentNav = SITE_NAVIGATION.find((nav) =>
   nav.href.includes("comp-experience")
 );
 ---
 
-<Layout
-  title="Home"
-  description="Matthew Ubalde portfolio. Ranging from Web and Game Development."
->
-  <div class="flex flex-col sm:flex-row gap-4 m-8">
+<Layout title="Home" description="Ranging from Web and Game Development.">
+  <SectionContainer>
     <Section noMargin textContent class="flex-grow">
       <h1>Experience Summary</h1>
       <p>
@@ -42,7 +41,7 @@ const currentNav = SITE_NAVIGATION.find((nav) =>
           ))
       }
     </Section>
-  </div>
+  </SectionContainer>
   <Section textContent class="sm:w-3/4 sm:mx-auto">
     <h1>Fanshawe College 2019-2024</h1>
     <p>

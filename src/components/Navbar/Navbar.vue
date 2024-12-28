@@ -39,7 +39,19 @@ const filterNav = () => {
   return navArray;
 };
 
+const filterQuickNav = () => {
+  const lastNavToken = props.current.split("/").at(-1);
+  if (!lastNavToken) return SITE_NAVIGATION;
+
+  const navArray = SITE_NAVIGATION.filter(
+    (nav) => !nav.href.includes(lastNavToken)
+  );
+
+  return navArray;
+};
+
 const currentNav = filterNav();
+const quickNav = filterQuickNav();
 </script>
 
 <template>
@@ -47,11 +59,11 @@ const currentNav = filterNav();
     :class="{
       'inset-1 sm:inset-4': !hide,
     }"
-    class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md transition-all"
+    class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md transition-all overflow-hidden"
   >
     <div class="flex flex-col gap-1 sm:gap-2">
       <!-- Top bar -->
-      <div class="flex flex-row gap-1 sm:gap-2 text-xl sm:text-base">
+      <div class="flex flex-row gap-1 sm:gap-2">
         <!-- Back Button -->
         <a
           v-if="props.prev"
@@ -62,7 +74,7 @@ const currentNav = filterNav();
         <!-- "Search bar" -->
         <button
           @click="toggleHide"
-          class="flex-grow bg-cyan-950 p-3 sm:p-2 rounded-md text-start"
+          class="flex-grow bg-cyan-950 p-3 sm:p-2 rounded-md text-start break-all"
         >
           {{ props.current }}
         </button>
@@ -70,18 +82,23 @@ const currentNav = filterNav();
       <!-- Quick Navigation Links -->
       <div
         :class="{ '!hidden': !hide }"
-        class="hidden sm:flex flex-col sm:flex-row sm:gap-2 sm:items-end text-xl sm:text-base"
+        class="hidden sm:flex flex-row sm:gap-2 sm:items-center rounded-md border-4 border-cyan-950 overflow-hidden"
       >
-        <span class="text-cyan-600">Quick Navigation</span>
+        <span class="bg-cyan-950 p-1">Quick Navigation</span>
         <div class="flex flex-col sm:flex-row sm:gap-2 px-1 sm:p-0">
-          <a v-for="nav in currentNav" :href="nav.href">{{ nav.label }}</a>
+          <a
+            class="px-2 bg-cyan-950 rounded-md"
+            v-for="nav in quickNav"
+            :href="nav.href"
+            >{{ nav.label }}</a
+          >
         </div>
       </div>
     </div>
     <!-- The navigation links -->
-    <div :class="{ hidden: hide }" class="w-full h-full">
-      <div class="mx-auto w-fit p-1 sm:p-2">Where to?</div>
-      <div class="flex flex-col gap-1 overflow-scroll">
+    <div :class="{ hidden: hide }" class="w-full h-full overflow-scroll">
+      <div class="mx-auto w-fit p-1 sm:p-2 text-sm sm:text-base">Where to?</div>
+      <div class="flex flex-col gap-1">
         <NavbarTab v-for="nav in currentNav" :nav="nav" />
       </div>
     </div>
