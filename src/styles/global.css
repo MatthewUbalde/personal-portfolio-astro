@@ -41,7 +41,7 @@ li {
 /* This is for articles */
 /* TODO: Better identifier for images in articlse */
 p > img {
-  @apply rounded-md w-full sm:w-3/4 sm:mx-auto;
+  @apply rounded-md w-full sm:w-3/4 sm:mx-auto max-h-96 object-contain;
 }
 
 .astro-code {
