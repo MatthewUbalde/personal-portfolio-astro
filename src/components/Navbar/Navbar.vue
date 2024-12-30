@@ -22,7 +22,8 @@ const toggleHide = () => {
 
 const filterNav = () => {
   const lastNavToken = props.current.split("/").at(-1);
-  if (!lastNavToken) return SITE_NAVIGATION;
+  if (lastNavToken === undefined || lastNavToken.length === 0)
+    return SITE_NAVIGATION;
 
   // If there is current nav, then we check for it!
   // We're only checking on the first level's children
@@ -41,7 +42,10 @@ const filterNav = () => {
 
 const filterQuickNav = () => {
   const lastNavToken = props.current.split("/").at(-1);
-  if (!lastNavToken) return SITE_NAVIGATION;
+  if (lastNavToken === undefined || lastNavToken.length === 0)
+    return SITE_NAVIGATION;
+
+  if (lastNavToken === "personal-portfolio-astro") return SITE_NAVIGATION;
 
   const navArray = SITE_NAVIGATION.filter(
     (nav) => !nav.href.includes(lastNavToken)
