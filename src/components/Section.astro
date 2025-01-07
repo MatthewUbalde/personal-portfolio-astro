@@ -1,14 +1,10 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import type { MalleableComponentType, ContentComponentType } from "../types";
 
-// type Props = HTMLAttributes<"section">;
-interface Props extends HTMLAttributes<"section"> {
-  noPadding?: boolean | undefined;
-  noMargin?: boolean | undefined;
-  noRounded?: boolean | undefined;
-  textContent?: boolean | undefined;
-  articleContent?: boolean | undefined;
-}
+type Props = HTMLAttributes<"section"> &
+  MalleableComponentType &
+  ContentComponentType;
 
 const {
   class: className,

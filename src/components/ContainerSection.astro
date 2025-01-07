@@ -1,16 +1,15 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import type { FlexComponentType, MediaQueryComponentType } from "../types";
 
 /**
  * A flex container. The col and row is biased towards the desktop version
  * if it's past the sm query.
  */
 
-interface Props extends HTMLAttributes<"div"> {
-  noMedia?: boolean;
-  col?: boolean;
-  row?: boolean;
-}
+type Props = HTMLAttributes<"div"> &
+  FlexComponentType &
+  MediaQueryComponentType;
 
 const { class: className, noMedia, col, row } = Astro.props;
 ---
