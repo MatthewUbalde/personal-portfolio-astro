@@ -1,40 +1,13 @@
-// export type ImageLink = {
-//   alt: string;
-//   src: string;
-//   href?: string | undefined;
-// };
-
-// export interface ProjectShowcase {
-//   title: string;
-//   description: string;
-//   coverImage: ImageLink;
-// }
-
-// export interface ExperienceBadgeType {
-//   title: string;
-//   src: string;
-//   alt: string;
-//   experience: "Learning" | "Beginner" | "Intermediate" | "Expert";
-// }
-
-// export type NavLink = {
-//   href: string;
-//   label?: string | undefined;
-// };
-
-// export type NavLinkParent = {
-//   children?: NavLink[];
-// } & NavLink;
-
 import type { NavLinkType } from "./types";
 
+export const SITE_ROOT: string = "/personal-portfolio-astro";
 export const SITE_NAVIGATION: Array<NavLinkType> = [
   {
-    href: "/personal-portfolio-astro",
+    href: `${SITE_ROOT}/`,
     label: "Home",
   },
   {
-    href: "/personal-portfolio-astro/comp-experience",
+    href: `${SITE_ROOT}/comp-experience`,
     label: "Programming Experience",
     children: [
       {
@@ -57,7 +30,7 @@ export const SITE_NAVIGATION: Array<NavLinkType> = [
   },
   // This is for if I were to pursue this path
   {
-    href: "/personal-portfolio-astro/art-experience",
+    href: `${SITE_ROOT}/art-experience`,
     label: "Art Experience",
     // children: [
     //   {
