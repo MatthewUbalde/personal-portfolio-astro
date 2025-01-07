@@ -6,9 +6,9 @@ import Layout from "../layouts/PageLayout.astro";
 import Section from "../components/Section.astro";
 
 import portraitImage from "../assets/portfolio-portrait.png";
-import ProjectContainer from "../components/ProjectContainer.astro";
+import ContainerProject from "../components/ContainerProject.astro";
 import ProjectShowcase from "../components/ProjectShowcase.astro";
-import SectionContainer from "../components/SectionContainer.astro";
+import ContainerSection from "../components/ContainerSection.astro";
 
 const articles = await getCollection("articles", (a) => a.data.featured);
 
@@ -24,7 +24,7 @@ articles.sort(
   description="Ranging from Web and Game Development, and Creative Arts!"
 >
   <!-- Introduction -->
-  <SectionContainer
+  <ContainerSection
     noMedia
     col
     class="relative justify-start min-h-screen overflow-hidden"
@@ -58,8 +58,8 @@ articles.sort(
       loading="eager"
       alt="Matthew wearing a blue, orange-stripped, t-shirt and glasses."
     />
-  </SectionContainer>
-  <ProjectContainer>
+  </ContainerSection>
+  <ContainerProject>
     {
       articles &&
         articles.map((p) => (
@@ -76,5 +76,5 @@ articles.sort(
           />
         ))
     }
-  </ProjectContainer>
+  </ContainerProject>
 </Layout>

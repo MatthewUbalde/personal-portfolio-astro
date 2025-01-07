@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
-import SectionContainer from "../../../components/SectionContainer.astro";
+import ContainerSection from "../../../components/ContainerSection.astro";
 
 const experiences = await getCollection("experiences");
 const experiencesFrontend = experiences.find(
@@ -31,7 +31,7 @@ const experiencesBackend = experiences.find(
       learned so far for other passion projects.
     </p>
   </Section>
-  <SectionContainer row class="justify-between">
+  <ContainerSection row class="justify-between">
     {
       experiencesFrontend && (
         <BadgeDisplay
@@ -52,7 +52,7 @@ const experiencesBackend = experiences.find(
         />
       )
     }
-  </SectionContainer>
+  </ContainerSection>
   <Section textContent class="sm:mx-auto sm:w-2/3">
     <h1>Experiences in Fanshawe</h1>
     <p>
