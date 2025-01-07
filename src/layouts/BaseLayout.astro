@@ -2,7 +2,8 @@
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
 
-import Navbar from "../components/Navbar/Navbar.astro";
+import NavbarDesktop from "../components/Navbar/NavbarDesktop.astro";
+import NavbarMobile from "../components/Navbar/NavbarMobile.astro";
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname;
@@ -22,9 +23,14 @@ const { title, description, prevNav } = Astro.props;
     <BaseHead title={"Matthew Ubalde | " + title} description={description} />
   </head>
   <body class="h-screen">
-    <div class="grid grid-cols-4 gap-8 p-8">
-      <Navbar prev={prevNav} current={currentPath} class="col-span-1" />
-      <main class="col-span-3">
+    <NavbarMobile prev={prevNav} current={currentPath} class="sm:hidden" />
+    <div class="grid grid-cols-4 gap-8 p-4 sm:p-8">
+      <NavbarDesktop
+        prev={prevNav}
+        current={currentPath}
+        class="hidden sm:block col-span-1"
+      />
+      <main class="col-span-4 sm:col-span-3">
         <slot />
       </main>
     </div>

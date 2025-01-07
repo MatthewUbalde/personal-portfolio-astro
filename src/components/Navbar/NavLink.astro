@@ -10,17 +10,16 @@ import type { NavLinkType } from "../../types";
 type Props = NavLinkType;
 
 const { href, label, children } = Astro.props;
-console.log(children);
 ---
 
-<nav-link class="block text-lg">
-  <span class={children && "-ml-5"}>
+<nav-link class="block">
+  <span class:list={[children && "-ml-6", "text-2xl sm:text-xl"]}>
     {children && <button>⮟</button>}
     <a href={href}>{label}</a>
   </span>
   {
     children && (
-      <div class="hidden flex-col ml-4">
+      <div class="hidden flex-col ml-4 text-xl sm:text-lg">
         {children?.map((link) => (
           <a href={link.href}>{link.label}</a>
         ))}
