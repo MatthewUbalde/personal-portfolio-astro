@@ -1,3 +1,17 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 
+import { SITE_NAVIGATION } from "../../const";
+import NavLink from "./NavLink.astro";
+
+interface Props extends HTMLAttributes<"nav"> {
+  prev?: string;
+  current: string;
+}
+
+const props = Astro.props;
 ---
+
+<nav class:list={[props.class]} {...props}>
+  {SITE_NAVIGATION.map((link) => <NavLink {...link} />)}
+</nav>

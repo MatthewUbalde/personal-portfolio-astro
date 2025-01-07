@@ -1,0 +1,51 @@
+---
+/**
+ * Purpose: Represent a link in the navigation bar on the side
+ *          Carries the link and its children.
+ * Note: Uses only minimal JS to load in quickly
+ */
+
+import type { NavLinkType } from "../../types";
+
+type Props = NavLinkType;
+
+const { href, label, children } = Astro.props;
+console.log(children);
+---
+
+<nav-link class="block text-lg">
+  <span class={children && "-ml-5"}>
+    {children && <button>⮟</button>}
+    <a href={href}>{label}</a>
+  </span>
+  {
+    children && (
+      <div class="hidden flex-col ml-4">
+        {children?.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    )
+  }
+</nav-link>
+
+<script>
+  class NavLink extends HTMLElement {
+    connectedCallback() {
+      const dropdownButton = this.querySelector("button");
+      const childrenContainer = this.querySelector("div");
+
+      dropdownButton?.addEventListener("click", () => {
+        childrenContainer?.classList.toggle("hidden");
+        childrenContainer?.classList.toggle("flex");
+        dropdownButton.textContent = childrenContainer?.classList.contains(
+          "hidden"
+        )
+          ? "⮟"
+          : "⮝";
+      });
+    }
+  }
+
+  customElements.define("nav-link", NavLink);
+</script>
