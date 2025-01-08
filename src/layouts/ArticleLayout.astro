@@ -10,7 +10,7 @@ import ImageLink from "../components/ImageLink.astro";
 import itchioImage from "../assets/icons/itch-io.svg";
 import steamImage from "../assets/icons/steam.svg";
 import githubImage from "../assets/icons/github-mark.svg";
-import ContainerSection from "../components/ContainerSection.astro";
+import LayoutSection from "../components/LayoutSection.astro";
 
 interface Props {
   prevNav: string;
@@ -43,7 +43,7 @@ const {
 
 <BaseLayout prevNav={prevNav} title={title} description={description}>
   <main class="min-h-screen">
-    <ContainerSection>
+    <LayoutSection>
       <Section noMargin textContent class="flex-grow">
         <h1>{title}</h1>
         <Image
@@ -68,12 +68,7 @@ const {
 
         <p>{description}</p>
       </Section>
-      <ContainerSection
-        noMargin
-        noMedia
-        col
-        class="justify-center items-center"
-      >
+      <LayoutSection noMargin noMedia col class="justify-center items-center">
         {
           summaryPoints && (
             <Section noMargin textContent>
@@ -125,8 +120,8 @@ const {
             )
           }
         </Section>
-      </ContainerSection>
-    </ContainerSection>
+      </LayoutSection>
+    </LayoutSection>
     <Section articleContent>
       <slot />
     </Section>

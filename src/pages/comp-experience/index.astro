@@ -3,7 +3,7 @@ import { SITE_NAVIGATION } from "../../const";
 
 import Layout from "../../layouts/PageLayout.astro";
 import Section from "../../components/Section.astro";
-import ContainerSection from "../../components/ContainerSection.astro";
+import LayoutSection from "../../components/LayoutSection.astro";
 
 const currentNav = SITE_NAVIGATION.find((nav) =>
   nav.href.includes("comp-experience")
@@ -11,7 +11,7 @@ const currentNav = SITE_NAVIGATION.find((nav) =>
 ---
 
 <Layout title="Home" description="Ranging from Web and Game Development.">
-  <ContainerSection>
+  <LayoutSection>
     <Section noMargin textContent class="flex-grow">
       <h1>Experience Summary</h1>
       <p>
@@ -41,7 +41,7 @@ const currentNav = SITE_NAVIGATION.find((nav) =>
           ))
       }
     </Section>
-  </ContainerSection>
+  </LayoutSection>
   <Section textContent class="sm:w-3/4 sm:mx-auto">
     <h1>Fanshawe College 2019-2024</h1>
     <p>

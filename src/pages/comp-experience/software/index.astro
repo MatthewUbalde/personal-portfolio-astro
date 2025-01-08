@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../../layouts/PageLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
-import ContainerSection from "../../../components/ContainerSection.astro";
+import LayoutSection from "../../../components/LayoutSection.astro";
 
 const experiences = await getCollection("experiences");
 const softwareExp = experiences.find((e) => e.id === "software")?.data;
@@ -14,7 +14,7 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
   title="Software"
   description="Have experience in C/C++, C#, and Java to create computer software"
 >
-  <ContainerSection row class="items-center">
+  <LayoutSection row class="items-center">
     <Section noMargin textContent class="sm:w-2/3">
       <h1>Experience Summary</h1>
       <p>
@@ -42,7 +42,7 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
         />
       )
     }
-  </ContainerSection>
+  </LayoutSection>
 
   <!-- <Section textContent>
     <h1>Experiences in Fanshawe</h1>

@@ -7,7 +7,7 @@ import BadgeDisplay from "../../../components/BadgeDisplay.astro";
 
 import ContainerProject from "../../../components/ContainerProject.astro";
 import ProjectShowcase from "../../../components/ProjectShowcase.astro";
-import ContainerSection from "../../../components/ContainerSection.astro";
+import LayoutSection from "../../../components/LayoutSection.astro";
 
 const experiences = await getCollection("experiences");
 const projects = await getCollection("gameArticles");
@@ -24,7 +24,7 @@ const gameProject = projects.sort(
   title="Game"
   description="Have experience in Godot and Unity to create well designed games"
 >
-  <ContainerSection row class="justify-between">
+  <LayoutSection row class="justify-between">
     <Section noMargin textContent class="sm:w-1/3">
       <h1>Experience Summary</h1>
       <p>
@@ -43,7 +43,7 @@ const gameProject = projects.sort(
         />
       )
     }
-  </ContainerSection>
+  </LayoutSection>
   <Section textContent class="sm:w-1/2 sm:mx-auto">
     <h1>Games for Fun</h1>
     <p>
