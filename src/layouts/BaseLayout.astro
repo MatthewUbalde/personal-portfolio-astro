@@ -26,16 +26,18 @@ const { title, description, prevNav } = Astro.props;
     class="h-fit overflow-x-hidden bg-indigo-500 bg-gradient-to-b from-indigo-500 via-purple-400 to-indigo-500 text-cyan-50"
   >
     <NavbarMobile prev={prevNav} current={currentPath} class="sm:hidden" />
-    <div class="grid sm:grid-cols-4 grid-rows-5 ml-12 sm:m-0">
+    <div class="flex flex-row ml-12 sm:m-0">
       <NavbarDesktop
         prev={prevNav}
         current={currentPath}
-        class="hidden sm:block col-span-1 row-span-5"
+        class="hidden sm:block flex-shrink-0"
       />
-      <main class="col-span-3 row-span-4">
-        <slot />
-      </main>
-      <Footer class="col-span-3 row-span-1" />
+      <div class="">
+        <main>
+          <slot />
+        </main>
+        <Footer />
+      </div>
     </div>
   </body>
 </html>
