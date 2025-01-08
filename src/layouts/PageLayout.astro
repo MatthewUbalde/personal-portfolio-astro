@@ -11,7 +11,5 @@ const { prevNav, title, description } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="min-h-screen">
-    <slot />
-  </main>
+  <slot />
 </BaseLayout>

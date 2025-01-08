@@ -1,7 +1,11 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { getCollection } from "astro:content";
 
 import { SITE_NAVIGATION } from "../../const";
+import { icons } from "../../assets/globs";
+
+import ImageLink from "../ImageLink.astro";
 import NavLink from "./NavLink.astro";
 
 interface Props extends HTMLAttributes<"nav"> {
@@ -9,16 +13,47 @@ interface Props extends HTMLAttributes<"nav"> {
   current: string;
 }
 
+const socialMedia = (await getCollection("socialMedia")).map((s) => s.data);
+socialMedia.forEach((s) => {
+  if (!icons[s.imagePath])
+    throw new Error(`"${s.imagePath} does not exist in glob", ${icons}""`);
+});
+
 const props = Astro.props;
 ---
 
-<nav-bar class:list={[props.class, "z-50 fixed left-0 top-0"]} {...props}>
-  <button class="text-4xl my-4 py-1 bg-cyan-900 rounded-r-md">⋮</button>
+<nav-bar class:list={["flex flex-col gap-2", props.class]} {...props}>
+  <button
+    class="fixed left-0 inset-y-0 z-50 p-2 text-2xl text-left [writing-mode:vertical-rl] bg-gradient-to-b from-cyan-900 to-transparent"
+    >Navigation</button
+  >
   <nav
-    class:list={["hidden w-full p-8 bg-cyan-900 rounded-r-md", props.class]}
+    class:list={[
+      "z-50 fixed inset-0 hidden flex flex-col justify-between p-8 bg-gradient-to-b from-cyan-900 to-transparent",
+      props.class,
+    ]}
     {...props}
   >
-    {SITE_NAVIGATION.map((link) => <NavLink {...link} />)}
+    <div>
+      <div class="flex justify-between">
+        <div class="text-4xl py-1">Navigation</div>
+        <button id="mobile-nav-go-back-btn" class="text-3xl">X</button>
+      </div>
+      {SITE_NAVIGATION.map((link) => <NavLink {...link} />)}
+    </div>
+    <div class="flex gap-2 my-1">
+      {
+        socialMedia.map((s) => (
+          <ImageLink
+            src={icons[s.imagePath]()}
+            href={s.href}
+            alt={s.alt}
+            width={48}
+            height={48}
+          />
+        ))
+      }
+    </div>
   </nav>
 </nav-bar>
 
@@ -27,10 +62,15 @@ const props = Astro.props;
     connectedCallback() {
       const dropdownButton = this.querySelector("button");
       const navigation = this.querySelector("nav");
+      const navBackButton = this.querySelector("#mobile-nav-go-back-btn");
 
-      dropdownButton?.addEventListener("click", () => {
+      function dropdown() {
         navigation?.classList.toggle("hidden");
-      });
+        dropdownButton?.classList.toggle("hidden");
+      }
+
+      dropdownButton?.addEventListener("click", dropdown);
+      navBackButton?.addEventListener("click", dropdown);
     }
   }
 

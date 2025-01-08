@@ -5,6 +5,7 @@ import ImageLink from "../components/ImageLink.astro";
 import { SITE_NAVIGATION } from "../const";
 import { icons } from "../assets/globs";
 import ContainerContent from "./ContainerContent.astro";
+import type { HTMLAttributes } from "astro/types";
 
 const socialMedia = await getCollection("socialMedia");
 const socialMediaData = socialMedia.map((s) => s.data);
@@ -13,13 +14,21 @@ socialMediaData.forEach((s) => {
   if (!icons[s.imagePath])
     throw new Error(`"${s.imagePath} does not exist in glob", ${icons}""`);
 });
+
+type Props = HTMLAttributes<"footer">;
+
+const props = Astro.props;
 ---
 
 <footer
-  class="flex flex-col-reverse sm:flex-row justify-between gap-2 m-1 sm:m-4"
+  class:list={[
+    props.class,
+    "flex flex-col-reverse sm:flex-row justify-between gap-2 m-1 sm:m-4",
+  ]}
+  {...props}
 >
   <!-- Site Map -->
-  <ContainerContent class="flex-grow h-fit">
+  <ContainerContent class="flex-grow">
     <Fragment slot="header"> Site Map </Fragment>
     <div
       class="flex flex-col gap-1 justify-center sm:justify-start items-start flex-wrap m-1"
@@ -42,12 +51,8 @@ socialMediaData.forEach((s) => {
       }
     </div>
   </ContainerContent>
-  <!-- Credits and social media -->
+  <!-- Credits and social media
   <ContainerContent class="h-fit">
-    <Fragment slot="header">
-      Matthew Ubalde
-      <div class="text-sm">Social Media</div>
-    </Fragment>
     <div class="flex justify-center items-center gap-2 m-1">
       {
         socialMediaData.map((s) => (
@@ -62,5 +67,5 @@ socialMediaData.forEach((s) => {
         ))
       }
     </div>
-  </ContainerContent>
+  </ContainerContent> -->
 </footer>

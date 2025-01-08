@@ -13,13 +13,13 @@ const { href, label, children } = Astro.props;
 ---
 
 <nav-link class="block">
-  <span class:list={[children && "-ml-6", "text-2xl sm:text-xl"]}>
-    {children && <button>⮟</button>}
+  <span class:list={["text-3xl sm:text-xl"]}>
     <a href={href}>{label}</a>
+    {children && <button>⮟</button>}
   </span>
   {
     children && (
-      <div class="hidden flex-col ml-4 text-xl sm:text-lg">
+      <div class="hidden flex-col ml-4 text-2xl sm:text-lg">
         {children?.map((link) => (
           <a href={`${href}${link.href}`}>{link.label}</a>
         ))}
