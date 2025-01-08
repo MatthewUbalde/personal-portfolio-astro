@@ -20,37 +20,27 @@ type Props = HTMLAttributes<"footer">;
 const props = Astro.props;
 ---
 
-<footer
-  class:list={[
-    props.class,
-    "flex flex-col-reverse sm:flex-row justify-between gap-2 m-1 sm:m-4",
-  ]}
-  {...props}
->
+<footer class:list={["flex gap-2 m-4", props.class]} {...props}>
   <!-- Site Map -->
-  <ContainerContent class="flex-grow">
-    <Fragment slot="header"> Site Map </Fragment>
-    <div
-      class="flex flex-col gap-1 justify-center sm:justify-start items-start flex-wrap m-1"
-    >
-      {
-        SITE_NAVIGATION.map((nav) => (
-          <div class="flex flex-col justify-center items-start gap-1 flex-wrap p-2 bg-cyan-950 rounded-md ">
-            <a href={nav.href}>{nav.label}</a>
-            {nav.children && (
-              <div class="flex flex-row gap-2 flex-wrap text-cyan-100">
-                {nav.children.map((cnav) => (
-                  <a href={`${nav.href}${cnav.href}`} class="text-sm">
-                    {cnav.label}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        ))
-      }
-    </div>
-  </ContainerContent>
+  <div class="text-sm text-center [writing-mode:vertical-rl]">Site Map</div>
+  <div class="flex flex-row justify-start items-start gap-2 flex-wrap">
+    {
+      SITE_NAVIGATION.map((nav) => (
+        <div class="flex flex-col justify-center items-start flex-wrap p-2 bg-cyan-900 bg-opacity-50 rounded-md">
+          <a href={nav.href}>{nav.label}</a>
+          {nav.children && (
+            <div class="flex flex-row gap-2 flex-wrap text-cyan-100">
+              {nav.children.map((cnav) => (
+                <a href={`${nav.href}${cnav.href}`} class="text-sm">
+                  {cnav.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
   <!-- Credits and social media
   <ContainerContent class="h-fit">
     <div class="flex justify-center items-center gap-2 m-1">
