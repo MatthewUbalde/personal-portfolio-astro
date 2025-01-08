@@ -31,13 +31,3 @@ p {
 li {
   @apply list-disc ml-6;
 }
-
-/* This is for articles */
-/* TODO: Better identifier for images in articlse */
-p > img {
-  @apply rounded-md w-full sm:w-3/4 sm:mx-auto max-h-96 object-contain;
-}
-
-.astro-code {
-  @apply p-2 rounded-md w-full sm:w-3/4 sm:mx-auto;
-}

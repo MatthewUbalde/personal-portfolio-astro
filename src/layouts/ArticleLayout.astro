@@ -1,4 +1,6 @@
 ---
+import "../styles/article.css";
+
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
@@ -42,50 +44,38 @@ const {
 ---
 
 <BaseLayout prevNav={prevNav} title={title} description={description}>
-  <main class="min-h-screen">
-    <LayoutSection>
-      <Section noMargin textContent class="flex-grow">
-        <h1>{title}</h1>
-        <Image
-          class="rounded-md"
-          src={coverImage}
-          alt={coverImageAlt}
-          width="1280"
-          height="720"
-        />
-        <div class="text-sm">
-          <span>
-            Published: <FormattedDate date={dateProjectPublished} />
-          </span> -
-          {
-            dateUpdated && (
-              <span>
-                Updated: <FormattedDate date={dateUpdated} />
-              </span>
-            )
-          }
+  <!-- Title Section -->
+  <LayoutSection row>
+    <Section
+      noMargin
+      noPadding
+      class="group relative flex-shrink h-fit overflow-hidden"
+    >
+      <Image
+        class="opacity-25 group-hover:scale-110 group-hover:opacity-100 transition-all"
+        src={coverImage}
+        alt={coverImageAlt}
+        width="1280"
+        height="720"
+      />
+      <div class="absolute bottom-0 inset-x-0 flex flex-row p-4">
+        <div class="group-hover:opacity-0 transition-opacity">
+          <h1>{title}</h1>
+          <div class="text-sm">
+            <span>
+              Published: <FormattedDate date={dateProjectPublished} />
+            </span> -
+            {
+              dateUpdated && (
+                <span>
+                  Updated: <FormattedDate date={dateUpdated} />
+                </span>
+              )
+            }
+          </div>
+          <p>{description}</p>
         </div>
-
-        <p>{description}</p>
-      </Section>
-      <LayoutSection noMargin noMedia col class="justify-center items-center">
-        {
-          summaryPoints && (
-            <Section noMargin textContent>
-              <h2>Summary Points</h2>
-              <ul class="text-start">
-                {summaryPoints.map((p) => (
-                  <li>{p}</li>
-                ))}
-              </ul>
-            </Section>
-          )
-        }
-        <Section
-          noMargin
-          noPadding
-          class="flex sm:flex-row justify-center items-center gap-2 p-2 w-fit h-fit"
-        >
+        <div class="flex-shrink flex flex-col justify-end items-end gap-2">
           {
             itchio && (
               <ImageLink
@@ -119,11 +109,24 @@ const {
               />
             )
           }
-        </Section>
-      </LayoutSection>
-    </LayoutSection>
-    <Section articleContent>
-      <slot />
+        </div>
+      </div>
     </Section>
-  </main>
+    {
+      summaryPoints && (
+        <Section noMargin textContent>
+          <h2>Summary Points</h2>
+          <ul class="text-start">
+            {summaryPoints.map((p) => (
+              <li>{p}</li>
+            ))}
+          </ul>
+        </Section>
+      )
+    }
+  </LayoutSection>
+  <!-- Article Content -->
+  <Section articleContent>
+    <slot />
+  </Section>
 </BaseLayout>
