@@ -8,23 +8,23 @@ export const SITE_NAVIGATION: Array<NavLinkType> = [
   },
   {
     href: `${SITE_ROOT}/comp-experience`,
-    label: "Programming Experience",
+    label: "Computer Experience",
     children: [
       {
         href: "/web",
-        label: "Web Development",
+        label: "Web",
       },
       {
         href: "/software",
-        label: "Software Development",
+        label: "Software",
       },
       {
         href: "/mobile",
-        label: "Mobile Development",
+        label: "Mobile",
       },
       {
         href: "/game",
-        label: "Game Development",
+        label: "Game",
       },
     ],
   },
