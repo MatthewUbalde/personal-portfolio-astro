@@ -45,21 +45,17 @@ const {
 
 <BaseLayout prevNav={prevNav} title={title} description={description}>
   <!-- Title Section -->
-  <LayoutSection row>
-    <Section
-      noMargin
-      noPadding
-      class="group relative flex-shrink h-fit overflow-hidden"
-    >
+  <LayoutSection row class="justify-center items-center">
+    <div class="group relative overflow-hidden h-screen bg-cyan-900 rounded-md">
       <Image
-        class="opacity-25 group-hover:scale-110 group-hover:opacity-100 transition-all"
+        class="z-10 h-screen w-full opacity-15 group-hover:scale-110 group-hover:opacity-100 transition-all object-cover"
         src={coverImage}
         alt={coverImageAlt}
         width="1280"
         height="720"
       />
-      <div class="absolute bottom-0 inset-x-0 flex flex-row p-4">
-        <div class="group-hover:opacity-0 transition-opacity">
+      <div class="absolute left-0 bottom-0 p-4 flex flex-row w-full">
+        <div class="flex-grow group-hover:opacity-0 transition-opacity">
           <h1>{title}</h1>
           <div class="text-sm">
             <span>
@@ -74,6 +70,18 @@ const {
             }
           </div>
           <p>{description}</p>
+          <div class="mt-2">
+          {
+            summaryPoints && (
+                <h2>Summary Points</h2>
+                <ul class="text-start">
+                  {summaryPoints.map((p) => (
+                    <li>{p}</li>
+                  ))}
+                </ul>
+            )
+          }
+          </div>
         </div>
         <div class="flex-shrink flex flex-col justify-end items-end gap-2">
           {
@@ -111,19 +119,7 @@ const {
           }
         </div>
       </div>
-    </Section>
-    {
-      summaryPoints && (
-        <Section noMargin textContent>
-          <h2>Summary Points</h2>
-          <ul class="text-start">
-            {summaryPoints.map((p) => (
-              <li>{p}</li>
-            ))}
-          </ul>
-        </Section>
-      )
-    }
+    </div>
   </LayoutSection>
   <!-- Article Content -->
   <Section noMargin articleContent class="md:w-3/4 m-4 md:mx-auto">
