@@ -25,12 +25,12 @@ const { title, description, prevNav } = Astro.props;
   <body
     class="h-fit overflow-x-hidden bg-indigo-500 bg-gradient-to-b from-indigo-500 via-purple-400 to-indigo-500 text-cyan-50"
   >
-    <NavbarMobile prev={prevNav} current={currentPath} class="sm:hidden" />
-    <div class="flex flex-row ml-12 sm:m-0">
+    <NavbarMobile prev={prevNav} current={currentPath} class="md:hidden" />
+    <div class="flex flex-row ml-12 md:m-0">
       <NavbarDesktop
         prev={prevNav}
         current={currentPath}
-        class="hidden sm:block flex-shrink-0"
+        class="hidden md:block flex-shrink-0"
       />
       <div class="">
         <main>
