@@ -11,22 +11,24 @@ if (!icons[src]) throw new Error(`"${src} does not exist in glob", ${icons}`);
 ---
 
 <div
-  class="group flex flex-col justify-around items-center min-w-24 max-w-36 bg-cyan-900 p-4 rounded-md
+  class="group relative flex flex-col gap-1 justify-around items-center size-32 bg-cyan-900 p-4 rounded-md
           hover:scale-110 transition-transform"
 >
+  <div
+    class="absolute left-0.5 top-2 opacity-50 leading-tight [writing-mode:vertical-lr]"
+  >
+    {title}
+  </div>
   <Image
-    class="flex-grow size-12 sm:size-14 md:size-18"
+    class="flex-grow size-14 sm:size-18 md:size-20"
     src={icons[src]()}
     alt={alt}
-    width={128}
-    height={128}
+    width={64}
+    height={64}
     decoding="async"
     loading="lazy"
   />
-  <div>
-    <h2 class="text-center text-xl break-words">{title}</h2>
-    <div class="w-fit px-1 mx-auto text-center text-sm bg-cyan-950 rounded-md">
-      {experience}
-    </div>
+  <div class="w-fit mx-auto p-1 text-center text-sm bg-cyan-950 rounded-md">
+    {experience}
   </div>
 </div>
