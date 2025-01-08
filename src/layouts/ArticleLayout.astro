@@ -45,17 +45,18 @@ const {
 
 <BaseLayout prevNav={prevNav} title={title} description={description}>
   <!-- Title Section -->
-  <LayoutSection row class="justify-center items-center">
-    <div class="group relative overflow-hidden h-screen bg-sky-900 rounded-md">
-      <Image
-        class="z-10 h-screen w-full opacity-15 group-hover:scale-110 group-hover:opacity-100 transition-all object-cover"
-        src={coverImage}
-        alt={coverImageAlt}
-        width="1280"
-        height="720"
-      />
-      <div class="absolute left-0 bottom-0 p-4 flex flex-row w-full">
-        <div class="flex-grow group-hover:opacity-0 transition-opacity">
+  <Section noPadding class="relative group overflow-hidden">
+      <div class="-z-10 absolute h-full left-64 top-0 rounded-bl-full overflow-hidden">
+        <Image
+          class="object-cover h-full"
+          src={coverImage}
+          alt={coverImageAlt}
+          width="1280"
+          height="720"
+        />
+      </div>
+      <div class="p-4 flex flex-row">
+        <div class="flex-grow">
           <h1>{title}</h1>
           <div class="text-sm">
             <span>
@@ -119,8 +120,7 @@ const {
           }
         </div>
       </div>
-    </div>
-  </LayoutSection>
+  </Section>
   <!-- Article Content -->
   <Section noMargin articleContent class="md:w-3/4 m-4 md:mx-auto">
     <slot />
