@@ -34,22 +34,12 @@ const experiencesBackend = experiences.find(
   <LayoutSection row class="justify-between">
     {
       experiencesFrontend && (
-        <BadgeDisplay
-          noMargin
-          class="sm:w-1/2"
-          title="Front-end"
-          src={experiencesFrontend}
-        />
+        <BadgeDisplay noMargin title="Front-end" src={experiencesFrontend} />
       )
     }
     {
       experiencesBackend && (
-        <BadgeDisplay
-          noMargin
-          class="sm:w-1/2 "
-          title="Back-end"
-          src={experiencesBackend}
-        />
+        <BadgeDisplay noMargin title="Back-end" src={experiencesBackend} />
       )
     }
   </LayoutSection>
