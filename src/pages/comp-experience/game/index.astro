@@ -24,8 +24,8 @@ const gameProject = projects.sort(
   title="Game"
   description="Have experience in Godot and Unity to create well designed games"
 >
-  <LayoutSection row class="justify-between">
-    <Section noMargin textContent class="sm:w-1/3">
+  <LayoutSection row class="items-center">
+    <Section noMargin textContent class="md:w-3/4">
       <h1>Experience Summary</h1>
       <p>
         Was taught on how to use the Unity Engine, but developed games as a
@@ -35,12 +35,7 @@ const gameProject = projects.sort(
     </Section>
     {
       gameExp && (
-        <BadgeDisplay
-          noMargin
-          class="flex-grow"
-          title="Game Experiences"
-          src={gameExp}
-        />
+        <BadgeDisplay noMargin title="Game Experiences" src={gameExp} />
       )
     }
   </LayoutSection>
