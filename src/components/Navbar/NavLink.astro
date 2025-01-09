@@ -19,7 +19,7 @@ const { href, label, children } = Astro.props;
   </span>
   {
     children && (
-      <div class="hidden flex-col ml-4 text-2xl sm:text-lg">
+      <div class="hidden flex-col px-4 text-3xl sm:text-lg border-y-2 border-white">
         {children?.map((link) => (
           <a href={`${href}${link.href}`}>{link.label}</a>
         ))}
