@@ -1,23 +1,15 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { getCollection } from "astro:content";
 
 import { SITE_NAVIGATION } from "../../const";
-import { icons } from "../../assets/globs";
 
-import ImageLink from "../ImageLink.astro";
 import NavLink from "./NavLink.astro";
+import SocialLink from "../Icons/SocialLink.astro";
 
 interface Props extends HTMLAttributes<"nav"> {
   prev?: string;
   current: string;
 }
-
-const socialMedia = (await getCollection("socialMedia")).map((s) => s.data);
-socialMedia.forEach((s) => {
-  if (!icons[s.imagePath])
-    throw new Error(`"${s.imagePath} does not exist in glob", ${icons}""`);
-});
 
 const props = Astro.props;
 ---
@@ -32,17 +24,8 @@ const props = Astro.props;
       {SITE_NAVIGATION.map((link) => <NavLink {...link} />)}
     </nav>
     <div class="flex gap-2">
-      {
-        socialMedia.map((s) => (
-          <ImageLink
-            src={icons[s.imagePath]()}
-            href={s.href}
-            alt={s.alt}
-            width={36}
-            height={36}
-          />
-        ))
-      }
+      <SocialLink name="linkedin" size={32} />
+      <SocialLink name="github" size={32} />
     </div>
   </div>
 </div>

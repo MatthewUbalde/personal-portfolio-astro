@@ -2,13 +2,13 @@
   {
     "title": "Android Studio",
     "experience": "Beginner",
-    "src": "/src/assets/icons/android-studio.svg",
+    "src": "/src/icons/android-studio.svg",
     "alt": "Android Studio Logo"
   },
   {
     "title": "React Native",
     "experience": "Beginner",
-    "src": "/src/assets/icons/react.svg",
+    "src": "/src/icons/react.svg",
     "alt": "React Native Logo"
   }
 ]

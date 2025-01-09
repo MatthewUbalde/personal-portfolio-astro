@@ -1,19 +1,7 @@
 ---
-import { getCollection } from "astro:content";
-
-import ImageLink from "../components/ImageLink.astro";
-import { SITE_NAVIGATION } from "../const";
-import { icons } from "../assets/globs";
-import ContainerContent from "./ContainerContent.astro";
 import type { HTMLAttributes } from "astro/types";
 
-const socialMedia = await getCollection("socialMedia");
-const socialMediaData = socialMedia.map((s) => s.data);
-
-socialMediaData.forEach((s) => {
-  if (!icons[s.imagePath])
-    throw new Error(`"${s.imagePath} does not exist in glob", ${icons}""`);
-});
+import { SITE_NAVIGATION } from "../const";
 
 type Props = HTMLAttributes<"footer">;
 

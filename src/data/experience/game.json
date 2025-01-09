@@ -1,26 +1,26 @@
 [
   {
     "title": "Godot",
-    "src": "/src/assets/icons/godot.svg",
+    "src": "/src/icons/godot.svg",
     "alt": "Godot Logo",
     "experience": "Beginner"
   },
   {
     "title": "Unity",
-    "src": "/src/assets/icons/unity.svg",
+    "src": "/src/icons/unity.svg",
     "alt": "Unity Logo",
     "experience": "Beginner"
   },
   {
     "title": "OpenGL",
     "experience": "Beginner",
-    "src": "/src/assets/icons/opengl.svg",
+    "src": "/src/icons/opengl.svg",
     "alt": "OpenGL Logo"
   },
   {
     "title": "Blender",
     "experience": "Learning",
-    "src": "/src/assets/icons/blender.svg",
+    "src": "/src/icons/blender.svg",
     "alt": "Blender Logo"
   }
 ]

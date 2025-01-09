@@ -19,10 +19,13 @@ const {
   githubLink,
 } = Astro.props;
 
-import itchioImage from "../assets/icons/itch-io.svg";
-import steamImage from "../assets/icons/steam.svg";
-import githubImage from "../assets/icons/github-mark.svg";
+import itchioImage from "../icons/itch-io.svg";
+import steamImage from "../icons/steam.svg";
+import githubImage from "../icons/github.svg";
 import FormattedDate from "./FormattedDate.astro";
+import GithubLink from "./Icons/GithubLink.astro";
+import SteamLink from "./Icons/SteamLink.astro";
+import ItchioLink from "./Icons/ItchioLink.astro";
 ---
 
 <Section
@@ -54,33 +57,9 @@ import FormattedDate from "./FormattedDate.astro";
     {
       (itchioLink || steamLink || githubLink) && (
         <div class="flex flex-col gap-2 justify-end items-end w-24 p-1">
-          {itchioLink && (
-            <ImageLink
-              src={itchioImage}
-              alt=""
-              href={itchioLink}
-              width={48}
-              height={48}
-            />
-          )}
-          {steamLink && (
-            <ImageLink
-              src={steamImage}
-              alt=""
-              href={steamLink}
-              width={48}
-              height={48}
-            />
-          )}
-          {githubLink && (
-            <ImageLink
-              src={githubImage}
-              alt=""
-              href={githubLink}
-              width={48}
-              height={48}
-            />
-          )}
+          {itchioLink && <ItchioLink href={itchioLink} size={32} />}
+          {steamLink && <SteamLink href={steamLink} size={32} />}
+          {githubLink && <GithubLink href={githubLink} size={32} />}
         </div>
       )
     }

@@ -44,3 +44,8 @@ export const SITE_NAVIGATION: Array<NavLinkType> = [
     // ],
   },
 ];
+
+export const SOCIAL_MEDIA_LINKS = {
+  github: "https://github.com/MatthewUbalde",
+  linkedin: "https://www.linkedin.com/in/matthew-ubalde-171918252/",
+};
