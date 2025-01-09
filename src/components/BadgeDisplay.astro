@@ -23,7 +23,12 @@ const {
 } = Astro.props;
 ---
 
-<Section noPadding={noPadding} noMargin={noMargin} noRounded={noRounded}>
+<Section
+  noPadding={noPadding}
+  noMargin={noMargin}
+  noRounded={noRounded}
+  class:list={[className]}
+>
   <h1 class="text-center mb-2">{title}</h1>
   <div
     class="flex flex-row flex-wrap justify-center items-stretch gap-4 w-full"
