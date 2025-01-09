@@ -8,9 +8,10 @@ type Props = HTMLAttributes<"footer">;
 const props = Astro.props;
 ---
 
-<footer class:list={["flex gap-2 m-4", props.class]} {...props}>
-  <!-- Site Map -->
-  <div class="text-sm text-center [writing-mode:vertical-rl]">Site Map</div>
+<footer
+  class:list={["flex justify-end items-center gap-2 m-4", props.class]}
+  {...props}
+>
   <div class="flex flex-row justify-start items-start gap-2 flex-wrap">
     {
       SITE_NAVIGATION.map((nav) => (
@@ -29,21 +30,5 @@ const props = Astro.props;
       ))
     }
   </div>
-  <!-- Credits and social media
-  <ContainerContent class="h-fit">
-    <div class="flex justify-center items-center gap-2 m-1">
-      {
-        socialMediaData.map((s) => (
-          <ImageLink
-            class="bg-sky-950 p-1 rounded-md"
-            src={icons[s.imagePath]()}
-            href={s.href}
-            alt={s.alt}
-            width={36}
-            height={36}
-          />
-        ))
-      }
-    </div>
-  </ContainerContent> -->
+  <div class="text-sm text-center [writing-mode:vertical-rl]">Site Map</div>
 </footer>
