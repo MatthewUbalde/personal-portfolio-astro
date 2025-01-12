@@ -1,44 +1,37 @@
 [
   {
     "title": "C++",
-    "experience": "Intermediate",
-    "src": "/src/icons/c++.svg",
-    "alt": "Purple logo of C++"
+    "src": "c++",
+    "experience": "Intermediate"
   },
   {
     "title": "Java",
-    "experience": "Intermediate",
-    "src": "/src/icons/java.svg",
-    "alt": "A cup of coffee logo of Java"
+    "src": "java",
+    "experience": "Intermediate"
   },
   {
     "title": "C#",
-    "experience": "Intermediate",
-    "src": "/src/icons/c-sharp.svg",
-    "alt": "Blue logo of C#"
+    "src": "c-sharp",
+    "experience": "Intermediate"
   },
   {
     "title": "MySQL",
-    "experience": "Beginner",
-    "src": "/src/icons/mysql.svg",
-    "alt": "MySql Logo"
+    "src": "mysql",
+    "experience": "Beginner"
   },
   {
     "title": "OpenGL",
-    "experience": "Beginner",
-    "src": "/src/icons/opengl.svg",
-    "alt": "OpenGL Logo"
+    "src": "opengl",
+    "experience": "Beginner"
   },
   {
     "title": "Android Studio",
-    "experience": "Beginner",
-    "src": "/src/icons/android-studio.svg",
-    "alt": "Android Studio Logo"
+    "src": "android-studio",
+    "experience": "Beginner"
   },
   {
     "title": "React Native",
-    "experience": "Beginner",
-    "src": "/src/icons/react.svg",
-    "alt": "React Native Logo"
+    "src": "react",
+    "experience": "Beginner"
   }
 ]

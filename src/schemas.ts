@@ -20,7 +20,6 @@ const projectShowcaseSchema = z.object({
 const experienceBadgeSchema = z.object({
   title: z.string(),
   src: z.string(),
-  alt: z.string(),
   experience: z.enum(["Learning", "Beginner", "Intermediate", "Expert"]),
 });
 

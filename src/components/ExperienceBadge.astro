@@ -1,13 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import type { ExperienceBadgeType } from "../types";
 
-import { icons } from "../assets/globs";
+import { Icon } from "astro-icon/components";
 
 type Props = ExperienceBadgeType;
 
-const { title, src, alt, experience } = Astro.props;
-if (!icons[src]) throw new Error(`"${src} does not exist in glob", ${icons}`);
+const { title, src, experience } = Astro.props;
 ---
 
 <div
@@ -19,15 +17,7 @@ if (!icons[src]) throw new Error(`"${src} does not exist in glob", ${icons}`);
   >
     {title}
   </div>
-  <Image
-    class="flex-grow size-14 sm:size-18 md:size-20"
-    src={icons[src]()}
-    alt={alt}
-    width={64}
-    height={64}
-    decoding="async"
-    loading="lazy"
-  />
+  <Icon name={src} class="flex-grow size-14 sm:size-18 md:size-20" />
   <div class="w-fit mx-auto p-1 text-center text-sm bg-sky-950 rounded-md">
     {experience}
   </div>

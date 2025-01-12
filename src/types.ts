@@ -20,7 +20,6 @@ export type ProjectShowcaseType = {
 export type ExperienceBadgeType = {
   title: string;
   src: string;
-  alt: string;
   experience: "Learning" | "Beginner" | "Adequate" | "Intermediate" | "Expert";
 };
 
