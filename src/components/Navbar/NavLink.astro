@@ -12,39 +12,15 @@ type Props = NavLinkType;
 const { href, label, children } = Astro.props;
 ---
 
-<nav-link class="block">
-  <span class:list={["text-3xl sm:text-xl"]}>
-    <a href={href}>{label}</a>
-    {children && <button>⮟</button>}
-  </span>
+<div class="block">
+  <a href={href} class="text-2xl md:text-xl">{label}</a>
   {
     children && (
-      <div class="hidden flex-col px-4 text-3xl sm:text-lg border-y-2 border-white">
+      <div class="flex flex-col px-4 text-2xl md:text-lg border-y-2 border-white">
         {children?.map((link) => (
           <a href={`${href}${link.href}`}>{link.label}</a>
         ))}
       </div>
     )
   }
-</nav-link>
-
-<script>
-  class NavLink extends HTMLElement {
-    connectedCallback() {
-      const dropdownButton = this.querySelector("button");
-      const childrenContainer = this.querySelector("div");
-
-      dropdownButton?.addEventListener("click", () => {
-        childrenContainer?.classList.toggle("hidden");
-        childrenContainer?.classList.toggle("flex");
-        dropdownButton.textContent = childrenContainer?.classList.contains(
-          "hidden"
-        )
-          ? "⮟"
-          : "⮝";
-      });
-    }
-  }
-
-  customElements.define("nav-link", NavLink);
-</script>
+</div>
