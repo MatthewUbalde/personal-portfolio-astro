@@ -1,73 +1,46 @@
-// export type ImageLink = {
-//   alt: string;
-//   src: string;
-//   href?: string | undefined;
-// };
-
-// export interface ProjectShowcase {
-//   title: string;
-//   description: string;
-//   coverImage: ImageLink;
-// }
-
-// export interface ExperienceBadgeType {
-//   title: string;
-//   src: string;
-//   alt: string;
-//   experience: "Learning" | "Beginner" | "Intermediate" | "Expert";
-// }
-
-// export type NavLink = {
-//   href: string;
-//   label?: string | undefined;
-// };
-
-// export type NavLinkParent = {
-//   children?: NavLink[];
-// } & NavLink;
-
 import type { NavLinkType } from "./types";
 
+/**
+ * Holds the Navigation tree that the user can follow
+ */
+const SITE_ROOT: string = "/personal-portfolio-astro";
 export const SITE_NAVIGATION: Array<NavLinkType> = [
   {
-    href: "/personal-portfolio-astro",
+    href: `${SITE_ROOT}/`,
     label: "Home",
   },
   {
-    href: "/personal-portfolio-astro/comp-experience",
-    label: "Programming Experience",
+    href: `${SITE_ROOT}/comp-experience`,
+    label: "Computer Experience",
     children: [
       {
         href: "/web",
-        label: "Web Development",
+        label: "Web",
       },
       {
         href: "/software",
-        label: "Software Development",
+        label: "Software",
       },
       {
         href: "/mobile",
-        label: "Mobile Development",
+        label: "Mobile",
       },
       {
         href: "/game",
-        label: "Game Development",
+        label: "Game",
       },
     ],
   },
-  // This is for if I were to pursue this path
   {
-    href: "/personal-portfolio-astro/art-experience",
+    href: `${SITE_ROOT}/art-experience`,
     label: "Art Experience",
-    // children: [
-    //   {
-    //     href: "/illustration",
-    //     label: "Illustration",
-    //   },
-    //   {
-    //     href: "/animation",
-    //     label: "Animation",
-    //   },
-    // ],
   },
 ];
+
+/**
+ * All of the social links that directly points to me
+ */
+export const SOCIAL_MEDIA_LINKS = {
+  github: "https://github.com/MatthewUbalde",
+  linkedin: "https://www.linkedin.com/in/matthew-ubalde-171918252/",
+};

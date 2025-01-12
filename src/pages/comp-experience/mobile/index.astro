@@ -1,10 +1,16 @@
 ---
+/**
+ * Explores my experience in mobile development.
+ * Highlighting a project I made in Fanshawe of a to-do
+ * application with decent UI that's quick and simple.
+ */
+
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
-import SectionContainer from "../../../components/SectionContainer.astro";
+import LayoutSection from "../../../components/LayoutSection.astro";
 
 const experiences = await getCollection("experiences");
 const mobileExp = experiences.find((e) => e.id === "mobile")?.data;
@@ -14,8 +20,8 @@ const mobileExp = experiences.find((e) => e.id === "mobile")?.data;
   title="Mobile"
   description="Have experience in Android Studio and React Native to create Android apps"
 >
-  <SectionContainer row class="justify-center">
-    <Section noMargin textContent class="sm:w-1/3">
+  <LayoutSection col noMedia class="items-center">
+    <Section noMargin textContent>
       <h1>Experience Summary</h1>
       <p>
         Was taught how to use both Android Studio and React Native to develop
@@ -25,19 +31,8 @@ const mobileExp = experiences.find((e) => e.id === "mobile")?.data;
     </Section>
     {
       mobileExp && (
-        <BadgeDisplay
-          noMargin
-          class="flex-grow"
-          title="Mobile Experiences"
-          src={mobileExp}
-        />
+        <BadgeDisplay noMargin title="Mobile Experiences" src={mobileExp} />
       )
     }
-  </SectionContainer>
-  <!-- <div>
-    <Section textContent class="w-1/2 mx-auto">
-      <h1>React Native Projects</h1>
-    </Section>
-    {mobileProj && <ProjectContainer src={mobileProj} />}
-  </div> -->
+  </LayoutSection>
 </Layout>

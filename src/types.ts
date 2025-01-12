@@ -3,7 +3,6 @@ import type { ImageMetadata } from "astro";
 export type ImageLinkType = {
   src: Promise<{ default: ImageMetadata }> | ImageMetadata;
   alt?: string;
-  href: string;
 };
 
 export type ProjectShowcaseType = {
@@ -12,7 +11,7 @@ export type ProjectShowcaseType = {
   coverImage: Promise<{ default: ImageMetadata }> | ImageMetadata;
   coverImageAlt: string;
   href: string;
-  dateProjectPublished: Date;
+  published: Date;
   itchioLink?: string;
   steamLink?: string;
   githubLink?: string;
@@ -21,7 +20,6 @@ export type ProjectShowcaseType = {
 export type ExperienceBadgeType = {
   title: string;
   src: string;
-  alt: string;
   experience: "Learning" | "Beginner" | "Adequate" | "Intermediate" | "Expert";
 };
 
@@ -29,4 +27,24 @@ export type NavLinkType = {
   href: string;
   label: string;
   children?: NavLinkType[];
+};
+
+export type MalleableComponentType = {
+  noPadding?: boolean | undefined;
+  noMargin?: boolean | undefined;
+  noRounded?: boolean | undefined;
+};
+
+export type ContentComponentType = {
+  textContent?: boolean | undefined;
+  articleContent?: boolean | undefined;
+};
+
+export type FlexComponentType = {
+  col?: boolean;
+  row?: boolean;
+};
+
+export type MediaQueryComponentType = {
+  noMedia?: boolean | undefined;
 };
