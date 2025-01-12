@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
 import LayoutSection from "../../../components/LayoutSection.astro";
@@ -29,10 +29,4 @@ const mobileExp = experiences.find((e) => e.id === "mobile")?.data;
       )
     }
   </LayoutSection>
-  <!-- <div>
-    <Section textContent class="w-1/2 mx-auto">
-      <h1>React Native Projects</h1>
-    </Section>
-    {mobileProj && <ProjectContainer src={mobileProj} />}
-  </div> -->
 </Layout>

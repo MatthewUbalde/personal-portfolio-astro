@@ -5,12 +5,13 @@ import { Icon } from "astro-icon/components";
 
 type Props = ExperienceBadgeType;
 
-const { title, src, experience } = Astro.props;
+const { title, src, experience, ...props } = Astro.props;
 ---
 
 <div
   class="group relative flex flex-col gap-1 justify-around items-center size-28 md:size-32 bg-sky-950 p-4 rounded-md
           hover:scale-110 transition-transform"
+  {...props}
 >
   <div
     class="absolute left-0.5 top-2 opacity-50 leading-tight [writing-mode:vertical-lr]"

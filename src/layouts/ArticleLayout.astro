@@ -7,12 +7,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Section from "../components/Section.astro";
-import ImageLink from "../components/ImageLink.astro";
 
-import itchioImage from "../icons/itch-io.svg";
-import steamImage from "../icons/steam.svg";
-import githubImage from "../icons/github-mark.svg";
-import LayoutSection from "../components/LayoutSection.astro";
 import ItchioLink from "../components/Icons/ItchioLink.astro";
 import SteamLink from "../components/Icons/SteamLink.astro";
 import GithubLink from "../components/Icons/GithubLink.astro";
@@ -24,8 +19,8 @@ interface Props {
   coverImage: ImageMetadata;
   coverImageAlt: string;
   summaryPoints: string[];
-  dateProjectPublished: Date;
-  dateUpdated?: Date;
+  published: Date;
+  updated?: Date;
   itchio?: string;
   steam?: string;
   github?: string;
@@ -38,8 +33,8 @@ const {
   coverImage,
   coverImageAlt,
   summaryPoints,
-  dateProjectPublished,
-  dateUpdated,
+  published,
+  updated,
   itchio,
   steam,
   github,
@@ -63,12 +58,12 @@ const {
           <h1>{title}</h1>
           <div class="text-sm">
             <span>
-              Published: <FormattedDate date={dateProjectPublished} />
+              Published: <FormattedDate date={published} />
             </span> -
             {
-              dateUpdated && (
+              updated && (
                 <span>
-                  Updated: <FormattedDate date={dateUpdated} />
+                  Updated: <FormattedDate date={updated} />
                 </span>
               )
             }

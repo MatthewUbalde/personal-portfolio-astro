@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
 import LayoutSection from "../../../components/LayoutSection.astro";
@@ -74,42 +74,4 @@ const experiencesBackend = experiences.find(
       simplier and better approach with Astro.
     </p>
   </Section>
-  <!-- <div class="flex flex-col sm:flex-row gap-8 m-8">
-    <Section noMargin textContent class="sm:w-1/2">
-      <h1 class="text-center">What's this Website's Framework</h1>
-      <p>
-        This website made with <b>Astro</b>, <b>Vue.js</b>, and <b>Tailwind</b>.
-        Currently hosted in <b>Github</b>.
-      </p>
-      <p>
-        Originally, my portfolio was purely made in <b>React</b> and <b
-          >Tailwind</b
-        >. However, I wanted to try another framework that I haven't tried yet
-        that might be better for my own use case.
-      </p>
-      <p>
-        I've tried with Gatsby with React for content collections, but found a
-        simplier and better approach with Astro.
-      </p>
-    </Section>
-    <Section noMargin textContent class="flex-grow my-auto">
-      <h2>Other websites?</h2>
-      <p>
-        I've made a couple of websites with Astro for personal projects and made
-        success with it. Which can be found here...
-      </p>
-      <div class="flex">
-        <div>
-          <h3>Lorem Ispum</h3>
-          Enim ex quis duis duis reprehenderit in minim in dolore veniam excepteur
-          esse.
-        </div>
-        <div>
-          <h3>Lorem Ispum</h3>
-          Enim ex quis duis duis reprehenderit in minim in dolore veniam excepteur
-          esse.
-        </div>
-      </div>
-    </Section>
-  </div> -->
 </Layout>

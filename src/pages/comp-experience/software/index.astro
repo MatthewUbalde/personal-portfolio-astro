@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
 import LayoutSection from "../../../components/LayoutSection.astro";
@@ -38,28 +38,4 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
       )
     }
   </LayoutSection>
-
-  <!-- <Section textContent>
-    <h1>Experiences in Fanshawe</h1>
-    <p>Throughout my CPA3 program, I've learned many things.</p>
-    <ListContainer>
-      <li>
-        Create tools and extend the 3D renderer made in OpenGL and C++ despite
-        the time and pressure for 2 months with a 4 month semester worth of
-        content.
-      </li>
-      <li>
-        Able to use problem-solving skills and logically debug application.
-      </li>
-      <li>
-        Able to create a mobile task-management application with easy-controls,
-        authentication, and potiential cloud support.
-      </li>
-      <li>
-        Able to create efficient databases by normalizing the objects we're
-        storing, and use indexes to optimize it further.
-      </li>
-      <li>Able to create queries in database for any needs.</li>
-    </ListContainer>
-  </Section> -->
 </Layout>

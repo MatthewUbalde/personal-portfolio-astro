@@ -28,20 +28,9 @@ export const SITE_NAVIGATION: Array<NavLinkType> = [
       },
     ],
   },
-  // This is for if I were to pursue this path
   {
     href: `${SITE_ROOT}/art-experience`,
     label: "Art Experience",
-    // children: [
-    //   {
-    //     href: "/illustration",
-    //     label: "Illustration",
-    //   },
-    //   {
-    //     href: "/animation",
-    //     label: "Animation",
-    //   },
-    // ],
   },
 ];
 

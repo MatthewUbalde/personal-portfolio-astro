@@ -11,7 +11,7 @@ export type ProjectShowcaseType = {
   coverImage: Promise<{ default: ImageMetadata }> | ImageMetadata;
   coverImageAlt: string;
   href: string;
-  dateProjectPublished: Date;
+  published: Date;
   itchioLink?: string;
   steamLink?: string;
   githubLink?: string;

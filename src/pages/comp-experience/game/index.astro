@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
 
@@ -14,9 +14,7 @@ const projects = await getCollection("gameArticles");
 
 const gameExp = experiences.find((e) => e.id === "game")?.data;
 const gameProject = projects.sort(
-  (a, b) =>
-    b.data.dateProjectPublished?.valueOf() -
-    a.data.dateProjectPublished?.valueOf()
+  (a, b) => b.data.published?.valueOf() - a.data.published?.valueOf()
 );
 ---
 
@@ -52,28 +50,10 @@ const gameProject = projects.sort(
       gameProject &&
         gameProject.map((p) => (
           <ProjectShowcase
-            title={p.data.title}
-            description={p.data.description}
-            coverImage={p.data.coverImage}
-            coverImageAlt={p.data.coverImageAlt}
+            {...p.data}
             href={`/personal-portfolio-astro/comp-experience/game/${p.id}`}
-            dateProjectPublished={p.data.dateProjectPublished}
-            itchioLink={p.data.itchio}
-            steamLink={p.data.steam}
-            githubLink={p.data.github}
           />
         ))
     }
   </ContainerProject>
-  <!-- <Fragment slot="projectAbout">
-    <h1>Games for Fun</h1>
-    <p>
-      These are purely made out of fun as I found the game development
-      interesting since I was really young. I like making games that are simple,
-      but tried to make it deep and rewarding at the same time.
-    </p>
-  </Fragment>
-  <Fragment slot="projects">
-    {gameProj && <ContainerProject src={gameProj} />}
-  </Fragment> -->
 </Layout>

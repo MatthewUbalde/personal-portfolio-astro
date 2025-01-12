@@ -1,6 +1,6 @@
 ---
 import Section from "../components/Section.astro";
-import PageLayout from "./PageLayout.astro";
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<PageLayout title={title} description={description}>
+<BaseLayout title={title} description={description}>
   <div class="grid grid-cols-3 grid-rows-1 gap-4">
     <div class="col-span-2 min-h-screen">
       <slot />
@@ -28,4 +28,4 @@ const { title, description } = Astro.props;
       </aside>
     </div>
   </div>
-</PageLayout>
+</BaseLayout>

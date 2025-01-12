@@ -31,15 +31,6 @@ const {
 >
   <h1 class="text-center mb-2">{title}</h1>
   <div class="flex flex-row flex-wrap justify-center items-center gap-4">
-    {
-      src.map((badge) => (
-        <ExperienceBadge
-          title={badge.title}
-          src={badge.src}
-          alt={badge.alt}
-          experience={badge.experience}
-        />
-      ))
-    }
+    {src.map((badge) => <ExperienceBadge {...badge} />)}
   </div>
 </Section>

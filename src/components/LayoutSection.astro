@@ -16,17 +16,18 @@ type Props = HTMLAttributes<"div"> &
   FlexComponentType &
   MediaQueryComponentType;
 
-const { class: className, noMedia, col, row, noMargin } = Astro.props;
+const { class: className, noMedia, col, row, noMargin, ...props } = Astro.props;
 ---
 
 <div
   class:list={[
-    className,
     "flex gap-4 sm:gap-8",
     noMedia ? row && "flex-row" : row && "flex-col md:flex-row",
     noMedia ? col && "flex-col" : col && "flex-row md:flex-col",
     !noMargin && "m-4 sm:m-8",
+    className,
   ]}
+  {...props}
 >
   <slot />
 </div>

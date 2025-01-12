@@ -1,9 +1,13 @@
 ---
+import type { ProjectShowcaseType } from "../types";
+
 import { Image } from "astro:assets";
 
-import type { ProjectShowcaseType } from "../types";
+import FormattedDate from "./FormattedDate.astro";
+import GithubLink from "./Icons/GithubLink.astro";
+import SteamLink from "./Icons/SteamLink.astro";
+import ItchioLink from "./Icons/ItchioLink.astro";
 import Section from "./Section.astro";
-import ImageLink from "./ImageLink.astro";
 
 type Props = ProjectShowcaseType;
 
@@ -13,19 +17,12 @@ const {
   coverImage,
   coverImageAlt,
   href,
-  dateProjectPublished,
+  published,
   itchioLink,
   steamLink,
   githubLink,
+  ...props
 } = Astro.props;
-
-import itchioImage from "../icons/itch-io.svg";
-import steamImage from "../icons/steam.svg";
-import githubImage from "../icons/github.svg";
-import FormattedDate from "./FormattedDate.astro";
-import GithubLink from "./Icons/GithubLink.astro";
-import SteamLink from "./Icons/SteamLink.astro";
-import ItchioLink from "./Icons/ItchioLink.astro";
 ---
 
 <Section
@@ -33,6 +30,7 @@ import ItchioLink from "./Icons/ItchioLink.astro";
   noPadding
   class="group relative w-full sm:w-2/3 md:w-3/4 overflow-hidden"
   tabindex={0}
+  {...props}
 >
   <Image
     class="opacity-45 group-hover:opacity-80 group-hover:-translate-y-1/4 mb-10 rounded-b-full object-contain transition-all"
@@ -45,9 +43,9 @@ import ItchioLink from "./Icons/ItchioLink.astro";
     <div class="flex-grow">
       <h1>{title}</h1>
       {
-        dateProjectPublished && (
+        published && (
           <div class="text-sm">
-            <FormattedDate date={dateProjectPublished} />
+            <FormattedDate date={published} />
           </div>
         )
       }
@@ -65,72 +63,3 @@ import ItchioLink from "./Icons/ItchioLink.astro";
     }
   </div>
 </Section>
-
-<!-- <div class="flex flex-col sm:flex-row gap-2 justify-center items-center">
-  Project about
-  <div
-    class="flex flex-row-reverse sm:flex-row justify-center items-center gap-2"
-  >
-    <Section
-      noMargin
-      noPadding
-      class="flex flex-col gap-2 p-2 sm:mt-4 min-w-16 sm:min-w-14"
-    >
-      {
-        itchioLink && (
-          <ImageLink
-            src={itchioImage}
-            alt=""
-            href={itchioLink}
-            width={64}
-            height={64}
-          />
-        )
-      }
-      {
-        steamLink && (
-          <ImageLink
-            src={steamImage}
-            alt=""
-            href={steamLink}
-            width={64}
-            height={64}
-          />
-        )
-      }
-      {
-        githubLink && (
-          <ImageLink
-            src={githubImage}
-            alt=""
-            href={githubLink}
-            width={64}
-            height={64}
-          />
-        )
-      }
-    </Section>
-    <Section noMargin textContent class="flex-grow content-center">
-      <h2>{title}</h2>
-      {
-        dateProjectPublished && (
-          <div class="text-sm">
-            Published: <FormattedDate date={dateProjectPublished} />
-          </div>
-        )
-      }
-      <p>{description}</p>
-      <a class="text-xl font-bold" href={href}>Read more...</a>
-    </Section>
-  </div>
-  Image display
-  <Section noMargin noPadding class="p-4">
-    <Image
-      class="rounded-md object-contain"
-      src={coverImage}
-      alt={coverImageAlt}
-      width={1280}
-      height={720}
-    />
-  </Section>
-</div> -->
