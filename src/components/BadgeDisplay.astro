@@ -1,16 +1,13 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import type { ExperienceBadgeType } from "../types";
+import type { ExperienceBadgeType, MalleableComponentType } from "../types";
 
 import ExperienceBadge from "./ExperienceBadge.astro";
 import Section from "./Section.astro";
 
-interface Props extends HTMLAttributes<"div"> {
+interface Props extends HTMLAttributes<"div">, MalleableComponentType {
   title?: string;
   src: Array<ExperienceBadgeType>;
-  noPadding?: boolean | undefined;
-  noMargin?: boolean | undefined;
-  noRounded?: boolean | undefined;
 }
 
 const {

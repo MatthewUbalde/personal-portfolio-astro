@@ -1,14 +1,19 @@
 import { defineCollection, z, type SchemaContext } from "astro:content";
-import { file, glob } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 import { experienceBadgeSchema, projectArticleSchema } from "./schemas";
 
+/**
+ * A collection of experiences of varying fields in computers or arts
+ */
 const experiences = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/data/experience" }),
   schema: z.array(experienceBadgeSchema),
 });
 
-// This is used to create links, but not the pages
+/**
+ * A general collection of ALL articles. This is often used as a highlight of others
+ */
 const articles = defineCollection({
   loader: glob({
     pattern: "**/*.{md,mdx}",
@@ -17,28 +22,28 @@ const articles = defineCollection({
   schema: ({ image }) => projectArticleSchema({ image }),
 });
 
-// The ones below are used to create the pages
-const computerProjectsRoot = "./src/content/comp-experience";
+/**
+ * Below are articles for each section in the comp-experience directory
+ */
+const computerExperienceLoader = (root) =>
+  glob({
+    pattern: "*.{md, mdx}",
+    base: `./src/content/comp-experience/${root}`,
+  });
 
 const gameArticles = defineCollection({
-  loader: glob({ pattern: "*.{md,mdx}", base: `${computerProjectsRoot}/game` }),
-  schema: ({ image }) => projectArticleSchema({ image }),
-  type: "content_layer",
+  loader: computerExperienceLoader("game"),
+  schema: ({ image }: SchemaContext) => projectArticleSchema({ image }),
 });
 
 const mobileArticles = defineCollection({
-  loader: glob({
-    pattern: "*.{md,mdx}",
-    base: `${computerProjectsRoot}/mobile`,
-  }),
-  schema: ({ image }) => projectArticleSchema({ image }),
-  type: "content_layer",
+  loader: computerExperienceLoader("mobile"),
+  schema: ({ image }: SchemaContext) => projectArticleSchema({ image }),
 });
 
 const webArticles = defineCollection({
-  loader: glob({ pattern: "*.{md,mdx}", base: `${computerProjectsRoot}/web` }),
-  schema: ({ image }) => projectArticleSchema({ image }),
-  type: "content_layer",
+  loader: computerExperienceLoader("web"),
+  schema: ({ image }: SchemaContext) => projectArticleSchema({ image }),
 });
 
 export const collections = {

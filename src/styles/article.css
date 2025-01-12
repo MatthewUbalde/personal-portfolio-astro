@@ -1,5 +1,4 @@
-/* This is for articles */
-/* TODO: Better identifier for images in articlse */
+/* This is used in the ArticleLayout */
 p img,
 lite-youtube {
   @apply rounded-md w-full sm:w-2/3 sm:max-h-96 sm:mx-auto object-contain;
