@@ -27,7 +27,7 @@ const articles = defineCollection({
  */
 const computerExperienceLoader = (root) =>
   glob({
-    pattern: "*.{md, mdx}",
+    pattern: "*.{md,mdx}",
     base: `./src/content/comp-experience/${root}`,
   });
 
@@ -46,10 +46,16 @@ const webArticles = defineCollection({
   schema: ({ image }: SchemaContext) => projectArticleSchema({ image }),
 });
 
+const softwarebArticles = defineCollection({
+  loader: computerExperienceLoader("software"),
+  schema: ({ image }: SchemaContext) => projectArticleSchema({ image }),
+});
+
 export const collections = {
   articles,
   experiences,
   gameArticles,
   mobileArticles,
   webArticles,
+  softwarebArticles,
 };
