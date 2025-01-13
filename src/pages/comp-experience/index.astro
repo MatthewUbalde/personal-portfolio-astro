@@ -1,9 +1,13 @@
 ---
+/**
+ * Explores my career in computer science. So far, my experience has been fairly limited.
+ */
+
 import { SITE_NAVIGATION } from "../../const";
 
-import Layout from "../../layouts/PageLayout.astro";
+import Layout from "../../layouts/BaseLayout.astro";
 import Section from "../../components/Section.astro";
-import SectionContainer from "../../components/SectionContainer.astro";
+import LayoutSection from "../../components/LayoutSection.astro";
 
 const currentNav = SITE_NAVIGATION.find((nav) =>
   nav.href.includes("comp-experience")
@@ -11,7 +15,7 @@ const currentNav = SITE_NAVIGATION.find((nav) =>
 ---
 
 <Layout title="Home" description="Ranging from Web and Game Development.">
-  <SectionContainer>
+  <LayoutSection>
     <Section noMargin textContent class="flex-grow">
       <h1>Experience Summary</h1>
       <p>
@@ -27,21 +31,21 @@ const currentNav = SITE_NAVIGATION.find((nav) =>
         I'm currently trying to specialize int <b>Web and Game Development</b>
       </p>
     </Section>
-    <Section noMargin class="flex flex-col items-center gap-2">
-      <h2>Experiences</h2>
+    <div class="flex flex-col justify-center items-center gap-2">
+      <h2 class="text-center leading-tight">Career Fields</h2>
       {
         currentNav?.children &&
           currentNav?.children.map((nav) => (
             <a
               href={`${currentNav.href}${nav.href}`}
-              class="bg-cyan-950 rounded-md p-2 text-center content-center"
+              class=" px-2 py-1 text-lg text-center content-center bg-sky-900 bg-opacity-50 rounded-md"
             >
               {nav.label}
             </a>
           ))
       }
-    </Section>
-  </SectionContainer>
+    </div>
+  </LayoutSection>
   <Section textContent class="sm:w-3/4 sm:mx-auto">
     <h1>Fanshawe College 2019-2024</h1>
     <p>

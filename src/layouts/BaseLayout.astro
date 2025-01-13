@@ -1,8 +1,13 @@
 ---
+/**
+ * The base of the entire website.
+ * It holds the metadata in the head, Navbars, and holds the main content.
+ */
 import Footer from "../components/Footer.astro";
-import BaseHead from "../components/Metadata/BaseHead.astro";
+import BaseHead from "../components/BaseHead.astro";
 
-import Navbar from "../components/Navbar/Navbar.vue";
+import NavbarDesktop from "../components/Navbar/NavbarDesktop.astro";
+import NavbarMobile from "../components/Navbar/NavbarMobile.astro";
 
 const pathname = Astro.url.pathname;
 const currentPath = pathname;
@@ -21,22 +26,22 @@ const { title, description, prevNav } = Astro.props;
   <head>
     <BaseHead title={"Matthew Ubalde | " + title} description={description} />
   </head>
-  <body>
-    <!-- Empty div just to pad the top -->
-    <div class="mt-24 sm:mt-36"></div>
-    <Navbar prev={prevNav} current={currentPath} client:only="vue">
-      <div
-        slot="fallback"
-        class="fixed z-40 top-1 inset-x-1 sm:top-4 sm:inset-x-4 p-1 sm:p-4 bg-cyan-900 rounded-md"
-      >
-        <div class="flex-grow bg-cyan-950 p-3 sm:p-2 rounded-md text-start">
-          Loading...
-        </div>
+  <body
+    class="h-fit overflow-x-hidden bg-indigo-500 bg-gradient-to-b from-indigo-500 via-purple-400 to-indigo-500 text-cyan-50"
+  >
+    <NavbarMobile prev={prevNav} current={currentPath} class="md:hidden" />
+    <div class="flex flex-row md:m-0">
+      <NavbarDesktop
+        prev={prevNav}
+        current={currentPath}
+        class="hidden md:block flex-shrink-0"
+      />
+      <div class="flex flex-col justify-between">
+        <main>
+          <slot />
+        </main>
+        <Footer />
       </div>
-    </Navbar>
-    <!-- Other layouts should have inserted their main element -->
-    <slot />
-    <!-- end main element -->
-    <Footer />
+    </div>
   </body>
 </html>

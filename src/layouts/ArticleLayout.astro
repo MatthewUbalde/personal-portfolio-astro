@@ -1,15 +1,20 @@
 ---
+/**
+ * Builds off from the BaseLayout and is used to create the articles.
+ */
+
+import "../styles/article.css";
+
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Section from "../components/Section.astro";
-import ImageLink from "../components/ImageLink.astro";
 
-import itchioImage from "../assets/icons/itch-io.svg";
-import steamImage from "../assets/icons/steam.svg";
-import githubImage from "../assets/icons/github-mark.svg";
+import ItchioLink from "../components/Icons/ItchioLink.astro";
+import SteamLink from "../components/Icons/SteamLink.astro";
+import GithubLink from "../components/Icons/GithubLink.astro";
 
 interface Props {
   prevNav: string;
@@ -18,8 +23,8 @@ interface Props {
   coverImage: ImageMetadata;
   coverImageAlt: string;
   summaryPoints: string[];
-  dateProjectPublished: Date;
-  dateUpdated?: Date;
+  published: Date;
+  updated?: Date;
   itchio?: string;
   steam?: string;
   github?: string;
@@ -32,8 +37,8 @@ const {
   coverImage,
   coverImageAlt,
   summaryPoints,
-  dateProjectPublished,
-  dateUpdated,
+  published,
+  updated,
   itchio,
   steam,
   github,
@@ -41,90 +46,76 @@ const {
 ---
 
 <BaseLayout prevNav={prevNav} title={title} description={description}>
-  <main class="min-h-screen sm:w-2/3 sm:mx-auto">
-    <div
-      class="flex flex-col sm:flex-row justify-center items-center gap-8 m-8"
-    >
-      <Section noMargin textContent class="flex-grow">
-        <h1>{title}</h1>
+  <!-- Title Section -->
+  <Section noPadding class="relative group overflow-hidden">
+      <div class="-z-10 absolute h-full left-64 top-0 rounded-bl-full overflow-hidden">
         <Image
-          class="rounded-md"
+          class="object-cover h-full"
           src={coverImage}
           alt={coverImageAlt}
           width="1280"
           height="720"
         />
-        <div class="text-sm">
-          <span>
-            Published: <FormattedDate date={dateProjectPublished} />
-          </span> -
+      </div>
+      <div class="p-4 flex flex-row">
+        <div class="flex-grow">
+          <h1>{title}</h1>
+          <div class="text-sm">
+            <span>
+              Published: <FormattedDate date={published} />
+            </span> -
+            {
+              updated && (
+                <span>
+                  Updated: <FormattedDate date={updated} />
+                </span>
+              )
+            }
+          </div>
+          <p>{description}</p>
+          <div class="mt-2">
           {
-            dateUpdated && (
-              <span>
-                Updated: <FormattedDate date={dateUpdated} />
-              </span>
+            summaryPoints && (
+                <h2>Summary Points</h2>
+                <ul class="text-start">
+                  {summaryPoints.map((p) => (
+                    <li>{p}</li>
+                  ))}
+                </ul>
             )
           }
+          </div>
         </div>
-
-        <p>{description}</p>
-      </Section>
-      <div class="flex flex-col justify-center items-center gap-8 sm:h-fit">
-        {
-          summaryPoints && (
-            <Section noMargin textContent>
-              <h2>Summary Points</h2>
-              <ul class="text-start">
-                {summaryPoints.map((p) => (
-                  <li>{p}</li>
-                ))}
-              </ul>
-            </Section>
-          )
-        }
-        <Section
-          noMargin
-          noPadding
-          class="flex sm:flex-row justify-center items-center gap-2 p-2 w-fit h-fit"
-        >
+        <div class="flex-shrink flex flex-col justify-end items-end gap-2">
           {
             itchio && (
-              <ImageLink
-                src={itchioImage}
-                alt=""
+              <ItchioLink
                 href={itchio}
-                width={48}
-                height={48}
+                size={32}
               />
             )
           }
           {
             steam && (
-              <ImageLink
-                src={steamImage}
-                alt=""
+              <SteamLink
                 href={steam}
-                width={48}
-                height={48}
+                size={32}
               />
             )
           }
           {
             github && (
-              <ImageLink
-                src={githubImage}
-                alt=""
+              <GithubLink
                 href={github}
-                width={48}
-                height={48}
+                size={32}
               />
             )
           }
-        </Section>
+        </div>
       </div>
-    </div>
-    <Section articleContent>
-      <slot />
-    </Section>
-  </main>
+  </Section>
+  <!-- Article Content -->
+  <Section noMargin articleContent class="md:w-3/4 m-4 md:mx-auto">
+    <slot />
+  </Section>
 </BaseLayout>

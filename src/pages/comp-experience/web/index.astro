@@ -1,10 +1,16 @@
 ---
+/**
+ * Explores my experience as a web developer.
+ * Highlight how I made this site by exploring other technologies and
+ * then settling on Astro.
+ */
+
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
-import SectionContainer from "../../../components/SectionContainer.astro";
+import LayoutSection from "../../../components/LayoutSection.astro";
 
 const experiences = await getCollection("experiences");
 const experiencesFrontend = experiences.find(
@@ -19,7 +25,7 @@ const experiencesBackend = experiences.find(
   title="Web"
   description="Have experience in React, Vue, Angular, Gatsby, and now Astro, to develop websites."
 >
-  <Section textContent class="sm:mx-auto sm:w-2/3">
+  <Section textContent class="md:mx-auto md:w-2/3">
     <h1>Experience Summary</h1>
     <p>
       Was taught how to do front-end and back-end in the CPA3 program at
@@ -31,28 +37,18 @@ const experiencesBackend = experiences.find(
       learned so far for other passion projects.
     </p>
   </Section>
-  <SectionContainer row class="justify-between">
+  <LayoutSection row class="justify-between">
     {
       experiencesFrontend && (
-        <BadgeDisplay
-          noMargin
-          class="sm:w-1/2"
-          title="Front-end"
-          src={experiencesFrontend}
-        />
+        <BadgeDisplay noMargin title="Front-end" src={experiencesFrontend} />
       )
     }
     {
       experiencesBackend && (
-        <BadgeDisplay
-          noMargin
-          class="sm:w-1/2 "
-          title="Back-end"
-          src={experiencesBackend}
-        />
+        <BadgeDisplay noMargin title="Back-end" src={experiencesBackend} />
       )
     }
-  </SectionContainer>
+  </LayoutSection>
   <Section textContent class="sm:mx-auto sm:w-2/3">
     <h1>Experiences in Fanshawe</h1>
     <p>
@@ -84,42 +80,4 @@ const experiencesBackend = experiences.find(
       simplier and better approach with Astro.
     </p>
   </Section>
-  <!-- <div class="flex flex-col sm:flex-row gap-8 m-8">
-    <Section noMargin textContent class="sm:w-1/2">
-      <h1 class="text-center">What's this Website's Framework</h1>
-      <p>
-        This website made with <b>Astro</b>, <b>Vue.js</b>, and <b>Tailwind</b>.
-        Currently hosted in <b>Github</b>.
-      </p>
-      <p>
-        Originally, my portfolio was purely made in <b>React</b> and <b
-          >Tailwind</b
-        >. However, I wanted to try another framework that I haven't tried yet
-        that might be better for my own use case.
-      </p>
-      <p>
-        I've tried with Gatsby with React for content collections, but found a
-        simplier and better approach with Astro.
-      </p>
-    </Section>
-    <Section noMargin textContent class="flex-grow my-auto">
-      <h2>Other websites?</h2>
-      <p>
-        I've made a couple of websites with Astro for personal projects and made
-        success with it. Which can be found here...
-      </p>
-      <div class="flex">
-        <div>
-          <h3>Lorem Ispum</h3>
-          Enim ex quis duis duis reprehenderit in minim in dolore veniam excepteur
-          esse.
-        </div>
-        <div>
-          <h3>Lorem Ispum</h3>
-          Enim ex quis duis duis reprehenderit in minim in dolore veniam excepteur
-          esse.
-        </div>
-      </div>
-    </Section>
-  </div> -->
 </Layout>

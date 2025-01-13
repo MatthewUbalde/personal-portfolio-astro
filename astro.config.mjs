@@ -9,18 +9,13 @@ import mdx from "@astrojs/mdx";
 
 import playformCompress from "@playform/compress";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthewubalde.github.io",
   base: "personal-portfolio-astro",
-  integrations: [
-    tailwind({
-      applyBaseStyles: true,
-    }),
-    twJoin(),
-    twMerge(),
-    vue(),
-    mdx(),
-    playformCompress(),
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: true,
+  }), twJoin(), twMerge(), vue(), mdx(), playformCompress(), icon()],
 });

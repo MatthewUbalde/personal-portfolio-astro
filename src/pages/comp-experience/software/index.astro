@@ -1,10 +1,15 @@
 ---
+/**
+ * Explores my experience in the general software development.
+ * Highlighting my potential strength and intrigue in low-level computers.
+ */
+
 import { getCollection } from "astro:content";
 
-import Layout from "../../../layouts/PageLayout.astro";
+import Layout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
 import BadgeDisplay from "../../../components/BadgeDisplay.astro";
-import SectionContainer from "../../../components/SectionContainer.astro";
+import LayoutSection from "../../../components/LayoutSection.astro";
 
 const experiences = await getCollection("experiences");
 const softwareExp = experiences.find((e) => e.id === "software")?.data;
@@ -14,8 +19,8 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
   title="Software"
   description="Have experience in C/C++, C#, and Java to create computer software"
 >
-  <SectionContainer row class="items-center">
-    <Section noMargin textContent class="sm:w-2/3">
+  <LayoutSection col noMedia class="items-center">
+    <Section noMargin textContent class="md:w-2/3">
       <h1>Experience Summary</h1>
       <p>
         Was taught in various languages and frameworks. Have solid foundations
@@ -34,37 +39,8 @@ const softwareExp = experiences.find((e) => e.id === "software")?.data;
     </Section>
     {
       softwareExp && (
-        <BadgeDisplay
-          noMargin
-          class="flex grow"
-          title="Software Experiences"
-          src={softwareExp}
-        />
+        <BadgeDisplay noMargin title="Software Experiences" src={softwareExp} />
       )
     }
-  </SectionContainer>
-
-  <!-- <Section textContent>
-    <h1>Experiences in Fanshawe</h1>
-    <p>Throughout my CPA3 program, I've learned many things.</p>
-    <ListContainer>
-      <li>
-        Create tools and extend the 3D renderer made in OpenGL and C++ despite
-        the time and pressure for 2 months with a 4 month semester worth of
-        content.
-      </li>
-      <li>
-        Able to use problem-solving skills and logically debug application.
-      </li>
-      <li>
-        Able to create a mobile task-management application with easy-controls,
-        authentication, and potiential cloud support.
-      </li>
-      <li>
-        Able to create efficient databases by normalizing the objects we're
-        storing, and use indexes to optimize it further.
-      </li>
-      <li>Able to create queries in database for any needs.</li>
-    </ListContainer>
-  </Section> -->
+  </LayoutSection>
 </Layout>
