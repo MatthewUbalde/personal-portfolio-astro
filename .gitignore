@@ -19,3 +19,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Removes all of the drafts to the git repo
+src/content/**/_drafts
